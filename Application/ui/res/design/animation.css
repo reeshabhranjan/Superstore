@@ -1,0 +1,87 @@
+.navigation-button {
+    -fx-background-color: #2A2F33;
+    -fx-background-radius: 20;
+}
+
+.navigation-button:hover {
+    -fx-background-color: black;
+    -fx-background-radius: 20;
+}
+.navigation-button:pressed {
+    -fx-background-color: #031c44;
+    /*-fx-background-color: #2CC9A4;*/
+    -fx-background-radius: 20;
+}
+
+.title-button {
+    -fx-background-color: #2CC9A4;
+    -fx-background-radius: 20;
+}
+
+.title-button:hover {
+    -fx-background-color: grey;
+    -fx-background-radius: 20;
+}
+
+.title-button:pressed {
+    -fx-background-color: #007ED9;
+    -fx-background-radius: 20;
+}
+
+.product-button {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 20;
+    -fx-border-color : #2CC9A4;
+    -fx-border-radius: 20;
+}
+
+.heading-bar{
+    -fx-background-color:   #10D09F;
+    /*-fx-background-radius: 30;*/
+    /*-fx-border-color: #FFFFFF;*/
+    /*-fx-border-radius: 30;*/
+    -fx-text-fill: #ffffff;
+}
+
+.scrollable-list{
+    -fx-fixed-cell-size:40;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.option-section{
+    -fx-background-color: white;
+
+}
+
+.text-field{
+    -fx-border-color: #F2F2F2;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20
+}
+
+.option-button {
+    -fx-background-color: #10D09F;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
+
+.option-button:hover{
+    -fx-background-color: #000000;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
+
+.option-button:pressed{
+    -fx-background-color: #031c44;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
+
+.dropdown-button {
+    -fx-background-color: #10D09F;
+    -fx-background-radius: 20;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-family: "Calibri Light";
+}

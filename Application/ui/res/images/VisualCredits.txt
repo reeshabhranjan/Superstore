@@ -1,0 +1,9 @@
+shopping-cart.png: Icon made by [https://www.flaticon.com/authors/google] from www.flaticon.com
+boy-avatar.png: Icon made by [https://www.flaticon.com/authors/freepik] from www.flaticon.com
+profile-icon.png: Icon made by [https://www.flaticon.com/authors/freepik] from www.flaticon.com
+wishlist-icon.png: Icon made by [https://www.flaticon.com/authors/freepik] from www.flaticon.com
+flat-icons: Icon made by [https://www.flaticon.com/authors/freepik] from www.flaticon.com
+flat-icons-2: Icon made by [https://www.flaticon.com/authors/freepik] from www.flaticon.com
+flat-icons-3: Icon made by [https://www.flaticon.com/authors/freepik] from www.flaticon.com
+ui-icons: Icon made by [https://www.flaticon.com/authors/freepik] from www.flaticon.com
+avatar-icons: Icon made by [https://www.flaticon.com/authors/freepik] from www.flaticon.com
