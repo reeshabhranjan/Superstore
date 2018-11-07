@@ -18,7 +18,7 @@
                             <children>
                                 <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="16.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../images/ui-icons/power-button.png" />
+                                        <Image url="@../res/images/ui-icons/power-button.png" />
                                     </image>
                                 </ImageView>
                                 <Label alignment="CENTER" layoutX="7.0" layoutY="42.0" prefHeight="17.0" prefWidth="50.0" text="Log-out" />
@@ -46,7 +46,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/flat-icons/stock-2.png" />
+                        <Image url="@../res/images/flat-icons/stock-2.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="10.0" prefHeight="20.0" prefWidth="100.0" text="My database" textFill="#d3cbcb">
@@ -60,7 +60,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/flat-icons/order.png" />
+                        <Image url="@../res/images/flat-icons/order.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="Order" textFill="#d3cbcb">
@@ -74,7 +74,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/flat-icons/stopwatch.png" />
+                        <Image url="@../res/images/flat-icons/stopwatch.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER_RIGHT" layoutX="53.0" layoutY="10.0" prefHeight="20.0" prefWidth="133.0" text="Order History" textFill="#d3cbcb">
@@ -88,7 +88,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/flat-icons/statistics.png" />
+                        <Image url="@../res/images/flat-icons/statistics.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="Statistics" textFill="#d3cbcb">
@@ -102,7 +102,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/flat-icons/user.png" />
+                        <Image url="@../res/images/flat-icons/user.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="My profile" textFill="#d3cbcb">
@@ -117,6 +117,6 @@
     </children>
 
     <stylesheets>
-        <URL value="@animation.css" />
+        <URL value="@../res/design/animation.css" />
     </stylesheets>
 </AnchorPane>

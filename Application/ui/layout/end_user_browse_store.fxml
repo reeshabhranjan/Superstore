@@ -21,7 +21,7 @@
                             <children>
                                 <ImageView fitHeight="40.0" fitWidth="23.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../images/ui-icons/power-button.png" />
+                                        <Image url="../res/images/ui-icons/power-button.png" />
                                     </image>
                                 </ImageView>
                                 <Label alignment="CENTER" layoutX="37.0" layoutY="7.0" prefHeight="20.0" prefWidth="79.0" text="Log-out" textFill="WHITE">
@@ -34,7 +34,7 @@
                             <children>
                                 <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../images/wallet.png" />
+                                        <Image url="@../res/images/wallet.png" />
                                     </image>
                                 </ImageView>
                                 <Label alignment="CENTER" layoutX="45.0" layoutY="7.0" prefHeight="17.0" prefWidth="50.0" text="Wallet" textFill="WHITE">
@@ -51,7 +51,7 @@
                                     </font></Label>
                                 <ImageView fitHeight="28.0" fitWidth="23.0" layoutX="11.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../images/left-arrow.png" />
+                                        <Image url="@../res/images/left-arrow.png" />
                                     </image>
                                 </ImageView>
                             </children>
@@ -96,7 +96,7 @@
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/search.png" />
+                                <Image url="@../res/images/search.png" />
                             </image>
                         </ImageView>
                         <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="10.0" prefHeight="20.0" prefWidth="100.0" text="Browse Store" textFill="#d3cbcb">
@@ -110,7 +110,7 @@
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/flat-icons/order.png" />
+                                <Image url="@../res/images/flat-icons/order.png" />
                             </image>
                         </ImageView>
                         <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="Order History" textFill="#d3cbcb">
@@ -124,7 +124,7 @@
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/flat-icons/wishlist.png" />
+                                <Image url="@../res/images/flat-icons/wishlist.png" />
                             </image>
                         </ImageView>
                         <Label alignment="CENTER_RIGHT" layoutX="53.0" layoutY="10.0" prefHeight="20.0" prefWidth="133.0" text="My Wishlist" textFill="#d3cbcb">
@@ -138,7 +138,7 @@
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/flat-icons/shopping-cart-3.png" />
+                                <Image url="@../res/images/flat-icons/shopping-cart-3.png" />
                             </image>
                         </ImageView>
                         <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="My Cart" textFill="#d3cbcb">
@@ -152,7 +152,7 @@
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/flat-icons/user.png" />
+                                <Image url="@../res/images/flat-icons/user.png" />
                             </image>
                         </ImageView>
                         <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="My Profile" textFill="#d3cbcb">
@@ -166,6 +166,6 @@
         </Pane>
     </children>
     <stylesheets>
-        <URL value="@animation.css" />
+        <URL value="@../res/design/animation.css" />
     </stylesheets>
 </AnchorPane>

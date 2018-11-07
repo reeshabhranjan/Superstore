@@ -21,7 +21,7 @@
                             <children>
                                 <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="16.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../images/ui-icons/power-button.png" />
+                                        <Image url="@../res/images/ui-icons/power-button.png" />
                                     </image>
                                 </ImageView>
                                 <Label alignment="CENTER" layoutX="7.0" layoutY="42.0" prefHeight="17.0" prefWidth="50.0" text="Log-out" />
@@ -98,7 +98,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/flat-icons/stock-2.png" />
+                        <Image url="@../res/images/flat-icons/stock-2.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="10.0" prefHeight="20.0" prefWidth="100.0" text="My database" textFill="#d3cbcb">
@@ -112,7 +112,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ui-icons/search.png" />
+                        <Image url="@../res/images/ui-icons/search.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="Browse warehouse" textFill="#d3cbcb">
@@ -126,7 +126,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/flat-icons-2/list.png" />
+                        <Image url="@../res/images/flat-icons-2/list.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER_RIGHT" layoutX="53.0" layoutY="10.0" prefHeight="20.0" prefWidth="133.0" text="Handle custom orders" textFill="#d3cbcb">
@@ -140,7 +140,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/flat-icons/package-1.png" />
+                        <Image url="@../res/images/flat-icons/package-1.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="Out-of-stock products" textFill="#d3cbcb">
@@ -154,7 +154,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/flat-icons/statistics.png" />
+                        <Image url="@../res/images/flat-icons/statistics.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="Statistics" textFill="#d3cbcb">
@@ -168,7 +168,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/flat-icons/user.png" />
+                        <Image url="@../res/images/flat-icons/user.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="My profile" textFill="#d3cbcb">
@@ -182,6 +182,6 @@
       </Pane>
     </children>
     <stylesheets>
-        <URL value="@animation.css" />
+        <URL value="@../res/design/animation.css" />
     </stylesheets>
 </AnchorPane>
