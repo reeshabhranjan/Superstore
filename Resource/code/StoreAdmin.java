@@ -1,8 +1,8 @@
 public class StoreAdmin extends RegisteredUser {
     private final Store store;
 
-    public StoreAdmin(Credential credential, String name, Store store) {
-        super(credential,name);
+    public StoreAdmin(Credential credential, String name, int id, Store store) {
+        super(credential,name, id);
         this.store=store;
     }
 

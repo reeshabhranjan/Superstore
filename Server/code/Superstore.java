@@ -10,13 +10,43 @@ public class Superstore {
     private HashMap<Credential, EndUser> endUserHashMap;
     private HashMap<Credential, WarehouseAdmin> warehouseAdminHashMap;
     private HashMap<Credential, StoreAdmin> storeAdminHashMap;
+    private int endUserCount,warehouseAdminCount,storeAdminCount,storeCount,warehouseCount,registeredUserCount;
+    //TODO can add a log-history of the superstore.
 
-    public void createWarehouse(String warehouseName, int id, WarehouseAdmin warehouseAdmin) {
 
+    public int getEndUserCount() {
+        return endUserCount;
+    }
+
+    public int getWarehouseAdminCount() {
+        return warehouseAdminCount;
+    }
+
+    public int getStoreAdminCount() {
+        return storeAdminCount;
+    }
+
+    public int getStoreCount() {
+        return storeCount;
+    }
+
+    public int getWarehouseCount() {
+        return warehouseCount;
+    }
+
+    public int getRegisteredUserCount() {
+        return registeredUserCount;
+    }
+
+    public void createWarehouse(String warehouseName, WarehouseAdmin warehouseAdmin) {
+
+        int id=++this.warehouseCount;
         warehouseHashMap.put(id, new Warehouse(id, warehouseName, warehouseAdmin));
     }
 
-    public void createStore(String storeName, int id, StoreAdmin storeAdmin) {
+    public void createStore(String storeName, StoreAdmin storeAdmin) {
+
+        int id=++this.storeCount;
         storeHashMap.put(id, new Store(id, storeName, storeAdmin));
     }
 
@@ -27,16 +57,18 @@ public class Superstore {
 
     public void addWarehouseAdmin(String name, int warehouseId, Credential credential) {
 
-        WarehouseAdmin warehouseAdmin = new WarehouseAdmin(credential, name, getWarehouse(warehouseId));
+        WarehouseAdmin warehouseAdmin = new WarehouseAdmin(credential, name, ++this.warehouseAdminCount, getWarehouse(warehouseId),getWarehouseList());
         registeredUserHashMap.put(credential, warehouseAdmin);
         warehouseAdminHashMap.put(credential, warehouseAdmin);
+        ++this.registeredUserCount;
     }
 
     public void addStoreAdmin(String name, int storeId, Credential credential) {
 
-        StoreAdmin storeAdmin = new StoreAdmin(credential, name, getStore(storeId));
+        StoreAdmin storeAdmin = new StoreAdmin(credential, name, ++this.storeAdminCount, getStore(storeId));
         registeredUserHashMap.put(credential, storeAdmin);
         storeAdminHashMap.put(credential, storeAdmin);
+        ++this.registeredUserCount;
     }
 
     public ArrayList<Warehouse> getWarehouseList() {
@@ -59,9 +91,10 @@ public class Superstore {
 
     public void addEndUser(Credential credential, String name) {
 
-        EndUser endUser = new EndUser(credential, name);
+        EndUser endUser = new EndUser(credential, name, ++this.endUserCount);
         registeredUserHashMap.put(credential, endUser);
         endUserHashMap.put(credential, endUser);
+        ++this.registeredUserCount;
     }
 
     public RegisteredUser getRegisteredUser(Credential credential){

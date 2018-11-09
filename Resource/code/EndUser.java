@@ -1,6 +1,6 @@
 public class EndUser extends RegisteredUser {
-    public EndUser(Credential credential, String name) {
-        super(credential,name);
+    public EndUser(Credential credential, String name, int id) {
+        super(credential,name, id);
     }
 
     @Override

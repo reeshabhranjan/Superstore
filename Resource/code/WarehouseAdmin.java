@@ -1,9 +1,14 @@
-public class WarehouseAdmin extends RegisteredUser {
-    private final Warehouse warehouse;
+import java.util.ArrayList;
 
-    public WarehouseAdmin(Credential credential, String name, Warehouse warehouse) {
-        super(credential,name);
+public class WarehouseAdmin extends RegisteredUser {
+
+    private final Warehouse warehouse;
+    private ArrayList<Warehouse> warehouseList;
+
+    public WarehouseAdmin(Credential credential, String name, int id, Warehouse warehouse, ArrayList<Warehouse> warehouseList) {
+        super(credential,name, id);
         this.warehouse=warehouse;
+        this.warehouseList=warehouseList;
     }
 
     @Override
