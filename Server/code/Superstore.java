@@ -2,9 +2,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Superstore {
+
+    //TODO add consructor, implement serialization, make this class Singleton
     private HashMap<Integer, Warehouse> warehouseHashMap;
     private HashMap<Integer, Store> storeHashMap;
-    private HashMap<Credential, User> userHashMap;
+    private HashMap<Credential, RegisteredUser> registeredUserHashMap;
     private HashMap<Credential, EndUser> endUserHashMap;
     private HashMap<Credential, WarehouseAdmin> warehouseAdminHashMap;
     private HashMap<Credential, StoreAdmin> storeAdminHashMap;
@@ -26,14 +28,14 @@ public class Superstore {
     public void addWarehouseAdmin(String name, int warehouseId, Credential credential) {
 
         WarehouseAdmin warehouseAdmin = new WarehouseAdmin(credential, name, getWarehouse(warehouseId));
-        userHashMap.put(credential, warehouseAdmin);
+        registeredUserHashMap.put(credential, warehouseAdmin);
         warehouseAdminHashMap.put(credential, warehouseAdmin);
     }
 
     public void addStoreAdmin(String name, int storeId, Credential credential) {
 
         StoreAdmin storeAdmin = new StoreAdmin(credential, name, getStore(storeId));
-        userHashMap.put(credential, storeAdmin);
+        registeredUserHashMap.put(credential, storeAdmin);
         storeAdminHashMap.put(credential, storeAdmin);
     }
 
@@ -58,18 +60,18 @@ public class Superstore {
     public void addEndUser(Credential credential, String name) {
 
         EndUser endUser = new EndUser(credential, name);
-        userHashMap.put(credential, endUser);
+        registeredUserHashMap.put(credential, endUser);
         endUserHashMap.put(credential, endUser);
     }
 
-    public User getUser(Credential credential){
-        return userHashMap.get(credential);
+    public RegisteredUser getRegisteredUser(Credential credential){
+        return registeredUserHashMap.get(credential);
     }
 
-    public ArrayList<User> getUserList(){
+    public ArrayList<RegisteredUser> getRegisteredUserList(){
 
-        ArrayList<User> userArrayList=new ArrayList<User>(userHashMap.values());
-        return userArrayList;
+        ArrayList<RegisteredUser> registeredUserArrayList =new ArrayList<RegisteredUser>(registeredUserHashMap.values());
+        return registeredUserArrayList;
     }
 
     public ArrayList<EndUser> getEndUserList(){

@@ -1,7 +1,4 @@
-public class EndUser extends RegisteredUser {
-    public EndUser(Credential credential, String name) {
-        super(credential,name);
-    }
+public class GuestUser implements User{
 
     @Override
     public void runSession() {

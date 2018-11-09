@@ -1,9 +1,6 @@
-public class User {
-    private Credential credential;
-    private String name;
+public interface User {
 
-    public User(Credential credential, String name) {
-        this.credential=credential;
-        this.name=name;
-    }
+    //TODO decide if we need to continue with the following two methods:
+    public void runSession();
+    public void showMenu();
 }
