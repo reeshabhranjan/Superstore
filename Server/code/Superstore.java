@@ -3,7 +3,14 @@ import java.util.HashMap;
 
 public class Superstore {
 
-    //TODO add consructor, implement serialization, make this class Singleton
+    private static final Superstore superstore;
+
+    static{
+        superstore = new Superstore();
+    }
+    private Superstore() {
+
+    }
     private HashMap<Integer, Warehouse> warehouseHashMap;
     private HashMap<Integer, Store> storeHashMap;
     private HashMap<Credential, RegisteredUser> registeredUserHashMap;
@@ -13,6 +20,9 @@ public class Superstore {
     private int endUserCount,warehouseAdminCount,storeAdminCount,storeCount,warehouseCount,registeredUserCount;
     //TODO can add a log-history of the superstore.
 
+    public static Superstore getInstance() {
+        return superstore;
+    }
 
     public int getEndUserCount() {
         return endUserCount;

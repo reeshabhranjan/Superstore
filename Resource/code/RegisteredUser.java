@@ -10,7 +10,6 @@ public abstract class RegisteredUser implements User {
     }
 
     public void updateCredentials(Credential credential){
-        //TODO decide if we need to move this method to the Credential-class from here:
         this.credential=credential;
     }
 
@@ -18,13 +17,15 @@ public abstract class RegisteredUser implements User {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
 
     public boolean authenticate(Credential credential){
-
-        return(this.credential.equals(credential));
-        //TODO add equals method in credential
+        return(this.credential==credential);
     }
 }
