@@ -2,6 +2,8 @@ package database;
 
 public class Product {
 
+    //TODO add rating feature if time left and willing to do.
+
     private String name;
     private double price;
     private String categoryPath;
@@ -100,5 +102,16 @@ public class Product {
 
         //TODO add check here for negative values (generate exception or something)
         this.stockCount--;
+    }
+
+    public void update(Product newProduct) {
+
+        this.setName(newProduct.getName());
+        this.setPrice(newProduct.getPrice());
+        this.setDescription(newProduct.getDescription());
+        this.setStockCount(newProduct.getStockCount());
+        this.setD(newProduct.getD());
+        this.setH(newProduct.getH());
+        this.setK(newProduct.getK());
     }
 }
