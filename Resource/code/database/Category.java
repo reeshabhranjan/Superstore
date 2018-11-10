@@ -101,6 +101,8 @@ public class Category {
 
     public boolean searchProduct(String productName, PathString path, ProductReference product) {
 
+        //TODO PathString path is probably redundant in this algorithm as Product class already has its path. Remove this thing with utmost care, if you want to remove.
+
         if (this.containsProduct(productName)) {
 
             path.appendRight(this.getName() + ">" + this.getProduct(productName).getName());
