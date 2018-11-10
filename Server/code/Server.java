@@ -1,77 +1,84 @@
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-public class Server {
+public class Server{
 
-    private class ConnectionHandler extends RecursiveAction {
-        private final Socket client;
-        private final Superstore superstore;
+    //TODO decide where the opcodes will be accepted and where the approprate methods be called.
 
-        public ConnectionHandler(Socket client)
-        {
-            this.client=client;
-            superstore=Superstore.getInstance();
-        }
-        @Override
-        protected void compute(){
-            ObjectInputStream in=null;
-            ObjectOutputStream out=null;
-            try {
-                in=new ObjectInputStream(client.getInputStream());
-                out=new ObjectOutputStream(client.getOutputStream());
-                String message=(String) in.readObject();
-                Credential credential=(Credential) in.readObject();
-                User user;
-                switch (message.toLowerCase())
-                {
-                    case "superuser":
-                        user=superstore.getRegisteredUser(credential);
-                        out.writeObject(user);
-                        break;
-                    case "enduser":
-                        user=superstore.getRegisteredUser(credential);
-                        out.writeObject(user);
-                        break;
-                    case "warehouseadmin":
-                        user=superstore.getRegisteredUser(credential);
-                        out.writeObject(user);
-                        break;
-                    case "storeadmin":
-                        user=superstore.getRegisteredUser(credential);
-                        out.writeObject(user);
-                        break;
-                    case "storelist":
-                        out.writeObject(superstore.getStoreList());
-                        break;
-                    default:
-                        out.writeObject("Error");
-                        break;
-                }
-            }
-            catch (IOException e) {
-                System.out.println("Can't get inputstream from client.");
-            }
-            catch (Exception e){
-                System.out.println("Some Other Exception.");
-            }
-            finally{
-                //TODO handle IOException
-                in.close();
-                client.close();
-            }
+    private volatile Superstore superstore;
+    private volatile int sessionCount;
+
+    public static void main(String[] args) throws IOException {
+
+        ServerSocket serverSocket=new ServerSocket(1234);
+        ExecutorService executorService= Executors.newFixedThreadPool(4);
+
+        while (true){
+
+            Socket client=serverSocket.accept();
+            Runnable session=new Session(client);
+            executorService.execute(session);
         }
     }
-    public static void main(String[] args)throws IOException {
-        ServerSocket serversocket = new ServerSocket(80);
-        ForkJoinPool pool=new ForkJoinPool(2);
-        Server server=new Server();
-        while(true)
-        {
-            Socket client=serversocket.accept();
-            server.new ConnectionHandler(client).fork();
 
+    private static class Session implements Runnable {
+
+        private DataOutputStream outputStream;
+        private DataInputStream inputStream;
+
+        Socket client;
+
+        public Session(Socket client) {
+            this.client=client;
         }
+
+        @Override
+        public void run() {
+
+            //TODO This run should be invoked only after a login() is done.
+        }
+    }
+
+    public void register(Credential credential, String name, String type/*RegisteredUser registeredUser*/){
+
+//        String type=registeredUser.getClass().toString().split(" ")[1]; //toString returns "class <ClassName>". Split it by the space and extracted the <ClassName>.
+
+        switch (type){
+
+            case "EndUser":
+                superstore.addEndUser(credential,name);
+                break;
+            case "StoreAdmin":
+                superstore.addStoreAdmin(name,-1,credential);
+                break;
+            case "WarehouseAdmin":
+                superstore.addWarehouseAdmin(name,-1,credential);
+                break;
+        }
+    }
+
+    public void login(Credential credential, String type){
+
+        User user=null;
+
+        switch (type){
+
+            case "EndUser":
+                user=superstore.getEndUser(credential);
+                break;
+            case "StoreAdmin":
+                user=superstore.getStoreAdmin(credential);
+                break;
+            case "WarehouseAdmin":
+                user=superstore.getWarehouseAdmin(credential);
+                break;
+        }
+
+        user.runSession();
     }
 }

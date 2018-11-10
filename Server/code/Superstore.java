@@ -134,4 +134,19 @@ public class Superstore {
         ArrayList<StoreAdmin> storeAdminArrayList=new ArrayList<StoreAdmin>(storeAdminHashMap.values());
         return storeAdminArrayList;
     }
+
+    public WarehouseAdmin getWarehouseAdmin(Credential credential){
+
+        return warehouseAdminHashMap.get(credential);
+    }
+
+    public StoreAdmin getStoreAdmin(Credential credential){
+
+        return storeAdminHashMap.get(credential);
+    }
+
+    public EndUser getEndUser(Credential credential){
+
+        return endUserHashMap.get(credential);
+    }
 }
