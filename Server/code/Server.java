@@ -3,6 +3,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -34,6 +35,7 @@ public class Server{
         private boolean registeredSession;
         private boolean endSession;
         private Socket client;
+        private RegisteredUser registeredUser;
 
         public Session(Socket client, Superstore superstore) {
 
@@ -66,6 +68,7 @@ public class Server{
             this.registeredSession=false;
             this.endSession=false;
             this.client=client;
+            this.registeredUser=null;
         }
 
         @Override
@@ -73,6 +76,8 @@ public class Server{
 
             while(!endSession){
 
+
+                // Once the command for login comes, login() will be called and registeredSession, registeredUser will be set
                 // Here the commands will be accepted.
             }
         }
@@ -96,6 +101,32 @@ public class Server{
             registeredUser=superstore.getRegisteredUser(credential);
 
             return registeredUser;
+        }
+
+        public void createWarehouse(String name, WarehouseAdmin warehouseAdmin){
+
+            superstore.createWarehouse(name,warehouseAdmin);
+        }
+
+        public void  createStore(String name, StoreAdmin storeAdmin){
+            superstore.createStore(name,storeAdmin);
+        }
+
+        public void linkWarehouseStore(int warehouseId, int storeId){
+            superstore.linkWarehouseStore(warehouseId,storeId);
+        }
+
+        public void updateRegisterdUser(RegisteredUser registeredUser){
+
+            registeredUser.update(registeredUser);
+        }
+
+        public ArrayList<Store> getStoreList(){
+            return superstore.getStoreList();
+        }
+
+        public Store getStore(int storeId){
+            return superstore.getStore(storeId);
         }
     }
 }

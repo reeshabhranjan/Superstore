@@ -28,4 +28,6 @@ public abstract class RegisteredUser implements User {
     public boolean authenticate(Credential credential){
         return(this.credential==credential);
     }
+
+    public abstract void update(RegisteredUser registeredUser);
 }
