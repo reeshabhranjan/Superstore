@@ -8,9 +8,9 @@ import java.util.concurrent.Executors;
 
 public class Server{
 
-    //TODO decide where the opcodes will be accepted and where the approprate methods be called.
+    //TODO decide where the opcodes will be accepted and where the appropriate methods be called.
 
-    private volatile Superstore superstore;
+    private static volatile Superstore superstore; //TODO should there be a 'volatile' here?
     private volatile int sessionCount;
 
     public static void main(String[] args) throws IOException {
@@ -21,7 +21,7 @@ public class Server{
         while (true){
 
             Socket client=serverSocket.accept();
-            Runnable session=new Session(client);
+            Runnable session=new Session(client,superstore);
             executorService.execute(session);
         }
     }
@@ -30,55 +30,72 @@ public class Server{
 
         private DataOutputStream outputStream;
         private DataInputStream inputStream;
+        private volatile Superstore superstore;
+        private boolean registeredSession;
+        private boolean endSession;
+        private Socket client;
 
-        Socket client;
+        public Session(Socket client, Superstore superstore) {
 
-        public Session(Socket client) {
+            this.outputStream=null;
+            this.inputStream=null;
+
+            try{
+                this.outputStream=new DataOutputStream(client.getOutputStream());
+                this.inputStream=new DataInputStream(client.getInputStream());
+            }
+
+            catch (IOException ioe) {
+                System.err.println("Cannot find client's data-streams");
+            }
+
+            finally {
+
+                try{
+                    this.outputStream.close();
+                    this.inputStream.close();
+                }
+
+                catch (IOException ioe){
+                    System.err.println("Cannot close client's data-streams");
+                }
+
+            }
+
+            this.superstore=superstore;
+            this.registeredSession=false;
+            this.endSession=false;
             this.client=client;
         }
 
         @Override
         public void run() {
 
-            //TODO This run should be invoked only after a login() is done.
-        }
-    }
+            while(!endSession){
 
-    public void register(Credential credential, String name, String type/*RegisteredUser registeredUser*/){
-
-//        String type=registeredUser.getClass().toString().split(" ")[1]; //toString returns "class <ClassName>". Split it by the space and extracted the <ClassName>.
-
-        switch (type){
-
-            case "EndUser":
-                superstore.addEndUser(credential,name);
-                break;
-            case "StoreAdmin":
-                superstore.addStoreAdmin(name,-1,credential);
-                break;
-            case "WarehouseAdmin":
-                superstore.addWarehouseAdmin(name,-1,credential);
-                break;
-        }
-    }
-
-    public void login(Credential credential, String type){
-
-        User user=null;
-
-        switch (type){
-
-            case "EndUser":
-                user=superstore.getEndUser(credential);
-                break;
-            case "StoreAdmin":
-                user=superstore.getStoreAdmin(credential);
-                break;
-            case "WarehouseAdmin":
-                user=superstore.getWarehouseAdmin(credential);
-                break;
+                // Here the commands will be accepted.
+            }
         }
 
-        user.runSession();
+        public void registerEndUser(Credential credential,String name){
+            superstore.addEndUser(credential,name);
+        }
+
+        public void registerWarehouseAdmin(Credential credential,String name, int warehouseId){
+            superstore.addWarehouseAdmin(name,warehouseId,credential);
+        }
+
+        public void registerStoreAdmin(Credential credential, String name, int storeId){
+            superstore.addStoreAdmin(name,storeId,credential);
+        }
+
+        public RegisteredUser login(Credential credential){
+
+            RegisteredUser registeredUser=null;
+
+            registeredUser=superstore.getRegisteredUser(credential);
+
+            return registeredUser;
+        }
     }
 }
