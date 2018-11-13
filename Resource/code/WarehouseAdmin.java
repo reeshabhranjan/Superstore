@@ -20,4 +20,9 @@ public class WarehouseAdmin extends RegisteredUser {
     public void showMenu() {
         //TODO complete definition
     }
+
+    @Override
+    public void update(RegisteredUser registeredUser) {
+
+    }
 }

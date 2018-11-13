@@ -4,6 +4,11 @@ public class EndUser extends RegisteredUser {
     }
 
     @Override
+    public void update(RegisteredUser registeredUser) {
+
+    }
+
+    @Override
     public void runSession() {
         //TODO complete definition
     }

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #EFF3F6;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Pane prefHeight="500.0" prefWidth="225.0" style="-fx-background-color: #32373D;">
+            <children>
+                <Label layoutX="50.0" layoutY="14.0" text="Infinity Store" textFill="WHITE">
+                    <font>
+                        <Font name="Calibri" size="24.0" />
+                    </font>
+                </Label>
+                <Pane layoutX="12.0" layoutY="101.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                    <children>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/flat-icons-3/warehouse.png" />
+                            </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" layoutX="78.0" layoutY="10.0" prefHeight="20.0" prefWidth="108.0" text="Create warehouse" textFill="#d3cbcb">
+                            <font>
+                                <Font name="Calibri" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane layoutX="12.0" layoutY="154.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                    <children>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/flat-icons/store.png" />
+                            </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="Create store" textFill="#d3cbcb">
+                            <font>
+                                <Font name="Calibri" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane layoutX="12.0" layoutY="206.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                    <children>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/ui-icons/link.png" />
+                            </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" layoutX="53.0" layoutY="10.0" prefHeight="20.0" prefWidth="133.0" text="Link warehouse-store" textFill="#d3cbcb">
+                            <font>
+                                <Font name="Calibri" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane layoutX="13.0" layoutY="258.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                    <children>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/avatar-icons/businessman.png" />
+                            </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="Create administrators" textFill="#d3cbcb">
+                            <font>
+                                <Font name="Calibri" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane layoutX="13.0" layoutY="310.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                    <children>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/ui-icons/search.png" />
+                            </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="Browse warehouse" textFill="#d3cbcb">
+                            <font>
+                                <Font name="Calibri" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane layoutX="13.0" layoutY="363.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #007ED9;" styleClass="navigation-button">
+                    <children>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/ui-icons/search.png" />
+                            </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="Browse store" textFill="#d3cbcb">
+                            <font>
+                                <Font name="Calibri" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane layoutX="13.0" layoutY="416.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                    <children>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/flat-icons/user.png" />
+                            </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="My Profile" textFill="#d3cbcb">
+                            <font>
+                                <Font name="Calibri" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+        <Pane layoutX="225.0" prefHeight="500.0" prefWidth="575.0" style="-fx-background-color: #EFF3F6;">
+            <children>
+                <Pane prefHeight="76.0" prefWidth="575.0" style="-fx-background-color: #FFFFFF;">
+                    <children>
+                        <Pane layoutX="497.0" layoutY="6.0" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
+                            <children>
+                                <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="16.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/ui-icons/power-button.png" />
+                                    </image>
+                                </ImageView>
+                                <Label alignment="CENTER" layoutX="7.0" layoutY="42.0" prefHeight="17.0" prefWidth="50.0" text="Log-out" />
+                            </children>
+                        </Pane>
+                    </children></Pane>
+                <Pane layoutY="75.0" prefHeight="425.0" prefWidth="575.0" style="-fx-background-color: #EFF3F6;">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="44.0" prefWidth="575.0" styleClass="heading-bar" text="Select a store">
+                            <font>
+                                <Font name="Calibri" size="24.0" />
+                            </font>
+                        </Label>
+                        <Pane layoutX="63.0" layoutY="55.0" prefHeight="350.0" prefWidth="450.0" styleClass="option-section">
+                            <children>
+                                <ListView fx:id="storeList" layoutX="16.0" layoutY="34.0" prefHeight="282.0" prefWidth="419.0" styleClass="scrollable-list">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="store1" />
+                                            <String fx:value="store2" />
+                                            <String fx:value="store3" />
+                                            <String fx:value="store4" />
+                                            <String fx:value="store5" />
+                                            <String fx:value="store6" />
+                                            <String fx:value="store7" />
+                                            <String fx:value="store8" />
+                                            <String fx:value="store9" />
+                                            <String fx:value="store10" />
+                                            <String fx:value="store11" />
+                                            <String fx:value="store12" />
+                                            <String fx:value="store13" />
+                                            <String fx:value="store14" />
+                                            <String fx:value="store15" />
+                                            <String fx:value="store16" />
+                                            <String fx:value="store17" />
+                                            <String fx:value="store18" />
+                                            <String fx:value="store19" />
+                                            <String fx:value="store20" />
+                                            <String fx:value="store21" />
+                                            <String fx:value="store22" />
+                                            <String fx:value="store23" />
+                                            <String fx:value="store24" />
+                                            <String fx:value="store25" />
+                                        </FXCollections>
+                                    </items>
+                                </ListView>
+                            </children></Pane>
+                    </children></Pane>
+            </children>
+        </Pane>
+    </children>
+
+    <stylesheets>
+        <URL value="@../design/animation.css" />
+    </stylesheets>
+</AnchorPane>
