@@ -1,4 +1,5 @@
-import javax.swing.*;
+package classes;
+
 import java.util.ArrayList;
 
 public class Warehouse {

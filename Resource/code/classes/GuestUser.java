@@ -1,3 +1,5 @@
+package classes;
+
 public class GuestUser implements User{
 
     @Override

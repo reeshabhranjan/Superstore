@@ -1,3 +1,5 @@
+package classes;
+
 import database.Database;
 
 public class Store {

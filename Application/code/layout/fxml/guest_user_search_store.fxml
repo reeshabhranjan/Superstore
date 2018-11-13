@@ -72,7 +72,7 @@
         </Pane>
         <Pane prefHeight="500.0" prefWidth="225.0" style="-fx-background-color: #32373D;">
             <children>
-                <Label layoutX="50.0" layoutY="14.0" text="Infinity Store" textFill="WHITE">
+                <Label layoutX="50.0" layoutY="14.0" text="Infinity classes.Store" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="24.0" />
                     </font>
@@ -84,7 +84,7 @@
                                 <Image url="@../images/ui-icons/search.png" />
                             </image>
                         </ImageView>
-                        <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="10.0" prefHeight="20.0" prefWidth="100.0" text="Browse Store" textFill="#d3cbcb">
+                        <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="10.0" prefHeight="20.0" prefWidth="100.0" text="Browse classes.Store" textFill="#d3cbcb">
                             <font>
                                 <Font name="Calibri" size="14.0" />
                             </font>

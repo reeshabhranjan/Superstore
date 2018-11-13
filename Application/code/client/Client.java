@@ -1,3 +1,5 @@
+package client;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,10 +17,14 @@ public class Client extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage=primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("/layout/fxml/end_user_browse_store.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/layout/fxml/login.fxml"));
         this.primaryStage.setTitle("Login");
         this.primaryStage.setScene(new Scene(root, 800, 500));
         this.primaryStage.setResizable(false);
         this.primaryStage.show();
+    }
+
+    private class Session{
+
     }
 }

@@ -14,7 +14,7 @@
     <children>
         <Pane prefHeight="500.0" prefWidth="225.0" style="-fx-background-color: #32373D;">
             <children>
-                <Label layoutX="50.0" layoutY="14.0" text="Infinity Store" textFill="WHITE">
+                <Label layoutX="50.0" layoutY="14.0" text="Infinity classes.Store" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="24.0" />
                     </font>
@@ -145,7 +145,7 @@
                             <children>
                                 <Pane layoutX="125.0" layoutY="96.0" prefHeight="64.0" prefWidth="200.0">
                                     <children>
-                                        <Label layoutX="7.0" layoutY="12.0" text="Store name">
+                                        <Label layoutX="7.0" layoutY="12.0" text="classes.Store name">
                                             <font>
                                                 <Font name="Calibri Light" size="14.0" />
                                             </font>
@@ -155,7 +155,7 @@
                                 </Pane>
                                 <Pane layoutX="108.0" layoutY="160.0" prefHeight="64.0" prefWidth="235.0">
                                     <children>
-                                        <Label layoutX="7.0" layoutY="12.0" text="Store ID (automatically generated)">
+                                        <Label layoutX="7.0" layoutY="12.0" text="classes.Store ID (automatically generated)">
                                             <font>
                                                 <Font name="Calibri Light" size="14.0" />
                                             </font>

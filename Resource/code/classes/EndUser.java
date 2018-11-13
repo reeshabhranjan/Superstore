@@ -1,3 +1,5 @@
+package classes;
+
 public class EndUser extends RegisteredUser {
     public EndUser(Credential credential, String name, int id) {
         super(credential,name, id);

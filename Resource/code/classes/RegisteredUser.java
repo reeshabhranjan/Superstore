@@ -1,3 +1,5 @@
+package classes;
+
 public abstract class RegisteredUser implements User {
     private Credential credential;
     private String name;

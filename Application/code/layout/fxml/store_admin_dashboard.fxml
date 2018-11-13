@@ -27,7 +27,7 @@
                     </children></Pane>
                 <Pane layoutY="75.0" prefHeight="425.0" prefWidth="575.0" style="-fx-background-color: #EFF3F6;">
                     <children>
-                        <Label alignment="CENTER" layoutX="94.0" layoutY="157.0" prefHeight="111.0" prefWidth="387.0" style="-fx-background-color: #EFF3F6;" text="Welcome, Store Admin!" textFill="#a8a2a2">
+                        <Label alignment="CENTER" layoutX="94.0" layoutY="157.0" prefHeight="111.0" prefWidth="387.0" style="-fx-background-color: #EFF3F6;" text="Welcome, classes.Store Admin!" textFill="#a8a2a2">
                             <font>
                                 <Font name="Calibri Light" size="36.0" />
                             </font></Label>
@@ -37,7 +37,7 @@
         </Pane>
       <Pane prefHeight="500.0" prefWidth="225.0" style="-fx-background-color: #32373D;">
          <children>
-            <Label layoutX="50.0" layoutY="14.0" text="Infinity Store" textFill="WHITE">
+            <Label layoutX="50.0" layoutY="14.0" text="Infinity classes.Store" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="24.0" />
                </font>

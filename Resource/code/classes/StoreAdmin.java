@@ -1,3 +1,5 @@
+package classes;
+
 public class StoreAdmin extends RegisteredUser {
     private final Store store;
 

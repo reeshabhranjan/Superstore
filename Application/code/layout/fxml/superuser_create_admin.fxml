@@ -18,7 +18,7 @@
     <children>
         <Pane prefHeight="500.0" prefWidth="225.0" style="-fx-background-color: #32373D;">
             <children>
-                <Label layoutX="50.0" layoutY="14.0" text="Infinity Store" textFill="WHITE">
+                <Label layoutX="50.0" layoutY="14.0" text="Infinity classes.Store" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="24.0" />
                     </font>
@@ -172,8 +172,8 @@
                               <ComboBox layoutX="7.0" layoutY="29.0" prefHeight="30.0" prefWidth="164.0" promptText="Select a type" styleClass="dropdown-button">
                                  <items>
                                     <FXCollections fx:factory="observableArrayList">
-                                       <String fx:value="Warehouse" />
-                                       <String fx:value="Store" />
+                                       <String fx:value="classes.Warehouse" />
+                                       <String fx:value="classes.Store" />
                                     </FXCollections>
                                  </items>
                               </ComboBox>

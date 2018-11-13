@@ -1,3 +1,5 @@
+package classes;
+
 public class Command {
     private final String message;
     private final Object[] attributes;

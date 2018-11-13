@@ -1,3 +1,5 @@
+package classes;
+
 public final class Credential {
 
     //TODO decide whether to keep username and password final or not
