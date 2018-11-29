@@ -8,7 +8,6 @@ public class App extends Application {
 
     RegisteredUser registeredUser;
 
-
     @Override
     public void start(Stage primaryStage) throws Exception {
 
