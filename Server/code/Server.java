@@ -18,6 +18,8 @@ public class Server{
 
     public static void main(String[] args) throws IOException {
 
+        //TODO deserialize the Superstore here.
+
         ServerSocket serverSocket=new ServerSocket(1234);
         ExecutorService executorService= Executors.newFixedThreadPool(4);
 
