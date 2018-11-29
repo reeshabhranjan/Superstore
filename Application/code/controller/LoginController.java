@@ -17,7 +17,7 @@ import javafx.scene.layout.Pane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class LoginController extends Controller{
 
     private Client client;
 
