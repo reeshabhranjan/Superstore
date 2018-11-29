@@ -44,10 +44,6 @@ public class LoginController extends Controller{
 //        label.setText("Browse store!");
 //    }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-    }
-
     private boolean textFieldValidator(){
         boolean cond1 = usernameTextField.getText().length()>0;
         boolean cond2 = passwordTextField.getText().length()>0;

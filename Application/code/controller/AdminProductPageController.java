@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
-public class AdminProductPageController {
+public class AdminProductPageController extends Controller{
         @FXML
         private TextField productNameTextField;
 
