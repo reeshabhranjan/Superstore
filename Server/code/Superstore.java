@@ -1,18 +1,84 @@
 import classes.*;
-
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Superstore {
+public class Superstore implements Serializable{
 
     private static final Superstore superstore;
 
     static{
-        superstore = new Superstore();
+        superstore = deserialize();
     }
-    private Superstore() {
 
+    public static Superstore getInstance() {
+        return superstore;
     }
+
+    private Superstore(){
+        // to implement Singleton design pattern
+    }
+
+    public void serialize(){
+
+        ObjectOutputStream out = null;
+
+        try {
+            String fileName = "data/" + "superstore" + ".dat";
+            File file = new File(fileName);
+
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            out = new ObjectOutputStream(new FileOutputStream(fileName, false));
+            out.writeObject(this);
+        } catch (IOException ioe){
+            System.err.println("Error while serialization.");
+        }
+        finally {
+            try {
+                if(out!=null){
+                    out.close();
+                }
+            } catch (IOException e) {
+                System.err.println("Error while closing the stream.");
+            }
+        }
+    }
+
+    private static Superstore deserialize(){
+        ObjectInputStream in = null;
+        String fileName = "data/" + "superstore" + ".dat";
+
+        try {
+            in = new ObjectInputStream(new FileInputStream(fileName));
+            Superstore superstore = (Superstore) in.readObject();
+            return superstore;
+        }
+        catch (FileNotFoundException e) {
+            System.err.println("Error while deserialization.");
+        }
+        catch (IOException e) {
+            System.err.println("Error while deserialization.");
+        }
+        catch (ClassNotFoundException e) {
+            System.err.println("Error while deserialization.");
+        }
+        finally {
+            try {
+
+                if(in!=null){
+                    in.close();
+                }
+            } catch (IOException e) {
+                System.err.println("Error while deserialization.");
+            }
+        }
+
+        return new Superstore();
+    }
+
     private HashMap<Integer, Warehouse> warehouseHashMap;
     private HashMap<Integer, Store> storeHashMap;
     private HashMap<Credential, RegisteredUser> registeredUserHashMap;
@@ -22,9 +88,9 @@ public class Superstore {
     private int endUserCount,warehouseAdminCount,storeAdminCount,storeCount,warehouseCount,registeredUserCount;
     //TODO can add a log-history of the superstore.
 
-    public static Superstore getInstance() {
-        return superstore;
-    }
+//    public static Superstore getInstance() {
+//        return superstore;
+//    }
 
     public int getEndUserCount() {
         return endUserCount;

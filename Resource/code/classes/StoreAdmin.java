@@ -1,6 +1,8 @@
 package classes;
 
-public class StoreAdmin extends RegisteredUser {
+import java.io.Serializable;
+
+public class StoreAdmin extends RegisteredUser implements Serializable {
     private final Store store;
 
     public StoreAdmin(Credential credential, String name, int id, Store store) {

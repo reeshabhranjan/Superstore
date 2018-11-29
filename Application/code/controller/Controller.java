@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-abstract class Controller implements Initializable {
+public abstract class Controller implements Initializable {
     App app;
 
     public void setApp(App app) {

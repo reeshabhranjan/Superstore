@@ -2,7 +2,9 @@ package classes;
 
 import database.Database;
 
-public class Store {
+import java.io.Serializable;
+
+public class Store implements Serializable {
     private final int id;
     private StoreAdmin admin;
     private String name;

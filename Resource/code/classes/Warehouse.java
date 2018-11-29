@@ -1,8 +1,9 @@
 package classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Warehouse {
+public class Warehouse implements Serializable {
 
     private final int id;
     private String name;

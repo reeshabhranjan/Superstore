@@ -6,7 +6,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import controller.*;
 
 import java.io.IOException;
 
@@ -34,21 +36,22 @@ public class App extends Application {
             this.primaryStage.setScene(new Scene(root, width, height));
             this.primaryStage.setResizable(false);
             this.primaryStage.show();
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            AnchorPane anchorPane=fxmlLoader.load(App.class.getResource("/layout/fxml/"+fileName+".fxml").openStream());
+            Controller controller=fxmlLoader.getController();
+            controller.setApp(this);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void sendMessage(Message message){
+    public Message sendMessage(Message message){
 
-        //session.sendData(message);
+        session.sendData(message);
+        return session.getData();
     }
-
-//    public App(){
-//
-//        //TODO initialise session
-//        launch();
-//    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -58,6 +61,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args){
+        //TODO initialise session
         launch(args);
     }
 }

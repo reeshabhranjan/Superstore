@@ -1,8 +1,9 @@
 package classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class WarehouseAdmin extends RegisteredUser {
+public class WarehouseAdmin extends RegisteredUser implements Serializable {
 
     private final Warehouse warehouse;
     private ArrayList<Warehouse> warehouseList;

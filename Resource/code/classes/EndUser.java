@@ -1,6 +1,8 @@
 package classes;
 
-public class EndUser extends RegisteredUser {
+import java.io.Serializable;
+
+public class EndUser extends RegisteredUser implements Serializable {
     public EndUser(Credential credential, String name, int id) {
         super(credential,name, id);
     }

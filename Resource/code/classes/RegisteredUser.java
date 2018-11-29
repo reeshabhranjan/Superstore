@@ -1,6 +1,8 @@
 package classes;
 
-public abstract class RegisteredUser implements User {
+import java.io.Serializable;
+
+public abstract class RegisteredUser implements User, Serializable {
     private Credential credential;
     private String name;
     private final int id;

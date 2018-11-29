@@ -1,6 +1,8 @@
 package classes;
 
-public final class Credential {
+import java.io.Serializable;
+
+public final class Credential implements Serializable {
 
     //TODO decide whether to keep username and password final or not
     private final String username;

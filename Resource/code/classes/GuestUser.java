@@ -1,6 +1,8 @@
 package classes;
 
-public class GuestUser implements User{
+import java.io.Serializable;
+
+public class GuestUser implements User, Serializable {
 
     @Override
     public void runSession() {
