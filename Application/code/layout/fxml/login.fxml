@@ -41,7 +41,7 @@
                 <TextField fx:id="usernameTextField" layoutX="32.0" layoutY="162.0" prefHeight="31.0" prefWidth="279.0" promptText="Username" style="-fx-background-color: #202020; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #FFFFFF;" />
                 <PasswordField fx:id="passwordTextField" layoutX="32.0" layoutY="222.0" prefHeight="31.0" prefWidth="279.0" promptText="Password" style="-fx-background-color: #202020; -fx-background-radius: 20; -fx-background-insets: 0; -fx-text-fill: #FFFFFF;" />
                 <Button fx:id="loginButton" layoutX="33.0" layoutY="282.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="31.0" prefWidth="279.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Log in" />
-                <Label alignment="CENTER" layoutX="29.0" layoutY="58.0" prefHeight="66.0" prefWidth="279.0" text="Infinity classes.Store" textFill="WHITE">
+                <Label alignment="CENTER" layoutX="29.0" layoutY="58.0" prefHeight="66.0" prefWidth="279.0" text="Infinity Store" textFill="WHITE">
                     <font>
                         <Font name="Calibri Light" size="36.0" />
                     </font>
