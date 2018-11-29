@@ -1,6 +1,8 @@
 package database;
 
-public class Database {
+import java.io.Serializable;
+
+public class Database implements Serializable {
 
     private CategoryTree categoryTree;
     private double revenue;

@@ -1,6 +1,8 @@
 package database;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
 
     //TODO add rating feature if time left and willing to do.
 

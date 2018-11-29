@@ -1,8 +1,9 @@
 package database;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Category {
+public class Category implements Serializable {
 
     //TODO see if the getters are secure or not (pass the reference or pass the clone?)
     private String name;
