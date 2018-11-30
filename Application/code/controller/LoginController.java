@@ -51,13 +51,17 @@ public class LoginController extends Controller{
     }
 
     @FXML
-    public Credential login(MouseEvent event) throws java.io.IOException
+    public void login(MouseEvent event) throws java.io.IOException
     {
+        Credential credential;
         if(textFieldValidator()) {
-            return new Credential(usernameTextField.getText(),passwordTextField.getText());
+            credential=new Credential(usernameTextField.getText(),passwordTextField.getText());
+            app.login(credential);
         }
-        else {
-            return null;
+        else
+        {
+            //TODO Invalid input popup.
         }
+
     }
 }

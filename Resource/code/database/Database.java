@@ -1,23 +1,43 @@
 package database;
 
+import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Database implements Serializable {
 
     private CategoryTree categoryTree;
     private double revenue;
-    private TreeView<CategoryDetail> treeView;
+    private TreeView<String> treeView;
 
-    public TreeView<CategoryDetail> generateTreeView(){
+    public TreeView<String> generateTreeView(){
+        TreeItem<String> treeRoot = new TreeItem<String>();
+        treeRoot.setExpanded(true);
 
-        treeView=new TreeView<>();
-        //TODO call a recursive function on root (TreeItem) and assign it to treeView's root
+        Category categoryRoot = categoryTree.getRoot();
+
+        addNode(treeRoot,categoryRoot);
+
+        treeView = new TreeView<>(treeRoot);
+        treeView.setShowRoot(false);
+
         return treeView;
     }
 
-    //TODO create a recursive function with return type TreeItem (iterate on categoryTree for recursion)
+    private void addNode(TreeItem<String> treeNode, Category categoryNode) {
+        ArrayList<Category> subcategories = categoryNode.getCategoryArrayList();
+
+        for (Category category : subcategories) {
+            TreeItem<String> node = new TreeItem<String>(category.getName());
+            node.setExpanded(true);
+
+            treeNode.getChildren().add(node);
+
+            addNode(node,category);
+        }
+    }
 
     public Database() {
         this.categoryTree = new CategoryTree();

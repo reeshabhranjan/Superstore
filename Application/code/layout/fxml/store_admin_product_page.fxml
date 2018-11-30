@@ -76,7 +76,7 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Button fx:id="submitButton" layoutX="14.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#hello" prefHeight="31.0" prefWidth="225.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Submit" textFill="WHITE" />
+                  <Button fx:id="submitButton" layoutX="13.0" layoutY="274.0" mnemonicParsing="false" onMouseClicked="#hello" prefHeight="31.0" prefWidth="225.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Submit" textFill="WHITE" />
                   <TextField fx:id="fixedCostTextField" layoutX="11.0" layoutY="148.0" prefHeight="31.0" prefWidth="225.0" promptText="Fixed cost/quarter (D)" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
                   <TextField fx:id="productNameTextField" layoutX="11.0" layoutY="70.0" prefHeight="31.0" prefWidth="225.0" promptText="Product Name" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
                   <TextField fx:id="priceTextField" layoutX="11.0" layoutY="110.0" prefHeight="31.0" prefWidth="225.0" promptText="Price" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />

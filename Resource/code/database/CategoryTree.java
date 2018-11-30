@@ -1,6 +1,7 @@
 package database;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 public final class CategoryTree implements Serializable {
 
@@ -9,6 +10,10 @@ public final class CategoryTree implements Serializable {
     public CategoryTree() {
 
         root = new Category("");
+    }
+
+    public Category getRoot() {
+        return root;
     }
 
     public Category getCategory(String categoryPath) {
@@ -38,14 +43,25 @@ public final class CategoryTree implements Serializable {
         Category c = root;
         String[] categoryPathValues = categoryPath.split(">");
 
-        for (String s : categoryPathValues) {
-
+        for(int i=0; i<categoryPathValues.length;i++)
+        {
+            String s = categoryPathValues[i];
             if (!c.containsSubCategory(s)) {
-                c.addSubCategory(s);
+                String[] categoryPathArray = Arrays.copyOfRange(categoryPathValues, 0, i);
+                String categoryPathString = String.join(">",categoryPathArray);
+                c.addSubCategory(s,categoryPathString);
             }
 
             c = c.getSubCategory(s);
         }
+//        for (String s : categoryPathValues) {
+//
+//            if (!c.containsSubCategory(s)) {
+//                c.addSubCategory(s);
+//            }
+//
+//            c = c.getSubCategory(s);
+//        }
     }
 
     public Product searchProduct(String productName, boolean showPath) {

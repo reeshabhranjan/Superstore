@@ -2,8 +2,8 @@ package database;
 
 public class CategoryDetail {
 
-    String name;
-    String path;
+    private String name;
+    private String path;
 
     public CategoryDetail(String name, String path) {
         this.name = name;

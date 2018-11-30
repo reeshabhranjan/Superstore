@@ -7,11 +7,14 @@ public class Category implements Serializable {
 
     //TODO see if the getters are secure or not (pass the reference or pass the clone?)
     private String name;
+    private String path;
     private ArrayList<Product> productArrayList;
     private ArrayList<Category> categoryArrayList;
 
-    public Category(String name) {
+
+    public Category(String name, String path) {
         this.name = name;
+        this.path = path;
         this.productArrayList=new ArrayList<>();
         this.categoryArrayList=new ArrayList<>();
     }
@@ -44,6 +47,10 @@ public class Category implements Serializable {
         return null;
     }
 
+    public String getPath() {
+        return path;
+    }
+
     public boolean containsSubCategory(String name) {
 
         for (Category c : categoryArrayList) {
@@ -68,9 +75,9 @@ public class Category implements Serializable {
         return false;
     }
 
-    public void addSubCategory(String name) {
+    public void addSubCategory(String name, String subCategoryPath) {
 
-        categoryArrayList.add(new Category(name));
+        categoryArrayList.add(new Category(name, subCategoryPath));
     }
 
     public void addProduct(Product p) {
