@@ -1,6 +1,8 @@
 import classes.*;
 import exceptions.CredentialNotPresentException;
+import exceptions.StoreNotFoundException;
 import exceptions.UsernameAlreadyExistsException;
+import exceptions.WarehouseNotFoundException;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -120,19 +122,31 @@ public class Superstore implements Serializable{
         return registeredUserCount;
     }
 
-    public void createWarehouse(String warehouseName, WarehouseAdmin warehouseAdmin) {
+    public int createWarehouse(String warehouseName, WarehouseAdmin warehouseAdmin) {
 
+        //TODO raise exception in case of same name, maybe?
         int id=++this.warehouseCount;
         warehouseHashMap.put(id, new Warehouse(id, warehouseName, warehouseAdmin));
+        return id;
     }
 
-    public void createStore(String storeName, StoreAdmin storeAdmin) {
+    public int createStore(String storeName, StoreAdmin storeAdmin) {
 
         int id=++this.storeCount;
         storeHashMap.put(id, new Store(id, storeName, storeAdmin));
+        return id;
     }
 
-    public void linkWarehouseStore(int warehouseId, int storeId) {
+    public void linkWarehouseStore(int warehouseId, int storeId) throws WarehouseNotFoundException, StoreNotFoundException {
+
+        if(getWarehouse(warehouseId)==null){
+            throw new WarehouseNotFoundException("Warehouse with id "+warehouseId+" does not exist.");
+        }
+
+        if(getStore(storeId)==null){
+            throw new StoreNotFoundException("Warehouse with id "+warehouseId+" does not exist.");
+        }
+
         getWarehouse(warehouseId).addStore(getStore(storeId));
         getStore(storeId).setWarehouse(getWarehouse(warehouseId));
     }
@@ -175,7 +189,11 @@ public class Superstore implements Serializable{
 
     public Warehouse getWarehouse(int id) {
 
-        if(id==-1){
+//        if(id==-1){
+//            return null;
+//        }
+
+        if(!warehouseHashMap.containsKey(id)){
             return null;
         }
 
@@ -184,7 +202,11 @@ public class Superstore implements Serializable{
 
     public Store getStore(int id) {
 
-        if(id==-1){
+//        if(id==-1){
+//            return null;
+//        }
+
+        if(!storeHashMap.containsKey(id)){
             return null;
         }
 

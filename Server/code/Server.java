@@ -1,6 +1,8 @@
 import classes.*;
 import exceptions.CredentialNotPresentException;
+import exceptions.StoreNotFoundException;
 import exceptions.UsernameAlreadyExistsException;
+import exceptions.WarehouseNotFoundException;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -47,6 +49,18 @@ public class Server{
         private Credential credential;
         private String string;
         private Store store;
+        private Warehouse warehouse;
+        private int integer;
+        private int integer1;
+
+        public void resetSession(){
+
+            registeredSession=false;
+            registeredUser=null;
+            credential=null;
+            string=null;
+            store=null;
+        }
 
         public Session(Socket client, Superstore superstore) {
 
@@ -155,6 +169,41 @@ public class Server{
                             response.getObjects().add(false);
                         }
 
+                        break;
+
+                    case "create_warehouse":
+                        string=(String)message.getObjects().get(0);
+                        integer=superstore.createWarehouse(string,null);
+                        response.getObjects().add(integer);
+                        break;
+
+                    case "create_store":
+                        string=(String)message.getObjects().get(0);
+                        integer=superstore.createStore(string,null);
+                        response.getObjects().add(integer);
+                        break;
+
+                    case "link_warehouse_store":
+                        integer=(Integer)message.getObjects().get(0); // warehouseId
+                        integer1=(Integer)message.getObjects().get(1); // storeId
+
+                        try {
+                            superstore.linkWarehouseStore(integer,integer1);
+                            response.getObjects().add(true);
+                        } catch (WarehouseNotFoundException e) {
+                            response.getObjects().add(false);
+                        } catch (StoreNotFoundException e) {
+                            response.getObjects().add(false);
+                        }
+                        break;
+
+                    case "logout":
+                        resetSession();
+                        break;
+
+                    case "exit":
+                        endSession=true;
+                        break;
 
                 }
 
