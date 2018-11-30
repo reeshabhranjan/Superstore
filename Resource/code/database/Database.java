@@ -1,11 +1,23 @@
 package database;
 
+import javafx.scene.control.TreeView;
+
 import java.io.Serializable;
 
 public class Database implements Serializable {
 
     private CategoryTree categoryTree;
     private double revenue;
+    private TreeView<CategoryDetail> treeView;
+
+    public TreeView<CategoryDetail> generateTreeView(){
+
+        treeView=new TreeView<>();
+        //TODO call a recursive function on root (TreeItem) and assign it to treeView's root
+        return treeView;
+    }
+
+    //TODO create a recursive function with return type TreeItem (iterate on categoryTree for recursion)
 
     public Database() {
         this.categoryTree = new CategoryTree();
@@ -27,6 +39,7 @@ public class Database implements Serializable {
         categoryTree.addCategory(categoryPath);
         Category category = categoryTree.getCategory(categoryPath);
         category.addProduct(product);
+        //TODO create addCategory method (should assign categoryPath to the created category)
     }
 
     public void delete(String path){
@@ -54,6 +67,8 @@ public class Database implements Serializable {
 
             category.deleteSubCategory(productName);
         }
+
+        //TODO create deleteCategory method
     }
 
     public Product searchProduct(String name){

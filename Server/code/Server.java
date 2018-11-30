@@ -42,6 +42,11 @@ public class Server{
         private boolean endSession;
         private Socket client;
         private RegisteredUser registeredUser;
+        private Message message=null;
+        private Message response=new Message();
+        private Credential credential;
+        private String string;
+        private Store store;
 
         public Session(Socket client, Superstore superstore) {
 
@@ -82,12 +87,6 @@ public class Server{
         public void run() {
 
             while(!endSession){
-
-                Message message=null;
-                Message response=new Message();
-                Credential credential;
-                String string;
-                RegisteredUser registeredUser;
 
                 try {
                     if(inputStream.available()==0){
