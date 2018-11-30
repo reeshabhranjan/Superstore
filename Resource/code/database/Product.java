@@ -116,4 +116,16 @@ public class Product implements Serializable {
         this.setH(newProduct.getH());
         this.setK(newProduct.getK());
     }
+
+    @Override
+    public String toString(){
+        return (this.name+":\\u20B9"+this.price);
+    }
+
+    public String getBasicDetails(){
+        StringBuilder stringBuilder=new StringBuilder(name);
+        stringBuilder.append("\n"+price);
+        stringBuilder.append("\n"+stockCount);
+        return stringBuilder.toString();
+    }
 }

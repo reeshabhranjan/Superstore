@@ -28,4 +28,12 @@ public class WarehouseAdmin extends RegisteredUser implements Serializable {
     public void update(RegisteredUser registeredUser) {
 
     }
+
+    public Warehouse getWarehouse() {
+        return warehouse;
+    }
+
+    public ArrayList<Warehouse> getWarehouseList() {
+        return warehouseList;
+    }
 }

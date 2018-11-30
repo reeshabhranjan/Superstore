@@ -272,4 +272,17 @@ public class Superstore implements Serializable{
 
         return endUserHashMap.get(credential);
     }
+
+    public ArrayList<String> reflectionOf(ArrayList<?> objects){
+
+//        ArrayList<Object> objects=(ArrayList<Object>)object;
+        ArrayList<String> reflection=new ArrayList<>();
+
+        for (Object object1 :
+                objects) {
+            reflection.add(object1.toString());
+        }
+
+        return reflection;
+    }
 }

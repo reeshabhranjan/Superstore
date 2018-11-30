@@ -1,5 +1,6 @@
 package database;
 
+import exceptions.ProductNotFoundException;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
@@ -91,20 +92,32 @@ public class Database implements Serializable {
         //TODO create deleteCategory method
     }
 
-    public Product searchProduct(String name){
+    public Product searchProduct(String name) throws ProductNotFoundException {
 
         Product product=null;
 
         product=categoryTree.searchProduct(name,false);
 
+        if(product==null){
+            throw new ProductNotFoundException("Product: "+name+" not found in the database.");
+        }
+
         return product;
     }
 
-    public void modifyProduct(String productName,Product newProduct){
+    public void modifyProduct(String productName,Product newProduct) throws ProductNotFoundException {
 
         Product product=null;
 
         product=searchProduct(productName);
         product.update(newProduct);
+    }
+
+    public Category getCategory(String path){
+
+        Category category=null;
+
+        category=categoryTree.getCategory(path);
+        return category;
     }
 }

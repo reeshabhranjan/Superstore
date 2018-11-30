@@ -18,6 +18,27 @@ public class Store implements Serializable {
         this.id=id;
         this.name=name;
         this.admin=admin;
+        database=new Database();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public StoreAdmin getAdmin() {
+        return admin;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Warehouse getWarehouse() {
+        return warehouse;
+    }
+
+    public Database getDatabase() {
+        return database;
     }
 
     public void setWarehouse(Warehouse warehouse) {
@@ -52,5 +73,11 @@ public class Store implements Serializable {
         if(product.getStockCount()==0){
             //TODO request warehouse for more products.
         }
+    }
+
+    @Override
+    public String toString() {
+
+        return (this.name+":"+this.id);
     }
 }

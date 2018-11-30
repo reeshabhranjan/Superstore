@@ -9,7 +9,7 @@ public final class CategoryTree implements Serializable {
 
     public CategoryTree() {
 
-        root = new Category("");
+        root = new Category("","");
     }
 
     public Category getRoot() {

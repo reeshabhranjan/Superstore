@@ -24,4 +24,8 @@ public class StoreAdmin extends RegisteredUser implements Serializable {
     public void update(RegisteredUser registeredUser) {
 
     }
+
+    public Store getStore() {
+        return store;
+    }
 }

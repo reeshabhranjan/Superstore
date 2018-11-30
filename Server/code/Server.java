@@ -1,8 +1,8 @@
 import classes.*;
-import exceptions.CredentialNotPresentException;
-import exceptions.StoreNotFoundException;
-import exceptions.UsernameAlreadyExistsException;
-import exceptions.WarehouseNotFoundException;
+import database.Category;
+import database.Product;
+import exceptions.*;
+import javafx.scene.control.TreeView;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -44,14 +44,17 @@ public class Server{
         private boolean endSession;
         private Socket client;
         private RegisteredUser registeredUser;
-        private Message message=null;
-        private Message response=new Message();
         private Credential credential;
         private String string;
         private Store store;
         private Warehouse warehouse;
         private int integer;
         private int integer1;
+        private Product product;
+        private Product product1;
+        private ArrayList<String> stringArrayList;
+        private TreeView<String> treeView;
+        private Category category;
 
         public void resetSession(){
 
@@ -102,6 +105,9 @@ public class Server{
 
             while(!endSession){
 
+                Message message=null;
+                Message response=new Message();
+
                 try {
                     if(inputStream.available()==0){
                         continue;
@@ -116,6 +122,8 @@ public class Server{
 
                 switch (message.getOpcode()){
 
+                    // Generic methods
+
                     case "register_end_user":
                         credential=(Credential)message.getObjects().get(0);
                         string=(String)message.getObjects().get(1);
@@ -129,6 +137,30 @@ public class Server{
                         }
 
                         break;
+
+                    case "login":
+                        credential=(Credential)message.getObjects().get(0);
+                        try {
+                            registeredUser=superstore.getRegisteredUser(credential);
+                            this.registeredSession=true;
+                            response.getObjects().add(true);
+                            response.getObjects().add(registeredUser);
+                        } catch (CredentialNotPresentException e) {
+                            response.getObjects().add(false);
+                        }
+
+                        break;
+
+                    case "logout":
+                        registeredSession=false;
+                        resetSession();
+                        break;
+
+                    case "exit":
+                        endSession=true;
+                        break;
+
+                    // Superuser methods
 
                     case "register_warehouse_admin":
                         credential=(Credential)message.getObjects().get(0);
@@ -153,19 +185,6 @@ public class Server{
                             response.getObjects().add(true);
 
                         } catch (UsernameAlreadyExistsException e) {
-                            response.getObjects().add(false);
-                        }
-
-                        break;
-
-                    case "login":
-                        credential=(Credential)message.getObjects().get(0);
-                        try {
-                            registeredUser=superstore.getRegisteredUser(credential);
-                            this.registeredSession=true;
-                            response.getObjects().add(true);
-                            response.getObjects().add(registeredUser);
-                        } catch (CredentialNotPresentException e) {
                             response.getObjects().add(false);
                         }
 
@@ -197,14 +216,92 @@ public class Server{
                         }
                         break;
 
-                    case "logout":
-                        resetSession();
+                    // Warehouse admin methods
+
+                    //TODO case for updation and deletion of categories, subcategories and items
+
+                    case "warehouse_admin_get_product":
+                        string=(String)message.getObjects().get(0); //name of product
+                        try {
+                            product=((WarehouseAdmin)registeredUser).getWarehouse().getDatabase().searchProduct(string);
+                            response.getObjects().add(true);
+                            response.getObjects().add(product);
+                        } catch (ProductNotFoundException e) {
+                            response.getObjects().add(false);
+                        }
+
                         break;
 
-                    case "exit":
-                        endSession=true;
+                    case "warehouse_admin_update_product":
+                        product1=(Product)message.getObjects().get(0);
+                        product.update(product1);
                         break;
 
+                    //TODO case for Order handling from stores
+
+                    //Store admin methods
+
+                    //TODO case for managing categories and subcategories of items in the store
+                    //TODO case for addition, updation and deletion
+
+                    case "store_admin_get_product":
+                        string=(String)message.getObjects().get(0);
+
+                        try {
+                            product=((StoreAdmin)registeredUser).getStore().getDatabase().searchProduct(string);
+                            response.getObjects().add(true);
+                            response.getObjects().add(product);
+                        } catch (ProductNotFoundException e) {
+                            response.getObjects().add(false);
+                        }
+
+                        break;
+
+                    case "store_admin_update_product":
+                        product1=(Product)message.getObjects().get(0);
+                        product.update(product1);
+                        break;
+
+                    // Enduser methods
+
+                    case "enduser_get_store_list":
+                        stringArrayList=superstore.reflectionOf(superstore.getStoreList());
+                        response.getObjects().add(stringArrayList);
+                        break;
+
+                    case "enduser_get_treeview":
+                        integer=(Integer) message.getObjects().get(0); // storeId
+                        store=superstore.getStore(integer);
+                        treeView=store.getDatabase().generateTreeView();
+                        response.getObjects().add(treeView);
+                        break;
+
+                    case "enduser_get_product_list":
+                        string=(String) message.getObjects().get(0); // categoryPath
+                        category=store.getDatabase().getCategory(string); // assuming store field is already initialized (logically it should be)
+                        stringArrayList=superstore.reflectionOf(category.getProductArrayList());
+                        response.getObjects().add(stringArrayList);
+                        break;
+
+                    case "enduser_get_product":
+                        string=(String) message.getObjects().get(0); //productName
+                        try {
+                            product=store.getDatabase().searchProduct(string);
+                            response.getObjects().add(true);
+                            response.getObjects().add(product.getBasicDetails());
+                        } catch (ProductNotFoundException e) {
+                            response.getObjects().add(false);
+                        }
+                        break;
+
+                    case "enduser_add_to_cart":
+                        integer=(Integer) message.getObjects().get(0);
+                        ((EndUser)registeredUser).addItem(product,integer);
+                        break;
+
+                    case "enduser_checkout":
+                        ((EndUser)registeredUser).checkout(store);
+                        break;
                 }
 
                 try {
