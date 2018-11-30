@@ -1,4 +1,7 @@
 import classes.*;
+import exceptions.CredentialNotPresentException;
+import exceptions.UsernameAlreadyExistsException;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -85,6 +88,7 @@ public class Superstore implements Serializable{
     private HashMap<Credential, EndUser> endUserHashMap;
     private HashMap<Credential, WarehouseAdmin> warehouseAdminHashMap;
     private HashMap<Credential, StoreAdmin> storeAdminHashMap;
+    private HashMap<String, Credential> usernameCredentialHashmap;
     private int endUserCount,warehouseAdminCount,storeAdminCount,storeCount,warehouseCount,registeredUserCount;
     //TODO can add a log-history of the superstore.
 
@@ -133,19 +137,29 @@ public class Superstore implements Serializable{
         getStore(storeId).setWarehouse(getWarehouse(warehouseId));
     }
 
-    public void addWarehouseAdmin(String name, int warehouseId, Credential credential) {
+    public void addWarehouseAdmin(String name, int warehouseId, Credential credential) throws UsernameAlreadyExistsException {
+
+        if(usernameCredentialHashmap.containsKey(credential.getUsername())){
+            throw new UsernameAlreadyExistsException("Username is already taken.");
+        }
 
         WarehouseAdmin warehouseAdmin = new WarehouseAdmin(credential, name, ++this.warehouseAdminCount, getWarehouse(warehouseId),getWarehouseList());
         registeredUserHashMap.put(credential, warehouseAdmin);
         warehouseAdminHashMap.put(credential, warehouseAdmin);
+        usernameCredentialHashmap.put(credential.getUsername(),credential);
         ++this.registeredUserCount;
     }
 
-    public void addStoreAdmin(String name, int storeId, Credential credential) {
+    public void addStoreAdmin(String name, int storeId, Credential credential) throws UsernameAlreadyExistsException {
+
+        if(usernameCredentialHashmap.containsKey(credential.getUsername())){
+            throw new UsernameAlreadyExistsException("Username is already taken.");
+        }
 
         StoreAdmin storeAdmin = new StoreAdmin(credential, name, ++this.storeAdminCount, getStore(storeId));
         registeredUserHashMap.put(credential, storeAdmin);
         storeAdminHashMap.put(credential, storeAdmin);
+        usernameCredentialHashmap.put(credential.getUsername(),credential);
         ++this.registeredUserCount;
     }
 
@@ -160,22 +174,41 @@ public class Superstore implements Serializable{
     }
 
     public Warehouse getWarehouse(int id) {
+
+        if(id==-1){
+            return null;
+        }
+
         return warehouseHashMap.get(id);
     }
 
     public Store getStore(int id) {
+
+        if(id==-1){
+            return null;
+        }
+
         return storeHashMap.get(id);
     }
 
-    public void addEndUser(Credential credential, String name) {
+    public void addEndUser(Credential credential, String name) throws UsernameAlreadyExistsException {
+
+        if(usernameCredentialHashmap.containsKey(credential.getUsername())){
+            throw new UsernameAlreadyExistsException("Username is already taken.");
+        }
 
         EndUser endUser = new EndUser(credential, name, ++this.endUserCount);
         registeredUserHashMap.put(credential, endUser);
         endUserHashMap.put(credential, endUser);
+        usernameCredentialHashmap.put(credential.getUsername(),credential);
         ++this.registeredUserCount;
     }
 
-    public RegisteredUser getRegisteredUser(Credential credential){
+    public RegisteredUser getRegisteredUser(Credential credential) throws CredentialNotPresentException {
+
+        if(!registeredUserHashMap.containsKey(credential)){
+            throw new CredentialNotPresentException("Credentials not present in the database.");
+        }
         return registeredUserHashMap.get(credential);
     }
 

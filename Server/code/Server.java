@@ -1,8 +1,10 @@
 import classes.*;
+import exceptions.CredentialNotPresentException;
+import exceptions.UsernameAlreadyExistsException;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -33,8 +35,8 @@ public class Server{
 
     private static class Session implements Runnable {
 
-        private DataOutputStream outputStream;
-        private DataInputStream inputStream;
+        private ObjectOutputStream outputStream;
+        private ObjectInputStream inputStream;
         private volatile Superstore superstore;
         private boolean registeredSession;
         private boolean endSession;
@@ -47,8 +49,9 @@ public class Server{
             this.inputStream=null;
 
             try{
-                this.outputStream=new DataOutputStream(client.getOutputStream());
-                this.inputStream=new DataInputStream(client.getInputStream());
+                this.outputStream=new ObjectOutputStream(client.getOutputStream());
+                this.inputStream=new ObjectInputStream(client.getInputStream());
+                throw new IOException();
             }
 
             catch (IOException ioe) {
@@ -80,59 +83,91 @@ public class Server{
 
             while(!endSession){
 
+                Message message=null;
+                Message response=new Message();
+                Credential credential;
+                String string;
+                RegisteredUser registeredUser;
+
+                try {
+                    if(inputStream.available()==0){
+                        continue;
+                    }
+
+                    else{
+                        message=(Message)inputStream.readObject();
+                    }
+                } catch (IOException | ClassNotFoundException e) {
+                    System.err.println("Error while reading input stream.");
+                }
+
+                switch (message.getOpcode()){
+
+                    case "register_end_user":
+                        credential=(Credential)message.getObjects().get(0);
+                        string=(String)message.getObjects().get(1);
+
+                        try {
+                            superstore.addEndUser(credential,string);
+                            response.getObjects().add(true);
+
+                        } catch (UsernameAlreadyExistsException e) {
+                            response.getObjects().add(false);
+                        }
+
+                        break;
+
+                    case "register_warehouse_admin":
+                        credential=(Credential)message.getObjects().get(0);
+                        string=(String)message.getObjects().get(1);
+
+                        try {
+                            superstore.addWarehouseAdmin(string,-1,credential);
+                            response.getObjects().add((Boolean)true);
+
+                        } catch (UsernameAlreadyExistsException e) {
+                            response.getObjects().add((Boolean)false);
+                        }
+
+                        break;
+
+                    case "register_store_admin":
+                        credential=(Credential)message.getObjects().get(0);
+                        string=(String)message.getObjects().get(1);
+
+                        try {
+                            superstore.addStoreAdmin(string,-1,credential);
+                            response.getObjects().add(true);
+
+                        } catch (UsernameAlreadyExistsException e) {
+                            response.getObjects().add(false);
+                        }
+
+                        break;
+
+                    case "login":
+                        credential=(Credential)message.getObjects().get(0);
+                        try {
+                            registeredUser=superstore.getRegisteredUser(credential);
+                            this.registeredSession=true;
+                            response.getObjects().add(true);
+                            response.getObjects().add(registeredUser);
+                        } catch (CredentialNotPresentException e) {
+                            response.getObjects().add(false);
+                        }
+
+
+                }
+
+                try {
+                    outputStream.writeObject(response);
+                } catch (IOException e) {
+                    System.err.println("Error writing into the output stream.");
+                }
 
                 // Once the command for login comes, login() will be called and registeredSession, registeredUser will be set
                 // Here the commands will be accepted.
             }
         }
-
-        public void registerEndUser(Credential credential,String name){
-            superstore.addEndUser(credential,name);
-        }
-
-        public void registerWarehouseAdmin(Credential credential,String name, int warehouseId){
-            superstore.addWarehouseAdmin(name,warehouseId,credential);
-        }
-
-        public void registerStoreAdmin(Credential credential, String name, int storeId){
-            superstore.addStoreAdmin(name,storeId,credential);
-        }
-
-        public RegisteredUser login(Credential credential){
-
-            RegisteredUser registeredUser=null;
-
-            registeredUser=superstore.getRegisteredUser(credential);
-
-            return registeredUser;
-        }
-
-        public void createWarehouse(String name, WarehouseAdmin warehouseAdmin){
-
-            superstore.createWarehouse(name,warehouseAdmin);
-        }
-
-        public void  createStore(String name, StoreAdmin storeAdmin){
-            superstore.createStore(name,storeAdmin);
-        }
-
-        public void linkWarehouseStore(int warehouseId, int storeId){
-            superstore.linkWarehouseStore(warehouseId,storeId);
-        }
-
-        public void updateRegisterdUser(RegisteredUser registeredUser){
-
-            registeredUser.update(registeredUser);
-        }
-
-        public ArrayList<Store> getStoreList(){
-            return superstore.getStoreList();
-        }
-
-        public Store getStore(int storeId){
-            return superstore.getStore(storeId);
-        }
-
-
     }
 }

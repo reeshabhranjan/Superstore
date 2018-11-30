@@ -3,15 +3,20 @@ package classes;
 import java.util.ArrayList;
 
 public class Message {
-    private int opcode;
+    private String opcode;
     private ArrayList objects;
 
-    public Message(int opcode, ArrayList objects) {
+    public Message(String opcode, ArrayList objects) {
         this.opcode = opcode;
         this.objects = objects;
     }
 
-    public void setOpcode(int opcode) {
+    public Message() {
+        opcode=null;
+        objects=new ArrayList();
+    }
+
+    public void setOpcode(String opcode) {
         this.opcode = opcode;
     }
 
@@ -19,7 +24,7 @@ public class Message {
         this.objects = objects;
     }
 
-    public int getOpcode() {
+    public String getOpcode() {
         return opcode;
     }
 
