@@ -285,4 +285,30 @@ public class Superstore implements Serializable{
 
         return reflection;
     }
+    
+    public ArrayList<Warehouse> getUnassignedWarehouses(){
+        ArrayList<Warehouse> warehouses=new ArrayList<>();
+
+        for (Warehouse warehouse :
+                warehouseHashMap.values()) {
+            if(warehouse.getAdmin()==null){
+                warehouses.add(warehouse);
+            }
+        }
+        
+        return warehouses;
+    }
+
+    public ArrayList<Store> getUnassignedStores(){
+        ArrayList<Store> stores=new ArrayList<>();
+
+        for (Store store :
+                storeHashMap.values()) {
+            if(store.getAdmin()==null){
+                stores.add(store);
+            }
+        }
+
+        return stores;
+    }
 }

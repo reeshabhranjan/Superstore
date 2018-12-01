@@ -128,7 +128,7 @@ public class Product implements Serializable {
 
     @Override
     public String toString(){
-        return (this.name+":\\u20B9"+this.price);
+        return (this.name+" | \\u20B9 "+this.price);
     }
 
     public String getBasicDetails(){

@@ -53,7 +53,7 @@ public class Server{
         private int integer1;
         private Product product;
         private Product product1;
-        private ArrayList<String> stringArrayList;
+        private ArrayList<String> stringArrayList,stringArrayList1;
         private TreeView<String> treeView;
         private Category category;
 
@@ -114,7 +114,7 @@ public class Server{
         @Override
         public void run() {
 
-            System.out.println("waiting for request");
+//            System.out.println("waiting for request");
 
             while(!endSession){
 
@@ -244,9 +244,61 @@ public class Server{
                         }
                         break;
 
+                    case "link_admin_warehouse_page":
+                        stringArrayList=superstore.reflectionOf(superstore.getUnassignedStores());
+                        stringArrayList1=superstore.reflectionOf(superstore.getStoreAdminList());
+                        response.getObjects().add(stringArrayList);
+                        response.getObjects().add(stringArrayList1);
+                        break;
+
+                    case "link_admin_store_page":
+                        stringArrayList=superstore.reflectionOf(superstore.getUnassignedWarehouses());
+                        stringArrayList1=superstore.reflectionOf(superstore.getWarehouseAdminList());
+                        response.getObjects().add(stringArrayList);
+                        response.getObjects().add(stringArrayList1);
+                        break;
+
+                    case "su_get_warehouse_list":
+                        stringArrayList=superstore.reflectionOf(superstore.getWarehouseList());
+                        response.getObjects().add(stringArrayList);
+                        break;
+
+                    case "su_get_store_list":
+                        stringArrayList=superstore.reflectionOf(superstore.getStoreList());
+                        response.getObjects().add(stringArrayList);
+                        break;
+
+                    case "su_get_warehouse_treeview":
+                        integer=(Integer)message.getObjects().get(0);
+                        warehouse=superstore.getWarehouse(integer);
+                        treeView=warehouse.getDatabase().generateTreeView();
+                        response.getObjects().add(treeView);
+                        break;
+
+                    case "su_get_store_treeview":
+                        integer=(Integer)(message.getObjects().get(0));
+                        store=superstore.getStore(integer);
+                        treeView=store.getDatabase().generateTreeView();
+                        response.getObjects().add(treeView);
+
+                    case "su_get_profile":
+                        //TODO do we really require a profile page for superuser, or just keep its username, password a constant?
+                        break;
+
                     // Warehouse admin methods
 
                     //TODO case for updation and deletion of categories, subcategories and items
+
+                    case "warehouse_admin_get_treeview":
+                        treeView=warehouse.getDatabase().generateTreeView(); // TODO make sure that warehouse is already set
+                        response.getObjects().add(treeView);
+                        break;
+
+                    case "warehouse_admin_get_product_list":
+                        string=(String)message.getObjects().get(0); //category path
+                        stringArrayList=superstore.reflectionOf(warehouse.getDatabase().getCategory(string).getProductArrayList());
+                        response.getObjects().add(stringArrayList);
+                        break;
 
                     case "warehouse_admin_get_product":
                         string=(String)message.getObjects().get(0); //name of product
@@ -265,12 +317,32 @@ public class Server{
                         product.update(product1);
                         break;
 
+                    case "warehouse_admin_profile":
+                        response.getObjects().add((WarehouseAdmin)registeredUser);
+                        break;
+
                     //TODO case for Order handling from stores
 
                     //Store admin methods
 
                     //TODO case for managing categories and subcategories of items in the store
                     //TODO case for addition, updation and deletion
+
+                    case "store_admin_get_treeview":
+                        treeView=store.getDatabase().generateTreeView();
+                        response.getObjects().add(treeView);
+                        break;
+
+                    case "store_admin_get_product_list":
+                        string=(String)message.getObjects().get(0); //categoryPath
+                        category=store.getDatabase().getCategory(string);
+                        stringArrayList=superstore.reflectionOf(category.getProductArrayList());
+                        response.getObjects().add(stringArrayList);
+                        break;
+
+                    case "store_admin_profile":
+                        response.getObjects().add((StoreAdmin)registeredUser);
+                        break;
 
                     case "store_admin_get_product":
                         string=(String)message.getObjects().get(0);
@@ -336,6 +408,12 @@ public class Server{
                             response.getObjects().add(e.getMessage());
                         }
                         break;
+
+                    case "enduser_profile":
+                        response.getObjects().add((EndUser)registeredUser);
+                        break;
+
+                    // For debugging purposes only
 
                     case "debugging":
                         System.out.println("Debugging case invoked.");
