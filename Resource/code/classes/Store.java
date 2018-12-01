@@ -92,6 +92,6 @@ public class Store implements Serializable {
     @Override
     public String toString() {
 
-        return (this.name+":"+this.id);
+        return (this.name+" | "+this.id);
     }
 }
