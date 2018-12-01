@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="721.0" style="-fx-background-color: #E2E2E4;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+    <children>
+      <Pane layoutX="92.0" layoutY="105.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Pane layoutX="-29.0" layoutY="-53.0" prefHeight="355.0" prefWidth="336.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Label layoutX="39.0" layoutY="136.0" prefHeight="83.0" prefWidth="232.0" text="Register">
+                     <font>
+                        <Font name="Calibri Bold" size="64.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+         </children></Pane>
+        <Pane layoutX="359.0" layoutY="21.0" prefHeight="418.0" prefWidth="336.0" style="-fx-background-color: #303030;" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="359.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="21.0">
+            <children>
+                <TextField fx:id="nameTextField" layoutX="32.0" layoutY="162.0" prefHeight="31.0" prefWidth="279.0" promptText="Name" style="-fx-background-color: #202020; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #FFFFFF;" />
+                <Button fx:id="registerButton" layoutX="32.0" layoutY="334.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="31.0" prefWidth="279.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Register" />
+                <Label alignment="CENTER" layoutX="29.0" layoutY="58.0" prefHeight="66.0" prefWidth="279.0" text="Infinity Store" textFill="WHITE">
+                    <font>
+                        <Font name="Calibri Light" size="36.0" />
+                    </font>
+                </Label>
+            <PasswordField fx:id="passwordTextField" layoutX="32.0" layoutY="281.0" prefHeight="31.0" prefWidth="279.0" promptText="Password" style="-fx-background-color: #202020; -fx-background-radius: 20; -fx-background-insets: 0; -fx-text-fill: #FFFFFF;" />
+            <TextField fx:id="usernameTextField" layoutX="32.0" layoutY="224.0" prefHeight="31.0" prefWidth="279.0" promptText="Username" style="-fx-background-color: #202020; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #FFFFFF;" />
+            </children>
+         <effect>
+            <DropShadow height="151.35" radius="72.92" width="142.33" />
+         </effect>
+        </Pane>
+    </children>
+</AnchorPane>

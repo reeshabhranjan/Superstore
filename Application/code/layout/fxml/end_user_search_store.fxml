@@ -113,7 +113,7 @@
                                 <Image url="@../images/search.png" />
                             </image>
                         </ImageView>
-                        <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="10.0" prefHeight="20.0" prefWidth="100.0" text="Browse classes.Store" textFill="#d3cbcb">
+                        <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="10.0" prefHeight="20.0" prefWidth="100.0" text="Browse Store" textFill="#d3cbcb">
                             <font>
                                 <Font name="Calibri" size="14.0" />
                             </font>

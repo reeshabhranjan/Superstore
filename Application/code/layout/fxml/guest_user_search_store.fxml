@@ -72,12 +72,12 @@
         </Pane>
         <Pane prefHeight="500.0" prefWidth="225.0" style="-fx-background-color: #32373D;">
             <children>
-                <Label layoutX="50.0" layoutY="14.0" text="Infinity classes.Store" textFill="WHITE">
+                <Label layoutX="50.0" layoutY="14.0" text="Infinity Store" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="24.0" />
                     </font>
                 </Label>
-                <Pane fx:id="browseStore" layoutX="12.0" layoutY="101.0" onMouseClicked="#showBrowserStorePanel" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #007ED9;" styleClass="navigation-button">
+                <Pane fx:id="browseStore" layoutX="12.0" layoutY="101.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #007ED9;" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>

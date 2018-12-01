@@ -2,9 +2,9 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TreeView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -59,28 +59,12 @@
                     </children></Pane>
             <Pane layoutY="76.0" prefHeight="425.0" prefWidth="575.0" style="-fx-background-color: #EFF3F6;">
                <children>
-                  <Label alignment="CENTER" layoutY="31.0" prefHeight="44.0" prefWidth="575.0" styleClass="heading-bar" text="Sort By">
-                     <font>
-                        <Font name="Calibri" size="24.0" />
-                     </font>
-                  </Label>
-                  <Pane layoutY="75.0" prefHeight="350.0" prefWidth="575.0">
-                     <children>
-                        <ScrollPane prefHeight="350.0" prefWidth="575.0">
-                           <content>
-                              <TableView fx:id="databaseTable" prefHeight="348.0" prefWidth="573.0">
-                                <columns>
-                                  <TableColumn fx:id="productNameColumn" prefWidth="75.0" text="Product Name" />
-                                  <TableColumn fx:id="categoryNameColumn" prefWidth="75.0" text="Category Name" />
-                                    <TableColumn fx:id="productPriceColumn" prefWidth="75.0" text="Price" />
-                                </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                           </content>
-                        </ScrollPane>
-                     </children></Pane>
+                  <ScrollPane layoutY="1.0" prefHeight="425.0" prefWidth="294.0">
+                     <content>
+                        <TreeView prefHeight="450.0" prefWidth="322.0" />
+                     </content>
+                  </ScrollPane>
+                  <ListView fx:id="productsListView" layoutX="294.0" layoutY="1.0" prefHeight="425.0" prefWidth="281.0" />
                </children>
             </Pane>
             </children>

@@ -1,8 +1,9 @@
 package classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Message {
+public class Message implements Serializable {
     private String opcode;
     private ArrayList objects;
 

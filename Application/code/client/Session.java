@@ -24,7 +24,6 @@ public class Session {
     public void sendData(Message message)
     {
         try {
-            out = new ObjectOutputStream(server.getOutputStream());
             out.writeObject(message);
         } catch (IOException e) {
             e.printStackTrace();

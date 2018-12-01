@@ -1,6 +1,7 @@
 package controller;
 
 import classes.Credential;
+import client.App;
 import client.Client;
 import database.Database;
 import javafx.event.ActionEvent;
@@ -20,6 +21,9 @@ import java.util.ResourceBundle;
 public class LoginController extends Controller{
 
     private Client client;
+
+    @FXML
+    private TextField nameTextField;
 
     @FXML
     private TextField usernameTextField;
@@ -54,14 +58,42 @@ public class LoginController extends Controller{
     public void login(MouseEvent event) throws java.io.IOException
     {
         Credential credential;
-        if(textFieldValidator()) {
+        if(textFieldValidator() && loginComboBox.getValue()!=null) {
             credential=new Credential(usernameTextField.getText(),passwordTextField.getText());
-            app.login(credential);
+//            System.out.println(app);
+            App.login(credential);
         }
         else
         {
             //TODO Invalid input popup.
         }
+    }
 
+    @FXML
+    public void register(MouseEvent event) throws java.io.IOException
+    {
+        Credential credential;
+        String name = nameTextField.getText();
+        if(textFieldValidator() && !name.equals("")) {
+            credential=new Credential(usernameTextField.getText(),passwordTextField.getText());
+//            System.out.println(app);
+            App.register(credential,name);
+        }
+        else
+        {
+            //TODO Invalid input popup.
+        }
+    }
+
+    @FXML
+    public void showRegisterPanel(MouseEvent event) throws java.io.IOException
+    {
+        App.loadScreen("end_user_register","Register");
+    }
+
+    @FXML
+    public void showGuestUserDashboardPanel(MouseEvent event) throws java.io.IOException
+    {
+        App.loadScreen("guest_user_dashboard","Dashboard");
     }
 }

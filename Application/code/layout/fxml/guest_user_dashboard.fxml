@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #EFF3F6;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EndUserDashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #EFF3F6;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GuestUserController">
     <children>
         <Pane layoutX="225.0" prefHeight="500.0" prefWidth="575.0" style="-fx-background-color: #EFF3F6;">
             <children>
@@ -42,7 +42,7 @@
                         <Font name="Calibri" size="24.0" />
                     </font>
                 </Label>
-                <Pane fx:id="browseStore" layoutX="12.0" layoutY="101.0" onMouseClicked="#showBrowserStorePanel" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="browseStore" layoutX="12.0" layoutY="101.0" onMouseClicked="#showSearchStorePanel" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
