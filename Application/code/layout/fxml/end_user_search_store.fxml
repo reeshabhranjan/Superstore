@@ -59,37 +59,7 @@
                     </children></Pane>
                 <Pane layoutY="75.0" prefHeight="425.0" prefWidth="575.0" style="-fx-background-color: #FFFFFF;">
                <children>
-                   <ListView fx:id="storeList" layoutX="98.0" layoutY="101.0" onMouseClicked="#showBrowseStorePanel" prefHeight="282.0" prefWidth="419.0" styleClass="scrollable-list">
-                       <items>
-                           <FXCollections fx:factory="observableArrayList">
-                               <String fx:value="store1" />
-                               <String fx:value="store2" />
-                               <String fx:value="store3" />
-                               <String fx:value="store4" />
-                               <String fx:value="store5" />
-                               <String fx:value="store6" />
-                               <String fx:value="store7" />
-                               <String fx:value="store8" />
-                               <String fx:value="store9" />
-                               <String fx:value="store10" />
-                               <String fx:value="store11" />
-                               <String fx:value="store12" />
-                               <String fx:value="store13" />
-                               <String fx:value="store14" />
-                               <String fx:value="store15" />
-                               <String fx:value="store16" />
-                               <String fx:value="store17" />
-                               <String fx:value="store18" />
-                               <String fx:value="store19" />
-                               <String fx:value="store20" />
-                               <String fx:value="store21" />
-                               <String fx:value="store22" />
-                               <String fx:value="store23" />
-                               <String fx:value="store24" />
-                               <String fx:value="store25" />
-                           </FXCollections>
-                       </items>
-                   </ListView>
+                   <ListView fx:id="storeListView" layoutX="98.0" layoutY="101.0" onMouseClicked="#showBrowseStorePanel" prefHeight="282.0" prefWidth="419.0" styleClass="scrollable-list"/>
                   <Label alignment="CENTER" layoutX="90.0" layoutY="13.0" prefHeight="75.0" prefWidth="427.0" styleClass="heading-bar" text="Select a store">
                      <font>
                         <Font name="Calibri Bold" size="24.0" />

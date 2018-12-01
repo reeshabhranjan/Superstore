@@ -61,7 +61,7 @@
                <children>
                   <ScrollPane layoutY="1.0" prefHeight="425.0" prefWidth="294.0">
                      <content>
-                        <TreeView prefHeight="450.0" prefWidth="322.0" />
+                        <TreeView prefHeight="499.0" prefWidth="360.0" />
                      </content>
                   </ScrollPane>
                   <ListView fx:id="productsListView" layoutX="294.0" layoutY="1.0" prefHeight="425.0" prefWidth="281.0" />
