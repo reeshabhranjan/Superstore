@@ -8,6 +8,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class GuestUserController extends Controller{
 
     @FXML
@@ -17,7 +20,7 @@ public class GuestUserController extends Controller{
     }
 
     @Override
-    public void intialize() {
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
 }

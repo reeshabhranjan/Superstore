@@ -16,10 +16,19 @@ import java.util.ArrayList;
 public class App extends Application {
 
 //    private static RegisteredUser registeredUser;
+    private static Controller controller;
     private static Session session;
     private static Stage primaryStage;
     private static App app;
     private static String userType;
+
+    public static void setController(Controller controller) {
+        App.controller = controller;
+    }
+
+    public static Controller getController() {
+        return controller;
+    }
 
     public static Controller loadScreen(String fileName, String title){
 

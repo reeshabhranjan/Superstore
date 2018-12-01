@@ -47,10 +47,6 @@ public class LoginController extends Controller{
     @FXML
     private ComboBox loginComboBox;
 
-    @Override
-    public void intialize() {
-    }
-
     @FXML
     public void initialize(URL location, ResourceBundle resources)
     {

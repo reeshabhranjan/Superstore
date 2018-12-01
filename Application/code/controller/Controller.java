@@ -12,8 +12,6 @@ public abstract class Controller implements Initializable {
 //    public void setApp(App app) {
 //        this.app = app;
 //    }
-    public abstract void intialize();
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-    }
+    public abstract void initialize(URL location, ResourceBundle resources);
 }

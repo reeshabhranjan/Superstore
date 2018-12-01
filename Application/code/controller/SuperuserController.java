@@ -4,6 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class SuperuserController extends Controller{
         @FXML
         private TextField productNameTextField;
@@ -24,7 +27,7 @@ public class SuperuserController extends Controller{
         private ComboBox loginComboBox;
 
         @Override
-        public void intialize() {
+        public void initialize(URL location, ResourceBundle resources) {
 
         }
 

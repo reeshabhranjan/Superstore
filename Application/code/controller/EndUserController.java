@@ -4,14 +4,17 @@ import classes.Message;
 import client.App;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class EndUserController extends Controller{
+public class EndUserController extends Controller implements Initializable {
         @FXML
         private TextField productNameTextField;
 
@@ -48,10 +51,11 @@ public class EndUserController extends Controller{
         public void showSearchStorePanel(MouseEvent event) throws java.io.IOException
         {
             System.out.println(productsListView);
-            EndUserController endUserController = (EndUserController) App.loadScreen("end_user_search_store","Select Store");
+            App.loadScreen("end_user_search_store","Select Store");
+            EndUserController endUserController = (EndUserController) App.getController();
             System.out.println(endUserController);
-            ListView<String> storelistview = endUserController.storeListView;
-            System.out.println(storelistview);
+//            ListView<String> storelistview = endUserController.storeListView;
+//            System.out.println(storelistview);
 //            storelistview.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 ////            Message storelistServerResponse = App.sendMessage(new Message("enduser_get_store_list",new ArrayList()));
 ////            ArrayList<String> storeDetailsList = (ArrayList<String>) storelistServerResponse.getObjects().get(0);
@@ -129,12 +133,11 @@ public class EndUserController extends Controller{
             App.logout();
         }
 
-
-
         @Override
-        public void intialize() {
-
+        public void initialize(URL location, ResourceBundle resources) {
+            App.setController(this);
         }
+
 //    public void display(MouseEvent event){
 //        label.setText("Browse store!");
 //    }

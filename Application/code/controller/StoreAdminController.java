@@ -7,6 +7,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class StoreAdminController extends Controller{
         @FXML
         private TextField productNameTextField;
@@ -27,7 +30,7 @@ public class StoreAdminController extends Controller{
         private ComboBox loginComboBox;
 
         @Override
-        public void intialize() {
+        public void initialize(URL location, ResourceBundle resources) {
 
         }
 
