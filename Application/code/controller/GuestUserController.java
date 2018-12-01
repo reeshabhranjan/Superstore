@@ -15,4 +15,9 @@ public class GuestUserController extends Controller{
     {
         App.loadScreen("guest_user_search_store","Dashboard");
     }
+
+    @Override
+    public void intialize() {
+
+    }
 }

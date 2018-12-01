@@ -22,6 +22,10 @@ public class LoginController extends Controller{
 
     private Client client;
 
+    public LoginController() {
+        System.out.println("fir");
+    }
+
     @FXML
     private TextField nameTextField;
 
@@ -43,6 +47,15 @@ public class LoginController extends Controller{
     @FXML
     private ComboBox loginComboBox;
 
+    @Override
+    public void intialize() {
+    }
+
+    @FXML
+    public void initialize(URL location, ResourceBundle resources)
+    {
+        System.out.println("party");
+    }
 
 //    public void display(MouseEvent event){
 //        label.setText("Browse store!");

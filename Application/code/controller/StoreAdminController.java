@@ -26,6 +26,11 @@ public class StoreAdminController extends Controller{
         @FXML
         private ComboBox loginComboBox;
 
+        @Override
+        public void intialize() {
+
+        }
+
 
 //    public void display(MouseEvent event){
 //        label.setText("Browse store!");
