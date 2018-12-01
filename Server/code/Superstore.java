@@ -21,6 +21,7 @@ public class Superstore implements Serializable{
     }
 
     private Superstore(){
+        superuser=new Superuser(this);
         // to implement Singleton design pattern
     }
 
@@ -92,6 +93,7 @@ public class Superstore implements Serializable{
     private HashMap<Credential, StoreAdmin> storeAdminHashMap;
     private HashMap<String, Credential> usernameCredentialHashmap;
     private int endUserCount,warehouseAdminCount,storeAdminCount,storeCount,warehouseCount,registeredUserCount;
+    private Superuser superuser;
     //TODO can add a log-history of the superstore.
 
 //    public static Superstore getInstance() {

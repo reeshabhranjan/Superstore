@@ -6,11 +6,29 @@ public abstract class RegisteredUser implements User, Serializable {
     private Credential credential;
     private String name;
     private final int id;
+    private String phoneNumber;
+    private String address;
 
     public RegisteredUser(Credential credential, String name, int id) {
         this.credential=credential;
         this.name=name;
         this.id = id;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public void updateCredentials(Credential credential){
@@ -34,4 +52,11 @@ public abstract class RegisteredUser implements User, Serializable {
     }
 
     public abstract void update(RegisteredUser registeredUser);
+
+    public void updateDetails(RegisteredUser registeredUser){
+        this.credential=registeredUser.credential;
+        this.address=registeredUser.address;
+        this.name=registeredUser.name;
+        this.phoneNumber=registeredUser.phoneNumber;
+    }
 }

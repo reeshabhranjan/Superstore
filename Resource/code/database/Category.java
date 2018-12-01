@@ -154,4 +154,8 @@ public class Category implements Serializable {
     public ArrayList<Category> getCategoryArrayList() {
         return categoryArrayList;
     }
+
+    public void setName(String name) {
+        this.name=name;
+    }
 }

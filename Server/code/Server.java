@@ -1,4 +1,5 @@
 import classes.*;
+import database.Cart;
 import database.Category;
 import database.Product;
 import exceptions.*;
@@ -25,6 +26,7 @@ public class Server{
 
         //TODO deserialize the Superstore here.
 
+        superstore=Superstore.getInstance();
         ServerSocket serverSocket=new ServerSocket(1400);
         ExecutorService executorService= Executors.newFixedThreadPool(4);
 
@@ -44,9 +46,9 @@ public class Server{
         private boolean registeredSession;
         private boolean endSession;
         private Socket client;
-        private RegisteredUser registeredUser;
+        private RegisteredUser registeredUser,registeredUser1;
         private Credential credential;
-        private String string;
+        private String string,string1;
         private Store store;
         private Warehouse warehouse;
         private int integer;
@@ -56,6 +58,7 @@ public class Server{
         private ArrayList<String> stringArrayList,stringArrayList1;
         private TreeView<String> treeView;
         private Category category;
+        private Cart cart;
 
         public void resetSession(){
 
@@ -171,12 +174,21 @@ public class Server{
 
                         break;
 
+                    case "updateProfile":
+                        registeredUser1=(RegisteredUser)(message.getObjects().get(0));
+                        credential=(Credential)(message.getObjects().get(1));
+                        if(registeredUser.authenticate(credential)){
+                            registeredUser.updateDetails(registeredUser1);
+                        }
+                        break;
+
                     case "logout":
                         registeredSession=false;
                         resetSession();
                         break;
 
                     case "exit":
+                        System.out.println("Exit request received.");
                         endSession=true;
                         try{
                             this.outputStream.close();
@@ -317,6 +329,14 @@ public class Server{
                         product.update(product1);
                         break;
 
+                    case "warehouse_admin_update_category":
+                        string=(String)(message.getObjects().get(0)); // categoryPath
+                        string1=(String)(message.getObjects().get(1)); // newCategoryName
+                        category=warehouse.getDatabase().getCategory(string);
+                        category.setName(string1);
+                        response.getObjects().add(warehouse.getDatabase().generateTreeView());
+                        break;
+
                     case "warehouse_admin_profile":
                         response.getObjects().add((WarehouseAdmin)registeredUser);
                         break;
@@ -362,6 +382,14 @@ public class Server{
                         product.update(product1);
                         break;
 
+                    case "store_admin_update_category":
+                        string=(String)(message.getObjects().get(0)); // categoryPath
+                        string1=(String)(message.getObjects().get(1)); // newCategoryName
+                        category=store.getDatabase().getCategory(string);
+                        category.setName(string1);
+                        response.getObjects().add(store.getDatabase().generateTreeView());
+                        break;
+
                     // Enduser methods
 
                     case "enduser_get_store_list":
@@ -387,7 +415,7 @@ public class Server{
                         string=(String) message.getObjects().get(0); //productName
                         try {
                             product=store.getDatabase().searchProduct(string);
-                            response.getObjects().add(true);
+                            response.getObjects().add((Boolean)true);
                             response.getObjects().add(product.getBasicDetails());
                         } catch (ProductNotFoundException e) {
                             response.getObjects().add(false);
@@ -397,6 +425,11 @@ public class Server{
                     case "enduser_add_to_cart":
                         integer=(Integer) message.getObjects().get(0);
                         ((EndUser)registeredUser).addItem(product,integer);
+                        break;
+
+                    case "enduser_get_cart":
+                        stringArrayList=superstore.reflectionOf(cart.getCartItems());
+                        response.getObjects().add(stringArrayList);
                         break;
 
                     case "enduser_checkout":
@@ -413,15 +446,53 @@ public class Server{
                         response.getObjects().add((EndUser)registeredUser);
                         break;
 
+                    // Guest user methods:
+
+                    case "guest_get_store_list":
+                        stringArrayList=superstore.reflectionOf(superstore.getStoreList());
+                        response.getObjects().add(stringArrayList);
+                        break;
+
+                    case "guest_get_treeview":
+                        integer=(Integer) message.getObjects().get(0); // storeId
+                        store=superstore.getStore(integer);
+                        treeView=store.getDatabase().generateTreeView();
+                        response.getObjects().add(treeView);
+                        break;
+
+                    case "guest_get_product_list":
+                        string=(String) message.getObjects().get(0); // categoryPath
+                        category=store.getDatabase().getCategory(string); // assuming store field is already initialized (logically it should be)
+                        stringArrayList=superstore.reflectionOf(category.getProductArrayList());
+                        response.getObjects().add(stringArrayList);
+                        break;
+
+                    case "guest_get_product":
+                        string=(String) message.getObjects().get(0); //productName
+                        try {
+                            product=store.getDatabase().searchProduct(string);
+                            response.getObjects().add(true);
+                            response.getObjects().add(product.getBasicDetails());
+                        } catch (ProductNotFoundException e) {
+                            response.getObjects().add(false);
+                        }
+                        break;
+
                     // For debugging purposes only
 
                     case "debugging":
-                        System.out.println("Debugging case invoked.");
-                        System.out.println("Send the response?");
-                        Scanner sc=new Scanner(System.in);
-                        sc.nextLine();
-                        response.getObjects().add("server responded");
-                        System.out.println("Response sent.");
+//                        System.out.println("Debugging case invoked.");
+//                        System.out.println("Send the response?");
+//                        Scanner sc=new Scanner(System.in);
+//                        sc.nextLine();
+//                        response.getObjects().add("server responded");
+//                        System.out.println("Response sent.");
+
+                        ArrayList<String> arrayList=new ArrayList<>();
+                        arrayList.add("Reeshabh");
+                        arrayList.add("Apurv");
+
+                        response.getObjects().add(arrayList);
                         break;
                 }
 
@@ -434,6 +505,8 @@ public class Server{
                 // Once the command for login comes, login() will be called and registeredSession, registeredUser will be set
                 // Here the commands will be accepted.
             }
+
+            System.out.println("Connection closed.");
         }
     }
 }
