@@ -111,7 +111,8 @@ public class App extends Application {
         });
 //        loadScreen("login","InfinityStore");
 
-        session = new Session("192.168.43.55",1400);
+        session = new Session("localhost",1400);
+        System.out.println("request sent");
         Message messageResponse = sendMessage(new Message("debugging",null));
         System.out.println(messageResponse.getObjects().get(0));
 

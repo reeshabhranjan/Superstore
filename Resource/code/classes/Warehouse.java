@@ -1,6 +1,8 @@
 package classes;
 
 import database.Database;
+import database.Product;
+import exceptions.ProductNotFoundException;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -42,5 +44,36 @@ public class Warehouse implements Serializable {
 
     public Database getDatabase() {
         return database;
+    }
+
+    public Boolean orderProduct(Product product, int quantity) {
+
+        Product localProduct= null;
+        try {
+            localProduct = database.searchProduct(product.getName());
+        } catch (ProductNotFoundException e) { // in case the product was deleted from Warehouse but not from the store.
+            Warehouse warehouse=admin.getOptimumWarehouse(product);
+            if(warehouse==null){
+                return false;
+            }
+            return warehouse.orderProduct(product,quantity);
+        }
+
+        if (localProduct.getStockCount()>=quantity){
+
+            localProduct.setStockCount(localProduct.getStockCount()-quantity);
+            return true;
+        }
+
+        else if(localProduct.getStockCount()<quantity) {
+            //TODO optimisation algorithm to get products from other warehouses.
+            Warehouse warehouse=admin.getOptimumWarehouse(product);
+            if(warehouse==null){
+                return false;
+            }
+            return warehouse.orderProduct(product,quantity);
+        }
+
+        return false;
     }
 }

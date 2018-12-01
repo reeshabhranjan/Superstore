@@ -12,6 +12,7 @@ public class Database implements Serializable {
     private CategoryTree categoryTree;
     private double revenue;
     private TreeView<String> treeView;
+    private ArrayList<Product> outOfStockProducts;
 
     public TreeView<String> generateTreeView(){
         TreeItem<String> treeRoot = new TreeItem<String>();

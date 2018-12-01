@@ -1,6 +1,7 @@
 package database;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Product implements Serializable {
 
@@ -58,6 +59,14 @@ public class Product implements Serializable {
 
     public double getK() {
         return k;
+    }
+
+    public int getEOQ(){
+
+        int numerator=(int)(2*getD()*getK());
+        int denominator=(int)(getH());
+        int eoq=numerator/denominator;
+        return eoq;
     }
 
     public int getId() {
@@ -127,5 +136,26 @@ public class Product implements Serializable {
         stringBuilder.append("\n"+price);
         stringBuilder.append("\n"+stockCount);
         return stringBuilder.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product)) return false;
+        Product product = (Product) o;
+        return Double.compare(product.price, price) == 0 &&
+                stockCount == product.stockCount &&
+                Double.compare(product.d, d) == 0 &&
+                Double.compare(product.h, h) == 0 &&
+                Double.compare(product.k, k) == 0 &&
+                id == product.id &&
+                Objects.equals(name, product.name) &&
+                Objects.equals(categoryPath, product.categoryPath) &&
+                Objects.equals(description, product.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price, categoryPath, stockCount, description, d, h, k, id);
     }
 }

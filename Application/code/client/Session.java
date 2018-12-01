@@ -27,13 +27,18 @@ public class Session {
             out.writeObject(message);
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally {
             try {
                 out.close();
-            } catch (IOException e) {
+            } catch (IOException e2) {
                 e.printStackTrace();
             }
+        }
+        finally {
+//            try {
+//                out.close();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
     }
     public Message getData()
@@ -41,7 +46,10 @@ public class Session {
         Message message=null;
         try {
 //            boolean dataReceived = false;
-            while(in.available()==0) {}
+            System.out.println("Waiting for response.");
+//            while(in.available()==0) {
+////                System.out.println("waiting");
+//            }
             message =(Message) in.readObject();
         } catch (IOException e) {
             e.printStackTrace();

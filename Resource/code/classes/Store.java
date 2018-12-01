@@ -4,6 +4,8 @@ import database.Cart;
 import database.CartItem;
 import database.Database;
 import database.Product;
+import exceptions.ProductNotFoundException;
+import exceptions.StockInsufficientException;
 
 import java.io.Serializable;
 
@@ -64,13 +66,25 @@ public class Store implements Serializable {
         return valid;
     }
 
-    public void sale(CartItem cartItem) {
-        Product product=cartItem.getProduct();
+    public void sale(CartItem cartItem) throws StockInsufficientException, ProductNotFoundException {
+//        Product product=cartItem.getProduct();
+        Product product=database.searchProduct(cartItem.getProduct().getName());
         int quantity=cartItem.getQuantity();
 
-        product.setStockCount(product.getStockCount()-quantity);
+        if(product.getStockCount()>=quantity){
+            product.setStockCount(product.getStockCount()-quantity);
+        }
+
+        else{
+            throw new StockInsufficientException("Product: "+product +"'s stock is less than requested.");
+        }
 
         if(product.getStockCount()==0){
+
+            Boolean success=warehouse.orderProduct(product,product.getEOQ());
+            if(success){
+                product.setStockCount(product.getEOQ());
+            }
             //TODO request warehouse for more products.
         }
     }

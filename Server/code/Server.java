@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -24,7 +25,7 @@ public class Server{
 
         //TODO deserialize the Superstore here.
 
-        ServerSocket serverSocket=new ServerSocket(1234);
+        ServerSocket serverSocket=new ServerSocket(1400);
         ExecutorService executorService= Executors.newFixedThreadPool(4);
 
         while (true){
@@ -73,23 +74,33 @@ public class Server{
             try{
                 this.outputStream=new ObjectOutputStream(client.getOutputStream());
                 this.inputStream=new ObjectInputStream(client.getInputStream());
-                throw new IOException();
+                System.out.println("Connected!");
+//                throw new IOException();
             }
 
             catch (IOException ioe) {
                 System.err.println("Cannot find client's data-streams");
-            }
-
-            finally {
 
                 try{
                     this.outputStream.close();
                     this.inputStream.close();
                 }
 
-                catch (IOException ioe){
+                catch (IOException ioe2){
                     System.err.println("Cannot close client's data-streams");
                 }
+            }
+
+            finally {
+
+//                try{
+//                    this.outputStream.close();
+//                    this.inputStream.close();
+//                }
+//
+//                catch (IOException ioe){
+//                    System.err.println("Cannot close client's data-streams");
+//                }
 
             }
 
@@ -103,19 +114,25 @@ public class Server{
         @Override
         public void run() {
 
+            System.out.println("waiting for request");
+
             while(!endSession){
 
                 Message message=null;
                 Message response=new Message();
 
                 try {
-                    if(inputStream.available()==0){
-                        continue;
-                    }
+//                    if(inputStream.available()==0){
+////                        System.out.println("waiting for request");
+//                        continue;
+//                    }
+//
+//                    else{
+//                        message=(Message)inputStream.readObject();
+//                    }
 
-                    else{
-                        message=(Message)inputStream.readObject();
-                    }
+                    message=(Message)inputStream.readObject();
+
                 } catch (IOException | ClassNotFoundException e) {
                     System.err.println("Error while reading input stream.");
                 }
@@ -144,7 +161,10 @@ public class Server{
                             registeredUser=superstore.getRegisteredUser(credential);
                             this.registeredSession=true;
                             response.getObjects().add(true);
-                            response.getObjects().add(registeredUser);
+                            string=registeredUser.getClass().toString();
+                            string=string.split(" ")[1];
+                            string=string.toLowerCase();
+                            response.getObjects().add(string);
                         } catch (CredentialNotPresentException e) {
                             response.getObjects().add(false);
                         }
@@ -158,6 +178,14 @@ public class Server{
 
                     case "exit":
                         endSession=true;
+                        try{
+                            this.outputStream.close();
+                            this.inputStream.close();
+                        }
+
+                        catch (IOException ioe){
+                            System.err.println("Cannot close client's data-streams");
+                        }
                         break;
 
                     // Superuser methods
@@ -300,7 +328,22 @@ public class Server{
                         break;
 
                     case "enduser_checkout":
-                        ((EndUser)registeredUser).checkout(store);
+                        try {
+                            ((EndUser)registeredUser).checkout(store);
+                            response.getObjects().add(true);
+                        } catch (ProductNotFoundException | CartNotValidException | InsufficientFundsException | StockInsufficientException e) {
+                            response.getObjects().add(false);
+                            response.getObjects().add(e.getMessage());
+                        }
+                        break;
+
+                    case "debugging":
+                        System.out.println("Debugging case invoked.");
+                        System.out.println("Send the response?");
+                        Scanner sc=new Scanner(System.in);
+                        sc.nextLine();
+                        response.getObjects().add("server responded");
+                        System.out.println("Response sent.");
                         break;
                 }
 

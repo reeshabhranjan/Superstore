@@ -1,5 +1,8 @@
 package classes;
 
+import database.Product;
+import exceptions.ProductNotFoundException;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -35,5 +38,34 @@ public class WarehouseAdmin extends RegisteredUser implements Serializable {
 
     public ArrayList<Warehouse> getWarehouseList() {
         return warehouseList;
+    }
+
+    public Warehouse getOptimumWarehouse(Product product){
+
+        Warehouse warehouse=null;
+        Product product1= null;
+        int max=0;
+
+        for (Warehouse warehouse1 :
+                warehouseList) {
+            try {
+                product1 = warehouse1.getDatabase().searchProduct(product.getName());
+            } catch (ProductNotFoundException e) {
+                continue;
+            }
+            if(product1.getStockCount()>=max && product1.getStockCount()>=product.getEOQ()){
+                max=product1.getStockCount();
+                warehouse=warehouse1;
+            }
+        }
+
+        // NOT REQUIRED:
+//        if(warehouse!=null){
+//            if(product1.getStockCount()<product.getEOQ()){
+//                warehouse=null;
+//            }
+//        }
+
+        return warehouse;
     }
 }
