@@ -72,8 +72,9 @@ public class EndUserController extends Controller implements Initializable {
         {
             App.loadScreen("end_user_search_store","Select Store", "end_user");
             EndUserController endUserController = (EndUserController) App.getController();
-            System.out.println(endUserController);
+            System.out.println(endUserController + "searchstore");
             ListView<String> storelistview = endUserController.storeListView;
+            System.out.println("StoreListVIew: "+storelistview);
 //            System.out.println(storelistview);
             storelistview.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 //            Message storelistServerResponse = App.sendMessage(new Message("debugging",new ArrayList()));

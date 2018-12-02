@@ -131,7 +131,7 @@ public class App extends Application {
 
 //            FXMLLoader fxmlLoader = new FXMLLoader();
 //            fxmlLoader.load(App.class.getResource("/layout/fxml/"+fileName+".fxml").openStream());
-            Controller controller=null;
+//            controller=null;
             switch (controllerType)
             {
                 case "login":
@@ -168,6 +168,7 @@ public class App extends Application {
                     System.out.println("end user dahsboard case");
                     controller = new MessagePopupController();
                     fxmlLoader.setController(controller);
+                    controller=fxmlLoader.getController();
                     break;
 
             }

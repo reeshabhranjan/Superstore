@@ -17,19 +17,25 @@ public class MessagePopupController extends Controller implements Initializable{
     Button okButton;
 
     @FXML
-    Label messageLabel;
+    public Label messageLabel;
 
-//    private String message;
+    private String message;
 
-//    public void setMessage(String message) {
-//        this.message = message;
-//        messageLabel.setText(message);
+    public MessagePopupController() {
+
+    }
+//    public MessagePopupController(String message) {
+//        this.message=message;
 //    }
+
+    public void setMessage(String message) {
+        messageLabel.setText(message);
+    }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        messageLabel.setText(App.getMessage());
+        messageLabel.setText(message);
     }
 
 //    public void setMessageLabel(String messageLabel) {

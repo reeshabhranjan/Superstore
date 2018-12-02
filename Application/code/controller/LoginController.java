@@ -55,17 +55,19 @@ public class LoginController extends Controller{
     @FXML
     public void login(MouseEvent event) throws java.io.IOException
     {
-        App.loadPopup("message_popup","error","message");
-//        Credential credential;
-//        if(textFieldValidator() && loginComboBox.getValue()!=null) {
-//            credential=new Credential(usernameTextField.getText(),passwordTextField.getText());
-////            System.out.println(app);
-//            App.login(credential);
-//        }
-//        else
-//        {
-//            //TODO Invalid input popup.
-//        }
+//        App.loadPopup("message_popup","error","message");
+//        MessagePopupController messagePopupController= (MessagePopupController) App.getController();
+//        messagePopupController.messageLabel.setText("error");
+        Credential credential;
+        if(textFieldValidator() && loginComboBox.getValue()!=null) {
+            credential=new Credential(usernameTextField.getText(),passwordTextField.getText());
+//            System.out.println(app);
+            App.login(credential);
+        }
+        else
+        {
+            //TODO Invalid input popup.
+        }
     }
 
     @FXML
