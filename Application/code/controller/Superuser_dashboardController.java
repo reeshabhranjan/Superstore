@@ -58,4 +58,10 @@ public class Superuser_dashboardController implements Initializable {
     {
         App.loadScreen("superuser_create_store","Create Store");
     }
+
+    @FXML
+    public void showLinkWarehouseStorePanel()
+    {
+        App.loadScreen("superuser_link_wh_st","Link Warehouse-Store");
+    }
 }

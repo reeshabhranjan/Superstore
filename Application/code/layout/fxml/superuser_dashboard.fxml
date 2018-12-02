@@ -12,7 +12,7 @@
     <children>
         <Pane prefHeight="500.0" prefWidth="225.0" style="-fx-background-color: #32373D;">
             <children>
-                <Label layoutX="50.0" layoutY="14.0" text="Infinity classes.Store" textFill="WHITE">
+                <Label layoutX="50.0" layoutY="14.0" text="Infinity Store" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="24.0" />
                     </font>
@@ -45,7 +45,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane fx:id="linkWarehouseStoreLabel" layoutX="12.0" layoutY="206.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="linkWarehouseStoreLabel" layoutX="12.0" layoutY="206.0" onMouseClicked="#showLinkWarehouseStorePanel" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -128,7 +128,7 @@
                                         <Image url="@../images/ui-icons/power-button.png" />
                                     </image>
                                 </ImageView>
-                                <Label alignment="CENTER" layoutX="7.0" layoutY="42.0" prefHeight="17.0" prefWidth="50.0" text="Log-out" />
+                                <Label alignment="CENTER" layoutX="-3.0" layoutY="38.0" prefHeight="25.0" prefWidth="70.0" text="Log-out" />
                             </children>
                         </Pane>
                     </children></Pane>
