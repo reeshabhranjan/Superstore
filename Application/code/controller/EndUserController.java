@@ -141,7 +141,8 @@ public class EndUserController extends Controller implements Initializable {
                 selectedCategoryPath = generateCategoryPath(selectedCategory);
                 ArrayList objects = new ArrayList();
                 objects.add(selectedCategoryPath);
-                Message productListServerResponse = App.sendMessage(new Message("enduser_get_product_list",objects));
+//                Message productListServerResponse = App.sendMessage(new Message("enduser_get_product_list",objects));
+                Message productListServerResponse = App.sendMessage(new Message("debugging",objects));
                 ArrayList<String> productDetailsList = (ArrayList<String>) productListServerResponse.getObjects().get(0);
                 selectedProductDetails = productDetailsList; //only name and id
                 try {
@@ -160,7 +161,8 @@ public class EndUserController extends Controller implements Initializable {
                 String selectedProductName = selectedProductDetails.get(0);
                 ArrayList objects = new ArrayList();
                 objects.add(selectedProductName);
-                Message productDetailsServerResponse = App.sendMessage(new Message("enduser_get_product",objects));
+//                Message productDetailsServerResponse = App.sendMessage(new Message("enduser_get_product",objects));
+                Message productDetailsServerResponse = App.sendMessage(new Message("debugging",objects));
                 objects = productDetailsServerResponse.getObjects();
                 boolean productExists = (boolean) objects.get(0); //for the case when the product is removed from database
 
@@ -195,7 +197,8 @@ public class EndUserController extends Controller implements Initializable {
         public void addToCart()
         {
             ArrayList objects = new ArrayList();
-
+            objects.add(selectedProductDetails.get(1));
+            App.sendMessage(new Message("enduser_add_to_cart",objects));
             //ToDO pop up for added to product confirmation
         }
 

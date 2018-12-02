@@ -63,7 +63,7 @@ public class App extends Application {
 
 //            FXMLLoader fxmlLoader = new FXMLLoader();
 //            fxmlLoader.load(App.class.getResource("/layout/fxml/"+fileName+".fxml").openStream());
-            Controller controller=null;
+            controller=null;
             switch (controllerType)
             {
                 case "login":
@@ -94,81 +94,6 @@ public class App extends Application {
                     System.out.println("end user dahsboard case");
                     controller = new StoreAdminController();
                     fxmlLoader.setController(controller);
-                    break;
-
-            }
-//            System.out.println(controller);
-            return controller;
-//            controller.setApp(app);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public static Controller loadPopup(String fileName, String title, String controllerType){
-
-        Parent root;
-        popupStage = new Stage();
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/layout/fxml/"+fileName+".fxml"));
-            root = fxmlLoader.load();
-
-            popupStage.setTitle(title);
-
-            int width=400;
-            int height=500;
-
-            if(controllerType.equals("message")){
-                width=400;
-                height=200;
-            }
-
-            popupStage.setScene(new Scene(root, width, height));
-            popupStage.setResizable(false);
-            popupStage.show();
-
-//            FXMLLoader fxmlLoader = new FXMLLoader();
-//            fxmlLoader.load(App.class.getResource("/layout/fxml/"+fileName+".fxml").openStream());
-//            controller=null;
-            switch (controllerType)
-            {
-                case "login":
-                    controller = new LoginController();
-                    fxmlLoader.setController(controller);
-                    break;
-                case "end_user":
-                    System.out.println("end user dahsboard case");
-                    controller = new EndUserController();
-                    fxmlLoader.setController(controller);
-                    break;
-                case "guest_user":
-                    System.out.println("end user dahsboard case");
-                    controller = new GuestUserController();
-                    fxmlLoader.setController(controller);
-                    break;
-                case "super_user":
-                    System.out.println("end user dahsboard case");
-                    controller = new SuperuserController();
-                    fxmlLoader.setController(controller);
-                    break;
-                case "warehouse_admin":
-                    System.out.println("end user dahsboard case");
-                    controller = new WarehouseAdminController();
-                    fxmlLoader.setController(controller);
-                    break;
-                case "store_admin":
-                    System.out.println("end user dahsboard case");
-                    controller = new StoreAdminController();
-                    fxmlLoader.setController(controller);
-                    break;
-                case "message":
-                    message = title;
-                    System.out.println("end user dahsboard case");
-                    controller = new MessagePopupController();
-                    fxmlLoader.setController(controller);
-                    controller=fxmlLoader.getController();
                     break;
 
             }
@@ -241,7 +166,7 @@ public class App extends Application {
             session.sendData(new Message("exit",new ArrayList()));
         });
         loadScreen("login","InfinityStore", "login");
-//        session = new Session("192.168.43.55",1400);
+        session = new Session("192.168.63.43",1400);
 //        session = new Session("localhost",1400);
 //        System.out.println("request sent");
 //        Message messageResponse = sendMessage(new Message("debugging",null));

@@ -3,16 +3,9 @@ package controller;
 import classes.Credential;
 import client.App;
 import client.Client;
-import client.MessagePopup;
-import client.PopupWindow;
-import database.Database;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
