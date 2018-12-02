@@ -16,7 +16,7 @@ public class GuestUserController extends Controller{
     @FXML
     public void showSearchStorePanel(MouseEvent event) throws java.io.IOException
     {
-        App.loadScreen("guest_user_search_store","Dashboard");
+        App.loadScreen("guest_user_search_store","Dashboard", "guest_user");
     }
 
     @Override

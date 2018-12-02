@@ -1,5 +1,6 @@
 package controller;
 
+import client.App;
 import client.MessagePopup;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,7 +11,7 @@ import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MessagePopupController implements Initializable {
+public class MessagePopupController extends Controller implements Initializable{
 
     @FXML
     Button okButton;
@@ -18,13 +19,25 @@ public class MessagePopupController implements Initializable {
     @FXML
     Label messageLabel;
 
+//    private String message;
+
+//    public void setMessage(String message) {
+//        this.message = message;
+//        messageLabel.setText(message);
+//    }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        messageLabel.setText(MessagePopup.getMessage());
+        messageLabel.setText(App.getMessage());
     }
+
+//    public void setMessageLabel(String messageLabel) {
+//        this.messageLabel.setText(messageLabel);
+//    }
 
     @FXML
     public void closePopup(MouseEvent mouseEvent){
-        MessagePopup.closeStage();
+        App.getPopupStage().close();
     }
 }

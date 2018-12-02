@@ -22,7 +22,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="okButton" layoutX="178.0" layoutY="124.0" mnemonicParsing="false" onMouseClicked="#closeStage" prefHeight="25.0" prefWidth="44.0" text="OK" />
+            <Button fx:id="okButton" layoutX="178.0" layoutY="124.0" mnemonicParsing="false" onMouseClicked="#closePopup" prefHeight="25.0" prefWidth="44.0" text="OK" />
          </children></Pane>
    </children>
 </AnchorPane>

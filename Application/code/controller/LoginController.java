@@ -3,14 +3,13 @@ package controller;
 import classes.Credential;
 import client.App;
 import client.Client;
+import client.MessagePopup;
+import client.PopupWindow;
 import database.Database;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -21,10 +20,6 @@ import java.util.ResourceBundle;
 public class LoginController extends Controller{
 
     private Client client;
-
-    public LoginController() {
-        System.out.println("fir");
-    }
 
     @FXML
     private TextField nameTextField;
@@ -47,12 +42,6 @@ public class LoginController extends Controller{
     @FXML
     private ComboBox loginComboBox;
 
-    @FXML
-    public void initialize(URL location, ResourceBundle resources)
-    {
-        System.out.println("party");
-    }
-
 //    public void display(MouseEvent event){
 //        label.setText("Browse store!");
 //    }
@@ -66,16 +55,17 @@ public class LoginController extends Controller{
     @FXML
     public void login(MouseEvent event) throws java.io.IOException
     {
-        Credential credential;
-        if(textFieldValidator() && loginComboBox.getValue()!=null) {
-            credential=new Credential(usernameTextField.getText(),passwordTextField.getText());
-//            System.out.println(app);
-            App.login(credential);
-        }
-        else
-        {
-            //TODO Invalid input popup.
-        }
+        App.loadPopup("message_popup","error","message");
+//        Credential credential;
+//        if(textFieldValidator() && loginComboBox.getValue()!=null) {
+//            credential=new Credential(usernameTextField.getText(),passwordTextField.getText());
+////            System.out.println(app);
+//            App.login(credential);
+//        }
+//        else
+//        {
+//            //TODO Invalid input popup.
+//        }
     }
 
     @FXML
@@ -93,16 +83,30 @@ public class LoginController extends Controller{
             //TODO Invalid input popup.
         }
     }
-
     @FXML
     public void showRegisterPanel(MouseEvent event) throws java.io.IOException
     {
-        App.loadScreen("end_user_register","Register");
+        App.loadScreen("end_user_register","Register", "end_user");
     }
 
     @FXML
     public void showGuestUserDashboardPanel(MouseEvent event) throws java.io.IOException
     {
-        App.loadScreen("guest_user_dashboard","Dashboard");
+        App.loadScreen("guest_user_dashboard","Dashboard", "guest_user");
+    }
+
+//    @FXML
+//    public void demoContextMenu()
+//    {
+//        ContextMenu contextMenu = new ContextMenu();
+//        MenuItem item1 = new MenuItem("option1");
+//        MenuItem item2 = new MenuItem("option2");
+//        contextMenu.getItems().addAll(item1,item2);
+//        loginButton.setContextMenu(contextMenu);
+//    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }

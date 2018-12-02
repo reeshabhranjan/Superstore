@@ -8,6 +8,7 @@ public class Product implements Serializable {
     //TODO add rating feature if time left and willing to do.
 
     private String name;
+    private int id; //uniqueCode (planned to be provided by the superstore via client-request)
     private double price;
     private String categoryPath;
     private int stockCount;
@@ -15,7 +16,6 @@ public class Product implements Serializable {
     private double d; //fixed cost per quarter
     private double h; //carrying cost per unit per quarter
     private double k; //demand per quarter
-    private int id; //uniqueCode (planned to be provided by the superstore via client-request)
 
     public Product(String name, double price, String categoryPath, int stockCount, double d, double h, double k, int id) {
         this.name = name;
@@ -133,8 +133,10 @@ public class Product implements Serializable {
 
     public String getBasicDetails(){
         StringBuilder stringBuilder=new StringBuilder(name);
-        stringBuilder.append("\n"+price);
-        stringBuilder.append("\n"+stockCount);
+        stringBuilder.append(" | "+id);
+        stringBuilder.append(" | "+categoryPath);
+        stringBuilder.append(" | "+price);
+        stringBuilder.append(" | "+stockCount);
         return stringBuilder.toString();
     }
 

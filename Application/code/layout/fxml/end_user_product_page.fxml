@@ -27,27 +27,27 @@
                                 <Font size="24.0" />
                             </font>
                         </Label>
-                        <Label layoutX="12.0" layoutY="69.0" prefHeight="31.0" prefWidth="225.0" text="Name: product_name">
+                        <Label fx:id="productNameLabel" layoutX="12.0" layoutY="69.0" prefHeight="31.0" prefWidth="225.0" text="Name: product_name">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <Label layoutX="12.0" layoutY="110.0" prefHeight="31.0" prefWidth="225.0" text="Product ID: product_id">
+                        <Label fx:id="productIdLabel" layoutX="12.0" layoutY="110.0" prefHeight="31.0" prefWidth="225.0" text="Product ID: product_id">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <Label layoutX="12.0" layoutY="148.0" prefHeight="31.0" prefWidth="225.0" text="Category: path/to/category">
+                        <Label fx:id="productCategoryPathLabel" layoutX="12.0" layoutY="148.0" prefHeight="31.0" prefWidth="225.0" text="Category: path/to/category">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <Label layoutX="12.0" layoutY="187.0" prefHeight="31.0" prefWidth="225.0" text="Price: $43">
+                        <Label fx:id="productPriceLabel" layoutX="12.0" layoutY="187.0" prefHeight="31.0" prefWidth="225.0" text="Price: $43">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <Label layoutX="12.0" layoutY="225.0" prefHeight="31.0" prefWidth="225.0" text="Stock count: 87">
+                        <Label fx:id="productStockCountLabel" layoutX="12.0" layoutY="225.0" prefHeight="31.0" prefWidth="225.0" text="Stock count: 87">
                             <font>
                                 <Font size="14.0" />
                             </font>
