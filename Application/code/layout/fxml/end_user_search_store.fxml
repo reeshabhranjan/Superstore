@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import java.net.URL?>
-<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
@@ -24,13 +22,13 @@
                                         <Image url="@../images/ui-icons/power-button.png" />
                                     </image>
                                 </ImageView>
-                                <Label alignment="CENTER" layoutX="37.0" layoutY="7.0" prefHeight="20.0" prefWidth="79.0" text="Log-out" textFill="WHITE">
+                                <Label fx:id="logOutPane" alignment="CENTER" layoutX="37.0" layoutY="7.0" prefHeight="20.0" prefWidth="79.0" text="Log-out" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font></Label>
                             </children>
                         </Pane>
-                        <Pane layoutX="321.0" layoutY="18.0" prefHeight="40.0" prefWidth="109.0" styleClass="title-button">
+                        <Pane fx:id="walletPane" layoutX="321.0" layoutY="18.0" prefHeight="40.0" prefWidth="109.0" styleClass="title-button">
                             <children>
                                 <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -43,7 +41,7 @@
                            </font></Label>
                             </children>
                         </Pane>
-                  <Pane layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="90.0" styleClass="title-button">
+                  <Pane fx:id="backPane" layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="90.0" styleClass="title-button">
                      <children>
                         <Label alignment="CENTER" layoutX="22.0" layoutY="4.0" prefHeight="32.0" prefWidth="57.0" text="Back" textFill="WHITE">
                            <font>
@@ -59,8 +57,8 @@
                     </children></Pane>
                 <Pane layoutY="75.0" prefHeight="425.0" prefWidth="575.0" style="-fx-background-color: #FFFFFF;">
                <children>
-                   <ListView fx:id="storeListView" layoutX="98.0" layoutY="101.0" onMouseClicked="#showBrowseStorePanel" prefHeight="282.0" prefWidth="419.0" styleClass="scrollable-list"/>
-                  <Label alignment="CENTER" layoutX="90.0" layoutY="13.0" prefHeight="75.0" prefWidth="427.0" styleClass="heading-bar" text="Select a store">
+                   <ListView fx:id="storeListView" layoutX="98.0" layoutY="101.0" onMouseClicked="#showBrowseStorePanel" prefHeight="282.0" prefWidth="419.0" styleClass="scrollable-list" />
+                  <Label fx:id="selectStoreLabel" alignment="CENTER" layoutX="90.0" layoutY="13.0" prefHeight="75.0" prefWidth="427.0" styleClass="heading-bar" text="Select a store">
                      <font>
                         <Font name="Calibri Bold" size="24.0" />
                      </font>
@@ -76,7 +74,7 @@
                         <Font name="Calibri" size="24.0" />
                     </font>
                 </Label>
-                <Pane fx:id="browseStore" layoutX="12.0" layoutY="101.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #007ED9;" styleClass="navigation-button">
+                <Pane fx:id="browseStorePane" layoutX="12.0" layoutY="101.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #007ED9;" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -90,7 +88,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="12.0" layoutY="154.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="orderHistoryPane" layoutX="12.0" layoutY="154.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -104,7 +102,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="12.0" layoutY="206.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="wishlistPane" layoutX="12.0" layoutY="206.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -118,7 +116,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="13.0" layoutY="258.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="cartPane" layoutX="13.0" layoutY="258.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -132,7 +130,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="13.0" layoutY="310.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="profilePane" layoutX="13.0" layoutY="310.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>

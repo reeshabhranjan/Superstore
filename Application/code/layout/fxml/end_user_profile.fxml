@@ -17,7 +17,7 @@
             <children>
                 <Pane prefHeight="76.0" prefWidth="575.0" style="-fx-background-color: #FFFFFF;">
                     <children>
-                        <Pane layoutX="497.0" layoutY="6.0" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
+                        <Pane fx:id="logOutPane" layoutX="497.0" layoutY="6.0" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
                             <children>
                                 <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="16.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -27,7 +27,7 @@
                                 <Label alignment="CENTER" layoutX="7.0" layoutY="42.0" prefHeight="17.0" prefWidth="50.0" text="Log-out" />
                             </children>
                         </Pane>
-                        <Pane layoutX="432.0" layoutY="6.0" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
+                        <Pane fx:id="walletPane" layoutX="432.0" layoutY="6.0" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
                             <children>
                                 <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="16.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -40,7 +40,7 @@
                     </children></Pane>
                 <Pane layoutY="75.0" prefHeight="425.0" prefWidth="575.0" style="-fx-background-color: #EFF3F6;">
                     <children>
-                        <Label alignment="CENTER" prefHeight="75.0" prefWidth="575.0" styleClass="heading-bar" text="Profile" textFill="WHITE">
+                        <Label fx:id="profileLabel" alignment="CENTER" prefHeight="75.0" prefWidth="575.0" styleClass="heading-bar" text="Profile" textFill="WHITE">
                             <font>
                                 <Font name="Calibri" size="36.0" />
                             </font>
@@ -54,13 +54,13 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="11.0" layoutY="167.0" prefHeight="31.0" prefWidth="279.0" promptText="New Username" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
-                              <PasswordField layoutX="11.0" layoutY="206.0" prefHeight="31.0" prefWidth="279.0" promptText="Current Password" style="-fx-background-color: #E4E8EA; -fx-background-radius: 20; -fx-background-insets: 0; -fx-text-fill: #000000;" />
-                              <PasswordField layoutX="11.0" layoutY="245.0" prefHeight="31.0" prefWidth="279.0" promptText="New Password" style="-fx-background-color: #E4E8EA; -fx-background-radius: 20; -fx-background-insets: 0; -fx-text-fill: #FFFFFF;" />
-                              <Button layoutX="14.0" layoutY="288.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="279.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Submit" textFill="WHITE" />
-                              <TextField layoutX="11.0" layoutY="127.0" prefHeight="31.0" prefWidth="279.0" promptText="Address" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
-                              <TextField layoutX="11.0" layoutY="49.0" prefHeight="31.0" prefWidth="279.0" promptText="Name" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
-                              <TextField layoutX="11.0" layoutY="89.0" prefHeight="31.0" prefWidth="279.0" promptText="Phone Number" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
+                              <TextField fx:id="usernameTextField" layoutX="11.0" layoutY="167.0" prefHeight="31.0" prefWidth="279.0" promptText="New Username" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
+                              <PasswordField fx:id="currentPasswordTextField" layoutX="11.0" layoutY="206.0" prefHeight="31.0" prefWidth="279.0" promptText="Current Password" style="-fx-background-color: #E4E8EA; -fx-background-radius: 20; -fx-background-insets: 0; -fx-text-fill: #000000;" />
+                              <PasswordField fx:id="newPasswordTextField" layoutX="11.0" layoutY="245.0" prefHeight="31.0" prefWidth="279.0" promptText="New Password" style="-fx-background-color: #E4E8EA; -fx-background-radius: 20; -fx-background-insets: 0; -fx-text-fill: #FFFFFF;" />
+                              <Button fx:id="submitButton" layoutX="14.0" layoutY="288.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="279.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Submit" textFill="WHITE" />
+                              <TextField fx:id="addressTextField" layoutX="11.0" layoutY="127.0" prefHeight="31.0" prefWidth="279.0" promptText="Address" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
+                              <TextField fx:id="nameTextField" layoutX="11.0" layoutY="49.0" prefHeight="31.0" prefWidth="279.0" promptText="Name" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
+                              <TextField fx:id="phoneNumberTextField" layoutX="11.0" layoutY="89.0" prefHeight="31.0" prefWidth="279.0" promptText="Phone Number" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
                            </children>
                         </Pane>
                         <Pane layoutY="9.0" prefHeight="333.0" prefWidth="263.0" style="-fx-background-color: #ffffff;">
@@ -70,32 +70,32 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="19.0" layoutY="49.0" prefHeight="31.0" prefWidth="225.0" text="Name: John Smith">
+                              <Label fx:id="nameLabel" layoutX="19.0" layoutY="49.0" prefHeight="31.0" prefWidth="225.0" text="Name: John Smith">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="19.0" layoutY="90.0" prefHeight="31.0" prefWidth="225.0" text="Phone number: XXXXXXXXXX">
+                              <Label fx:id="phoneNumberLabel" layoutX="19.0" layoutY="90.0" prefHeight="31.0" prefWidth="225.0" text="Phone number: XXXXXXXXXX">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="19.0" layoutY="128.0" prefHeight="31.0" prefWidth="225.0" text="Address: Mayur Vihar">
+                              <Label fx:id="addressLabel" layoutX="19.0" layoutY="128.0" prefHeight="31.0" prefWidth="225.0" text="Address: Mayur Vihar">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="19.0" layoutY="167.0" prefHeight="31.0" prefWidth="225.0" text="Funds available: $17">
+                              <Label fx:id="fundsLabel" layoutX="19.0" layoutY="167.0" prefHeight="31.0" prefWidth="225.0" text="Funds available: $17">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="19.0" layoutY="207.0" prefHeight="31.0" prefWidth="225.0" text="Purchases till date: 4">
+                              <Label fx:id="purchasesLabel" layoutX="19.0" layoutY="207.0" prefHeight="31.0" prefWidth="225.0" text="Purchases till date: 4">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="19.0" layoutY="248.0" prefHeight="31.0" prefWidth="225.0" text="Username: john_smith">
+                              <Label fx:id="usernameLabel" layoutX="19.0" layoutY="248.0" prefHeight="31.0" prefWidth="225.0" text="Username: john_smith">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -109,26 +109,26 @@
         </Pane>
         <Pane prefHeight="500.0" prefWidth="225.0" style="-fx-background-color: #32373D;">
             <children>
-                <Label layoutX="50.0" layoutY="14.0" text="Infinity classes.Store" textFill="WHITE">
+                <Label layoutX="50.0" layoutY="14.0" text="Infinity Store" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="24.0" />
                     </font>
                 </Label>
-                <Pane fx:id="browseStore" layoutX="12.0" layoutY="101.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="browseStorePane" layoutX="12.0" layoutY="101.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/ui-icons/search.png" />
                             </image>
                         </ImageView>
-                        <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="10.0" prefHeight="20.0" prefWidth="100.0" text="Browse classes.Store" textFill="#d3cbcb">
+                        <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="10.0" prefHeight="20.0" prefWidth="100.0" text="Browse Store" textFill="#d3cbcb">
                             <font>
                                 <Font name="Calibri" size="14.0" />
                             </font>
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="12.0" layoutY="154.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="orderHistoryPane" layoutX="12.0" layoutY="154.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -142,7 +142,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="12.0" layoutY="206.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="wishlistPane" layoutX="12.0" layoutY="206.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -156,7 +156,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="13.0" layoutY="258.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="cartPane" layoutX="13.0" layoutY="258.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -170,7 +170,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="13.0" layoutY="310.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #007ED9;" styleClass="navigation-button">
+                <Pane fx:id="profilePane" layoutX="13.0" layoutY="310.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #007ED9;" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>

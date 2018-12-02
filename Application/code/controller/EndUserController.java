@@ -57,6 +57,8 @@ public class EndUserController extends Controller implements Initializable {
         private Label productPriceLabel;
         @FXML
         private Label productStockCountLabel;
+        @FXML
+        private Label productPageTitleLabel;
 
         private String selectedCategoryPath;
 
@@ -186,6 +188,7 @@ public class EndUserController extends Controller implements Initializable {
         public void initializeProductPage()
         {
             EndUserController controller = (EndUserController) App.getController();
+            controller.productPageTitleLabel.setText(selectedProductDetails.get(0));
             controller.productNameLabel.setText("Name: "+selectedProductDetails.get(0));
             controller.productIdLabel.setText("Id: "+selectedProductDetails.get(1));
             controller.productCategoryPathLabel.setText("Category: "+selectedProductDetails.get(2));

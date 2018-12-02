@@ -14,7 +14,7 @@
          <children>
             <Pane prefHeight="76.0" prefWidth="575.0" style="-fx-background-color: #FFFFFF;">
                <children>
-                  <Pane layoutX="497.0" layoutY="6.0" onMouseClicked="#logout" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
+                  <Pane fx:id="logOutPane" layoutX="497.0" layoutY="6.0" onMouseClicked="#logout" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
                      <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="16.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -24,7 +24,7 @@
                         <Label alignment="CENTER" layoutX="7.0" layoutY="42.0" prefHeight="17.0" prefWidth="50.0" text="Log-out" />
                      </children>
                   </Pane>
-                  <Pane layoutX="432.0" layoutY="6.0" onMouseClicked="#showWallePanel" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
+                  <Pane fx:id="walletPane" layoutX="432.0" layoutY="6.0" onMouseClicked="#showWallePanel" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
                      <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="16.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -37,7 +37,7 @@
                </children></Pane>
             <Pane layoutY="75.0" prefHeight="425.0" prefWidth="575.0" style="-fx-background-color: #EFF3F6;">
                <children>
-                  <Label fx:id="label" alignment="CENTER" layoutX="94.0" layoutY="157.0" prefHeight="111.0" prefWidth="387.0" style="-fx-background-color: #EFF3F6;" text="Welcome, end_user!" textFill="#a8a2a2">
+                  <Label fx:id="welcomeLabel" alignment="CENTER" layoutX="94.0" layoutY="157.0" prefHeight="111.0" prefWidth="387.0" style="-fx-background-color: #EFF3F6;" text="Welcome, end_user!" textFill="#a8a2a2">
                      <font>
                         <Font name="Calibri Light" size="36.0" />
                      </font></Label>
@@ -52,7 +52,7 @@
                   <Font name="Calibri" size="24.0" />
                </font>
             </Label>
-            <Pane fx:id="browseStore" layoutX="12.0" layoutY="101.0" onMouseClicked="#showSearchStorePanel" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+            <Pane fx:id="browseStorePane" layoutX="12.0" layoutY="101.0" onMouseClicked="#showSearchStorePanel" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -66,7 +66,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="12.0" layoutY="154.0" onMouseClicked="#showOrderHistoryPanel" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+            <Pane fx:id="orderHistoryPane" layoutX="12.0" layoutY="154.0" onMouseClicked="#showOrderHistoryPanel" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -80,7 +80,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="12.0" layoutY="206.0" onMouseClicked="#showWishlistPanel" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+            <Pane fx:id="wishlistPane" layoutX="12.0" layoutY="206.0" onMouseClicked="#showWishlistPanel" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -94,7 +94,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="13.0" layoutY="258.0" onMouseClicked="#showCartPanel" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+            <Pane fx:id="cartPane" layoutX="13.0" layoutY="258.0" onMouseClicked="#showCartPanel" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -108,7 +108,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="13.0" layoutY="310.0" onMouseClicked="#showProfilePanel" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+            <Pane fx:id="profilePane" layoutX="13.0" layoutY="310.0" onMouseClicked="#showProfilePanel" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>

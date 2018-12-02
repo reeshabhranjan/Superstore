@@ -31,8 +31,8 @@
                 </Pane>
                 <Pane layoutX="-4.0" layoutY="115.0" prefHeight="187.0" prefWidth="500.0" style="-fx-background-color: #ffffff;">
                     <children>
-                        <Button layoutX="279.0" layoutY="64.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="185.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Add to wallet" textFill="WHITE" />
-                        <TextField layoutX="38.0" layoutY="64.0" prefHeight="60.0" prefWidth="220.0" promptText="Quantity" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
+                        <Button fx:id="addToWalletButton" layoutX="279.0" layoutY="64.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="185.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Add to wallet" textFill="WHITE" />
+                        <TextField fx:id="quantityTextField" layoutX="38.0" layoutY="64.0" prefHeight="60.0" prefWidth="220.0" promptText="Quantity" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
                     </children>
                 </Pane>
             </children>

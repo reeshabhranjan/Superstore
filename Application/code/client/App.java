@@ -63,7 +63,7 @@ public class App extends Application {
 
 //            FXMLLoader fxmlLoader = new FXMLLoader();
 //            fxmlLoader.load(App.class.getResource("/layout/fxml/"+fileName+".fxml").openStream());
-            controller=null;
+            controller = null;
             switch (controllerType)
             {
                 case "login":
@@ -165,8 +165,8 @@ public class App extends Application {
 //            System.out.println("works");
             session.sendData(new Message("exit",new ArrayList()));
         });
+//        session = new Session("192.168.1.101",1400);
         loadScreen("login","InfinityStore", "login");
-        session = new Session("192.168.63.43",1400);
 //        session = new Session("localhost",1400);
 //        System.out.println("request sent");
 //        Message messageResponse = sendMessage(new Message("debugging",null));
