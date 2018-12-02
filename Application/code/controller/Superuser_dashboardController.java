@@ -64,4 +64,40 @@ public class Superuser_dashboardController implements Initializable {
     {
         App.loadScreen("superuser_link_wh_st","Link Warehouse-Store");
     }
+
+    @FXML
+    public void createAdmin()
+    {
+        App.loadScreen("superuser_create_admin","Create Admin");
+    }
+
+    @FXML
+    public void browseWarehouse()
+    {
+        App.loadScreen("superuser_browse_warehouse","Browse Warehouse");
+    }
+
+    @FXML
+    public void browseStore()
+    {
+        App.loadScreen("superuser_browse_store","Browse Store");
+    }
+    @FXML
+    public void profile()
+    {
+        App.loadScreen("superuser_profile","Profile");
+    }
+    @FXML
+    public void assignWarehouseAdmins()
+    {
+        App.loadScreen("superuser_assign_warehouse_admins","Assign Warehouse Admins");
+    }
+
+    @FXML
+    public void assignStoreAdmins()
+    {
+        App.loadScreen("superuser_assign_store_admins","Assign Store Admins");
+    }
+
+
 }

@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import classes.Credential;
 import classes.EndUser;
 import classes.Message;
 import client.App;
@@ -106,6 +107,7 @@ public class End_user_profileController implements Initializable {
         endUser.update(name,phoneNumber,address,username,currPassword,newPassword);
         ArrayList objects = new ArrayList();
         objects.add(endUser);
+        objects.add(new Credential(username,currPassword));
         App.sendMessage(new Message("updateProfile",objects));
         App.loadScreen("end_user_profile","Profile");
     }

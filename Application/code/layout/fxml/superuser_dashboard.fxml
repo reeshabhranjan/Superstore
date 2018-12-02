@@ -12,7 +12,7 @@
     <children>
         <Pane prefHeight="500.0" prefWidth="225.0" style="-fx-background-color: #32373D;">
             <children>
-                <Label layoutX="50.0" layoutY="14.0" text="Infinity Store" textFill="WHITE">
+                <Label layoutX="49.0" layoutY="7.0" text="Infinity Store" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="24.0" />
                     </font>
@@ -59,7 +59,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane fx:id="createAdministratorsLabel" layoutX="13.0" layoutY="199.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="createAdministratorsLabel" layoutX="13.0" layoutY="199.0" onMouseClicked="#createAdmin" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -73,7 +73,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane fx:id="browseWarehouseLabel" layoutX="13.0" layoutY="251.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="browseWarehouseLabel" layoutX="13.0" layoutY="251.0" onMouseClicked="#browseWarehouse" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -87,7 +87,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane fx:id="browseStoreLabel" layoutX="13.0" layoutY="304.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="browseStoreLabel" layoutX="13.0" layoutY="304.0" onMouseClicked="#browseStore" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -115,7 +115,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="browseWarehouseLabel1" layoutX="13.0" layoutY="404.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+            <Pane fx:id="browseWarehouseLabel1" layoutX="13.0" layoutY="404.0" onMouseClicked="#assignWarehouseAdmins" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -129,7 +129,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="browseWarehouseLabel11" layoutX="13.0" layoutY="454.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+            <Pane fx:id="browseWarehouseLabel11" layoutX="13.0" layoutY="454.0" onMouseClicked="#assignStoreAdmins" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>

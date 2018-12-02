@@ -171,7 +171,7 @@
                         </Label>
                         <Pane layoutX="63.0" layoutY="55.0" prefHeight="350.0" prefWidth="450.0" styleClass="option-section">
                             <children>
-                                <Button fx:id="submitButton" layoutX="162.0" layoutY="305.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="126.0" styleClass="option-button" text="Link selected" textFill="WHITE">
+                                <Button fx:id="submitButton" layoutX="162.0" layoutY="305.0" mnemonicParsing="false" onMouseClicked="#linkWarehouseStore" prefHeight="31.0" prefWidth="126.0" styleClass="option-button" text="Link selected" textFill="WHITE">
                                     <font>
                                         <Font name="Calibri Light" size="14.0" />
                                     </font>

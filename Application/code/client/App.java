@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import controller.*;
 
@@ -125,10 +126,11 @@ public class App extends Application {
     }
     public static void login(Credential credential, String userType1)
     {
+
         ArrayList objects = new ArrayList();
         objects.add(credential);
         objects.add(userType1);
-        loadScreen("end_user_dashboard","Dashboard"); //todo remove this line
+//        loadScreen("end_user_dashboard","Dashboard"); //todo remove this line
         Message dataFromServer=sendMessage(new Message("login",objects));
 
         boolean login = (boolean) dataFromServer.getObjects().get(0);
@@ -192,7 +194,7 @@ public class App extends Application {
 //            System.out.println("works");
             session.sendData(new Message("exit",new ArrayList()));
         });
-//        session = new Session("192.168.1.101",1400);
+        session = new Session("localhost",1400);
         loadScreen("login","InfinityStore");
 //        session = new Session("localhost",1400);
 //        System.out.println("request sent");

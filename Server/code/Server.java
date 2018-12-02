@@ -88,7 +88,6 @@ public class Server extends Application {
 //            Runnable session=new Session(client,superstore);
 //            executorService.execute(session);
 //        }
-
         this.primaryStage=primaryStage;
         FXMLLoader fxmlLoader = new FXMLLoader(Server.class.getResource("server.fxml"));
         Parent root = fxmlLoader.load();

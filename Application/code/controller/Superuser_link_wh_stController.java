@@ -86,7 +86,11 @@ public class Superuser_link_wh_stController implements Initializable {
         String selectedStore = storeListView.getSelectionModel().getSelectedItem();
         int storeID = Integer.parseInt(decodeString(selectedStore," \\| ").get(1));
 
-        App.sendMessage(new Message("link_warehouse_store",null));
+        ArrayList objects = new ArrayList();
+        objects.add(warehouseID);
+        objects.add(storeID);
+        App.sendMessage(new Message("link_warehouse_store",objects));
+        //todo popup
 
     }
 
