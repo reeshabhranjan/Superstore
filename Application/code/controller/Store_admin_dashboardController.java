@@ -7,6 +7,8 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import client.App;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -34,6 +36,29 @@ public class Store_admin_dashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+    @FXML
+    public void showDatabasePanel()
+    {
+        App.loadScreen("store_admin_database","Database");
+    }
+
+    @FXML
+    public void showOrderPanel()
+    {
+        App.loadScreen("store_admin_order","Order");
+    }
+
+    @FXML
+    public void showOrderHistoryPanel()
+    {
+        App.loadScreen("store_admin_order_history","Order History");
+    }
+
+    @FXML
+    public void showProfilePanel()
+    {
+        App.loadScreen("store_admin_profile","Profile");
+    }
     
 }

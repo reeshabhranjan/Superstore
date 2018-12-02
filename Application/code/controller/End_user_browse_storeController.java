@@ -148,10 +148,6 @@ public class End_user_browse_storeController implements Initializable {
     }
 
     @FXML
-    private void showProductPage(MouseEvent event) {
-    }
-
-    @FXML
     private void showOrderHistoryPanel(MouseEvent event) {
     }
 
