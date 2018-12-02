@@ -15,12 +15,12 @@
     <children>
         <Pane prefHeight="500.0" prefWidth="225.0" style="-fx-background-color: #32373D;">
             <children>
-                <Label layoutX="50.0" layoutY="14.0" text="Infinity classes.Store" textFill="WHITE">
+                <Label layoutX="50.0" layoutY="14.0" text="Infinity Store" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="24.0" />
                     </font>
                 </Label>
-                <Pane fx:id="createWarehouseLabel" layoutX="12.0" layoutY="101.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="createWarehouseLabel" layoutX="12.0" layoutY="42.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -34,7 +34,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane fx:id="createStoreLabel" layoutX="12.0" layoutY="154.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="createStoreLabel" layoutX="12.0" layoutY="95.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -48,7 +48,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane fx:id="linkWarehouseStoreLabel" layoutX="12.0" layoutY="206.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="linkWarehouseStoreLabel" layoutX="12.0" layoutY="147.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -62,7 +62,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane fx:id="createAdministratorsLabel" layoutX="13.0" layoutY="258.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="createAdministratorsLabel" layoutX="13.0" layoutY="199.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -76,7 +76,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane fx:id="browseWarehouseLabel" layoutX="13.0" layoutY="310.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="browseWarehouseLabel" layoutX="13.0" layoutY="251.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -90,7 +90,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane fx:id="browseStoreLabel" layoutX="13.0" layoutY="363.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="browseStoreLabel" layoutX="13.0" layoutY="304.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -104,7 +104,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane fx:id="myProfileLabel" layoutX="13.0" layoutY="416.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #007ED9;" styleClass="navigation-button">
+                <Pane fx:id="myProfileLabel" layoutX="13.0" layoutY="357.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #007ED9;" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -118,6 +118,34 @@
                         </Label>
                     </children>
                 </Pane>
+            <Pane fx:id="browseWarehouseLabel1" layoutX="13.0" layoutY="406.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/ui-icons/link.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="Assign admins to WH" textFill="#d3cbcb">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="browseWarehouseLabel11" layoutX="13.0" layoutY="453.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/ui-icons/link.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="10.0" prefHeight="20.0" prefWidth="126.0" text="Assign admin to store" textFill="#d3cbcb">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
             </children>
         </Pane>
         <Pane layoutX="225.0" prefHeight="500.0" prefWidth="575.0" style="-fx-background-color: #EFF3F6;">
