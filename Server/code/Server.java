@@ -59,6 +59,10 @@ public class Server{
         private TreeView<String> treeView;
         private Category category;
         private Cart cart;
+        private boolean bool;
+        private EndUser endUser;
+        private WarehouseAdmin warehouseAdmin;
+        private StoreAdmin storeAdmin;
 
         public void resetSession(){
 
@@ -154,12 +158,15 @@ public class Server{
 
                         } catch (UsernameAlreadyExistsException e) {
                             response.getObjects().add(false);
+                            response.getObjects().add(e.getMessage());
                         }
 
                         break;
 
                     case "login":
                         credential=(Credential)message.getObjects().get(0);
+                        string1=(String)(message.getObjects().get(1));
+
                         try {
                             registeredUser=superstore.getRegisteredUser(credential);
                             this.registeredSession=true;
@@ -170,9 +177,34 @@ public class Server{
                             response.getObjects().add(string);
                         } catch (CredentialNotPresentException e) {
                             response.getObjects().add(false);
+                            response.getObjects().add(e.getMessage());
+                        }
+
+                        switch (string1){
+
+                            case "enduser":
+                                endUser=(EndUser)registeredUser;
+                                cart=endUser.getCart();
+                                break;
+
+                            case "warehouse_admin":
+                                warehouseAdmin=(WarehouseAdmin)registeredUser;
+                                warehouse=warehouseAdmin.getWarehouse();
+                                break;
+
+                            case "store_admin":
+                                storeAdmin=(StoreAdmin)registeredUser;
+                                store=storeAdmin.getStore();
+                                break;
                         }
 
                         break;
+
+                    case "su_login":
+                        credential=(Credential)(message.getObjects().get(0));
+                        bool=superstore.getSuperuser().authorize(credential);
+                        response.getObjects().add(bool);
+
 
                     case "updateProfile":
                         registeredUser1=(RegisteredUser)(message.getObjects().get(0));
@@ -188,7 +220,7 @@ public class Server{
                         break;
 
                     case "exit":
-                        System.out.println("Exit request received.");
+                        System.out.println("Exit request received from "+client.getLocalAddress());
                         endSession=true;
                         try{
                             this.outputStream.close();
@@ -198,7 +230,8 @@ public class Server{
                         catch (IOException ioe){
                             System.err.println("Cannot close client's data-streams");
                         }
-                        break;
+                        return; // TODO I hope this doesn't crash the program.
+//                        break;
 
                     // Superuser methods
 
@@ -212,6 +245,7 @@ public class Server{
 
                         } catch (UsernameAlreadyExistsException e) {
                             response.getObjects().add((Boolean)false);
+                            response.getObjects().add(e.getMessage());
                         }
 
                         break;
@@ -226,6 +260,7 @@ public class Server{
 
                         } catch (UsernameAlreadyExistsException e) {
                             response.getObjects().add(false);
+                            response.getObjects().add(e.getMessage());
                         }
 
                         break;
@@ -251,8 +286,10 @@ public class Server{
                             response.getObjects().add(true);
                         } catch (WarehouseNotFoundException e) {
                             response.getObjects().add(false);
+                            response.getObjects().add(e.getMessage());
                         } catch (StoreNotFoundException e) {
                             response.getObjects().add(false);
+                            response.getObjects().add(e.getMessage());
                         }
                         break;
 
@@ -320,6 +357,7 @@ public class Server{
                             response.getObjects().add(product);
                         } catch (ProductNotFoundException e) {
                             response.getObjects().add(false);
+                            response.getObjects().add(e.getMessage());
                         }
 
                         break;
@@ -339,6 +377,20 @@ public class Server{
 
                     case "warehouse_admin_profile":
                         response.getObjects().add((WarehouseAdmin)registeredUser);
+                        break;
+
+                    case "warehouse_admin_delete_product":
+                        string=(String)(message.getObjects().get(0)); // productPath
+                        warehouse.getDatabase().delete(string);
+                        treeView=warehouse.getDatabase().generateTreeView();
+                        response.getObjects().add(treeView);
+                        break;
+
+                    case "warehouse_admin_delete_category":
+                        string=(String)(message.getObjects().get(0)); // categoryPath
+                        warehouse.getDatabase().delete(string);
+                        treeView=warehouse.getDatabase().generateTreeView();
+                        response.getObjects().add(treeView);
                         break;
 
                     //TODO case for Order handling from stores
@@ -373,6 +425,7 @@ public class Server{
                             response.getObjects().add(product);
                         } catch (ProductNotFoundException e) {
                             response.getObjects().add(false);
+                            response.getObjects().add(e.getMessage());
                         }
 
                         break;
@@ -388,6 +441,20 @@ public class Server{
                         category=store.getDatabase().getCategory(string);
                         category.setName(string1);
                         response.getObjects().add(store.getDatabase().generateTreeView());
+                        break;
+
+                    case "store_admin_delete_product":
+                        string=(String)(message.getObjects().get(0)); // productPath
+                        store.getDatabase().delete(string);
+                        treeView=store.getDatabase().generateTreeView();
+                        response.getObjects().add(treeView);
+                        break;
+
+                    case "store_admin_delete_category":
+                        string=(String)(message.getObjects().get(0)); // categoryPath
+                        store.getDatabase().delete(string);
+                        treeView=store.getDatabase().generateTreeView();
+                        response.getObjects().add(treeView);
                         break;
 
                     // Enduser methods
@@ -419,6 +486,7 @@ public class Server{
                             response.getObjects().add(product.getBasicDetails());
                         } catch (ProductNotFoundException e) {
                             response.getObjects().add(false);
+                            response.getObjects().add(e.getMessage());
                         }
                         break;
 
@@ -475,6 +543,7 @@ public class Server{
                             response.getObjects().add(product.getBasicDetails());
                         } catch (ProductNotFoundException e) {
                             response.getObjects().add(false);
+                            response.getObjects().add(e.getMessage());
                         }
                         break;
 

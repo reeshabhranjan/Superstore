@@ -20,6 +20,14 @@ public class EndUser extends RegisteredUser implements Serializable {
         cart=new Cart();
     }
 
+    public Cart getCart() {
+        return cart;
+    }
+
+    public double getFunds() {
+        return funds;
+    }
+
     public void addItem(Product product, int quantity){
         cart.add(product,quantity);
     }

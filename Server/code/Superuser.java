@@ -1,6 +1,8 @@
 import classes.Credential;
 
-public class Superuser {
+import java.io.Serializable;
+
+public class Superuser implements Serializable {
 
     Superstore superstore;
     Credential credential;

@@ -1,6 +1,8 @@
 package database;
 
-public final class ProductReference {
+import java.io.Serializable;
+
+public final class ProductReference implements Serializable {
 
     private Product product;
 

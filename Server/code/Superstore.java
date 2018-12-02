@@ -85,6 +85,15 @@ public class Superstore implements Serializable{
         return new Superstore();
     }
 
+    public boolean superuserLogin(Credential credential){
+
+        return superuser.authorize(credential);
+    }
+
+    public Superuser getSuperuser(){
+        return superuser;
+    }
+
     private HashMap<Integer, Warehouse> warehouseHashMap;
     private HashMap<Integer, Store> storeHashMap;
     private HashMap<Credential, RegisteredUser> registeredUserHashMap;

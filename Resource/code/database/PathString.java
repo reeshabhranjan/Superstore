@@ -1,6 +1,8 @@
 package database;
 
-public final class PathString {
+import java.io.Serializable;
+
+public final class PathString implements Serializable {
 
     private String s;
 

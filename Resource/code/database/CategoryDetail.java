@@ -1,6 +1,8 @@
 package database;
 
-public class CategoryDetail {
+import java.io.Serializable;
+
+public class CategoryDetail implements Serializable {
 
     private String name;
     private String path;
