@@ -20,7 +20,7 @@
                         <Font name="Calibri" size="24.0" />
                     </font>
                 </Label>
-                <Pane layoutX="12.0" layoutY="101.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="createWarehouseLabel" layoutX="12.0" layoutY="101.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -34,7 +34,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="12.0" layoutY="154.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="createStoreLabel" layoutX="12.0" layoutY="154.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -48,7 +48,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="12.0" layoutY="206.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="linkWarehouseStoreLabel" layoutX="12.0" layoutY="206.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -62,7 +62,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="13.0" layoutY="258.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="createAdministratorsLabel" layoutX="13.0" layoutY="258.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -76,7 +76,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="13.0" layoutY="310.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="browseWarehouseLabel" layoutX="13.0" layoutY="310.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -90,7 +90,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="13.0" layoutY="363.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="browseStoreLabel" layoutX="13.0" layoutY="363.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -104,7 +104,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="13.0" layoutY="416.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #007ED9;" styleClass="navigation-button">
+                <Pane fx:id="myProfileLabel" layoutX="13.0" layoutY="416.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #007ED9;" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -124,7 +124,7 @@
             <children>
                 <Pane prefHeight="76.0" prefWidth="575.0" style="-fx-background-color: #FFFFFF;">
                     <children>
-                        <Pane layoutX="497.0" layoutY="6.0" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
+                        <Pane fx:id="logoutPane" layoutX="497.0" layoutY="6.0" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
                             <children>
                                 <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="16.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -151,11 +151,11 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="11.0" layoutY="92.0" prefHeight="31.0" prefWidth="279.0" promptText="New Username" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
-                              <PasswordField layoutX="11.0" layoutY="136.0" prefHeight="31.0" prefWidth="279.0" promptText="Current Password" style="-fx-background-color: #E4E8EA; -fx-background-radius: 20; -fx-background-insets: 0; -fx-text-fill: #000000;" />
-                              <PasswordField layoutX="11.0" layoutY="181.0" prefHeight="31.0" prefWidth="279.0" promptText="New Password" style="-fx-background-color: #E4E8EA; -fx-background-radius: 20; -fx-background-insets: 0; -fx-text-fill: #FFFFFF;" />
-                              <Button layoutX="14.0" layoutY="288.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="279.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Submit" textFill="WHITE" />
-                              <TextField layoutX="11.0" layoutY="49.0" prefHeight="31.0" prefWidth="279.0" promptText="Name" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
+                              <TextField fx:id="newUsernameTextField" layoutX="11.0" layoutY="92.0" prefHeight="31.0" prefWidth="279.0" promptText="New Username" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
+                              <PasswordField fx:id="currentPasswordField" layoutX="11.0" layoutY="136.0" prefHeight="31.0" prefWidth="279.0" promptText="Current Password" style="-fx-background-color: #E4E8EA; -fx-background-radius: 20; -fx-background-insets: 0; -fx-text-fill: #000000;" />
+                              <PasswordField fx:id="newPasswordField" layoutX="11.0" layoutY="181.0" prefHeight="31.0" prefWidth="279.0" promptText="New Password" style="-fx-background-color: #E4E8EA; -fx-background-radius: 20; -fx-background-insets: 0; -fx-text-fill: #FFFFFF;" />
+                              <Button fx:id="submitButton" layoutX="14.0" layoutY="288.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="279.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Submit" textFill="WHITE" />
+                              <TextField fx:id="nameTextField" layoutX="11.0" layoutY="49.0" prefHeight="31.0" prefWidth="279.0" promptText="Name" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
                            </children>
                         </Pane>
                         <Pane layoutY="9.0" prefHeight="333.0" prefWidth="263.0" style="-fx-background-color: #ffffff;">
@@ -165,12 +165,12 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="19.0" layoutY="49.0" prefHeight="31.0" prefWidth="225.0" text="Name: Superuser">
+                              <Label fx:id="nameField" layoutX="19.0" layoutY="49.0" prefHeight="31.0" prefWidth="225.0" text="Name: Superuser">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="19.0" layoutY="80.0" prefHeight="31.0" prefWidth="225.0" text="Username: superuser">
+                              <Label fx:id="usernameField" layoutX="19.0" layoutY="80.0" prefHeight="31.0" prefWidth="225.0" text="Username: superuser">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

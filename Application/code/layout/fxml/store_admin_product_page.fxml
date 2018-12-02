@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" stylesheets="@design/animation.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdminProductPageHandler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" stylesheets="@design/animation.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="75.0" prefWidth="500.0">
          <children>
-            <Label alignment="CENTER" prefHeight="75.0" prefWidth="500.0" styleClass="heading-bar" text="Product_Name">
+            <Label fx:id="titleField" alignment="CENTER" prefHeight="75.0" prefWidth="500.0" styleClass="heading-bar" text="Product_Name">
                <font>
                   <Font size="36.0" />
                </font>
@@ -27,42 +27,42 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="13.0" layoutY="35.0" prefHeight="31.0" prefWidth="225.0" text="Name: product_name">
+                  <Label fx:id="nameField" layoutX="13.0" layoutY="35.0" prefHeight="31.0" prefWidth="225.0" text="Name: product_name">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="13.0" layoutY="76.0" prefHeight="31.0" prefWidth="225.0" text="Product ID: product_id">
+                  <Label fx:id="idField" layoutX="13.0" layoutY="76.0" prefHeight="31.0" prefWidth="225.0" text="Product ID: product_id">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="13.0" layoutY="114.0" prefHeight="31.0" prefWidth="225.0" text="Category: path/to/category">
+                  <Label fx:id="categoryPathField" layoutX="13.0" layoutY="114.0" prefHeight="31.0" prefWidth="225.0" text="Category: path/to/category">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="13.0" layoutY="153.0" prefHeight="31.0" prefWidth="225.0" text="Price: $43">
+                  <Label fx:id="priceField" layoutX="13.0" layoutY="153.0" prefHeight="31.0" prefWidth="225.0" text="Price: $43">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="13.0" layoutY="191.0" prefHeight="31.0" prefWidth="225.0" text="Stock count: 87">
+                  <Label fx:id="stockCountField" layoutX="13.0" layoutY="191.0" prefHeight="31.0" prefWidth="225.0" text="Stock count: 87">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="12.0" layoutY="224.0" prefHeight="31.0" prefWidth="225.0" text="Fixed cost/quarter (D): d">
+                  <Label fx:id="dField" layoutX="12.0" layoutY="224.0" prefHeight="31.0" prefWidth="225.0" text="Fixed cost/quarter (D): d">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="12.0" layoutY="255.0" prefHeight="31.0" prefWidth="225.0" text="Carrying cost/unit/quarter (H): h">
+                  <Label fx:id="hField" layoutX="12.0" layoutY="255.0" prefHeight="31.0" prefWidth="225.0" text="Carrying cost/unit/quarter (H): h">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="12.0" layoutY="286.0" prefHeight="31.0" prefWidth="225.0" text="Demanded units/quarter (K): k">
+                  <Label fx:id="kField" layoutX="12.0" layoutY="286.0" prefHeight="31.0" prefWidth="225.0" text="Demanded units/quarter (K): k">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -77,11 +77,11 @@
                      </font>
                   </Label>
                   <Button fx:id="submitButton" layoutX="13.0" layoutY="274.0" mnemonicParsing="false" onMouseClicked="#hello" prefHeight="31.0" prefWidth="225.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Submit" textFill="WHITE" />
-                  <TextField fx:id="fixedCostTextField" layoutX="11.0" layoutY="148.0" prefHeight="31.0" prefWidth="225.0" promptText="Fixed cost/quarter (D)" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
+                  <TextField fx:id="dTextField" layoutX="11.0" layoutY="148.0" prefHeight="31.0" prefWidth="225.0" promptText="Fixed cost/quarter (D)" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
                   <TextField fx:id="productNameTextField" layoutX="11.0" layoutY="70.0" prefHeight="31.0" prefWidth="225.0" promptText="Product Name" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
                   <TextField fx:id="priceTextField" layoutX="11.0" layoutY="110.0" prefHeight="31.0" prefWidth="225.0" promptText="Price" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
-                  <TextField fx:id="carryingCostTextField" layoutX="11.0" layoutY="186.0" prefHeight="31.0" prefWidth="225.0" promptText="Carrying cost/unit/quarter (H)" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
-                  <TextField layoutX="11.0" layoutY="225.0" prefHeight="31.0" prefWidth="225.0" promptText="Demanded units/quarter (K)" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
+                  <TextField fx:id="hTextField" layoutX="11.0" layoutY="186.0" prefHeight="31.0" prefWidth="225.0" promptText="Carrying cost/unit/quarter (H)" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
+                  <TextField fx:id="kTextField" layoutX="11.0" layoutY="225.0" prefHeight="31.0" prefWidth="225.0" promptText="Demanded units/quarter (K)" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
                </children>
             </Pane>
          </children>

@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -31,6 +32,8 @@ public class Server extends Application {
     private static int port;
     private static boolean live;
     private Stage primaryStage;
+    private static ServerSocket serverSocket;
+    private static ExecutorService executorService;
 //    private ServerHomeScreenController serverHomeScreenController;
 
     public static void main(String[] args) throws IOException {
@@ -39,17 +42,21 @@ public class Server extends Application {
 
         superstore=Superstore.getInstance();
         port=1400;
-        ServerSocket serverSocket=new ServerSocket(1400);
-        ExecutorService executorService= Executors.newFixedThreadPool(4);
+        serverSocket=new ServerSocket(1400);
+        executorService= Executors.newFixedThreadPool(4);
         InetAddress IP=InetAddress.getLocalHost();
+//        Inet4Address IP4= (Inet4Address) Inet4Address.getLocalHost();
+//        System.out.println(IP4.getHostAddress());
+
         ipAddress=IP.getHostAddress();
         System.out.println(ipAddress);
         live=true;
 
-        launch(args);
+//        launch(args);
 
         while (live){
 
+//            System.out.println("live");
             Socket client=serverSocket.accept();
             Runnable session=new Session(client,superstore);
             executorService.execute(session);
@@ -73,6 +80,15 @@ public class Server extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+//        while (live){
+//
+////            System.out.println("live");
+//            Socket client=serverSocket.accept();
+//            Runnable session=new Session(client,superstore);
+//            executorService.execute(session);
+//        }
+
         this.primaryStage=primaryStage;
         FXMLLoader fxmlLoader = new FXMLLoader(Server.class.getResource("server.fxml"));
         Parent root = fxmlLoader.load();
@@ -611,8 +627,9 @@ public class Server extends Application {
 //                        System.out.println("Response sent.");
 
                         ArrayList<String> arrayList=new ArrayList<>();
-                        arrayList.add("Reeshabh");
-                        arrayList.add("Apurv");
+                        arrayList.add("Soap | Rs.50");
+                        arrayList.add("Bucket | Rs. 60");
+                        arrayList.add("Table | Rs. 70");
 
                         response.getObjects().add(arrayList);
                         break;

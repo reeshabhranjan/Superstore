@@ -23,7 +23,7 @@
                         <Font name="Calibri" size="24.0" />
                     </font>
                 </Label>
-                <Pane layoutX="12.0" layoutY="101.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="createWarehouseLabel" layoutX="12.0" layoutY="101.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -37,7 +37,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="12.0" layoutY="154.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="createStoreLabel" layoutX="12.0" layoutY="154.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -51,7 +51,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="12.0" layoutY="206.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="linkWarehouseStoreLabel" layoutX="12.0" layoutY="206.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -65,7 +65,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="13.0" layoutY="258.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #007ED9;" styleClass="navigation-button">
+                <Pane fx:id="createAdministratorsLabel" layoutX="13.0" layoutY="258.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #007ED9;" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -79,7 +79,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="13.0" layoutY="310.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="browseWarehouseLabel" layoutX="13.0" layoutY="310.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -93,7 +93,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="13.0" layoutY="363.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="browseStoreLabel" layoutX="13.0" layoutY="363.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -107,7 +107,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="13.0" layoutY="416.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="myProfileLabel" layoutX="13.0" layoutY="416.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -127,7 +127,7 @@
             <children>
                 <Pane prefHeight="76.0" prefWidth="575.0" style="-fx-background-color: #FFFFFF;">
                     <children>
-                        <Pane layoutX="497.0" layoutY="6.0" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
+                        <Pane fx:id="logoutPane" layoutX="497.0" layoutY="6.0" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
                             <children>
                                 <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="16.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -147,7 +147,7 @@
                         </Label>
                         <Pane layoutX="63.0" layoutY="55.0" prefHeight="350.0" prefWidth="450.0" styleClass="option-section">
                             <children>
-                                <Button layoutX="162.0" layoutY="305.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="126.0" styleClass="option-button" text="Submit" textFill="WHITE">
+                                <Button fx:id="submitButton" layoutX="162.0" layoutY="305.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="126.0" styleClass="option-button" text="Submit" textFill="WHITE">
                                     <font>
                                         <Font name="Calibri Light" size="14.0" />
                                     </font>
@@ -159,7 +159,7 @@
                                     <Font name="Calibri Light" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField layoutY="29.0" prefHeight="27.0" prefWidth="200.0" styleClass="text-field" />
+                              <TextField fx:id="usernameTextField" layoutY="29.0" prefHeight="27.0" prefWidth="200.0" styleClass="text-field" />
                            </children>
                         </Pane>
                         <Pane layoutX="125.0" layoutY="35.0" prefHeight="64.0" prefWidth="200.0">
@@ -169,7 +169,7 @@
                                     <Font name="Calibri Light" size="14.0" />
                                  </font>
                               </Label>
-                              <ComboBox layoutX="7.0" layoutY="29.0" prefHeight="30.0" prefWidth="164.0" promptText="Select a type" styleClass="dropdown-button">
+                              <ComboBox fx:id="adminTypeComboBox" layoutX="7.0" layoutY="29.0" prefHeight="30.0" prefWidth="164.0" promptText="Select a type" styleClass="dropdown-button">
                                  <items>
                                     <FXCollections fx:factory="observableArrayList">
                                        <String fx:value="classes.Warehouse" />
@@ -186,7 +186,7 @@
                                     <Font name="Calibri Light" size="14.0" />
                                  </font>
                               </Label>
-                              <PasswordField layoutY="29.0" prefHeight="27.0" prefWidth="200.0" />
+                              <PasswordField fx:id="passwordTextField" layoutY="29.0" prefHeight="27.0" prefWidth="200.0" />
                            </children>
                         </Pane>
                         <Pane layoutX="125.0" layoutY="220.0" prefHeight="64.0" prefWidth="200.0">
@@ -196,7 +196,7 @@
                                     <Font name="Calibri Light" size="14.0" />
                                  </font>
                               </Label>
-                              <ComboBox layoutX="7.0" layoutY="29.0" prefHeight="30.0" prefWidth="164.0" promptText="Not specified" styleClass="dropdown-button">
+                              <ComboBox fx:id="entityComboBox" layoutX="7.0" layoutY="29.0" prefHeight="30.0" prefWidth="164.0" promptText="Not specified" styleClass="dropdown-button">
                                  <items>
                                     <FXCollections fx:factory="observableArrayList">
                                        <String fx:value="Entity1" />

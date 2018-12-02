@@ -15,6 +15,7 @@ public class Session {
     public Session(String serverName, int portNumber) {
         try {
             server = new Socket(serverName,portNumber);
+            System.out.println();
             in= new ObjectInputStream(server.getInputStream());
             out= new ObjectOutputStream(server.getOutputStream());
         } catch (IOException e) {
