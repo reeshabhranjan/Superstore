@@ -7,6 +7,8 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import client.App;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -43,7 +45,17 @@ public class Superuser_dashboardController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+    }
+
+    @FXML
+    public void showCreateWarehousePanel()
+    {
+        App.loadScreen("superuser_create_warehouse","Create Warehouse");
+    }
+
+    @FXML
+    public void showCreateStorePanel()
+    {
+        App.loadScreen("superuser_create_store","Create Store");
+    }
 }

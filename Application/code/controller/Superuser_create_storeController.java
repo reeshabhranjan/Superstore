@@ -6,7 +6,11 @@
 package controller;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import classes.Message;
+import client.App;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -49,6 +53,16 @@ public class Superuser_create_storeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+
+    @FXML
+    public void createStore()
+    {
+        String storeName = storeNameTextField.getText();
+        ArrayList objects = new ArrayList();
+        objects.add(storeName);
+        Message serverResponse = App.sendMessage(new Message("create_store",objects));
+        storeIdTextField.setText((String) serverResponse.getObjects().get(0));
+    }
     
 }

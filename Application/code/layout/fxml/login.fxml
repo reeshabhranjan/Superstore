@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="721.0" style="-fx-background-color: #E2E2E4;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="721.0" style="-fx-background-color: #E2E2E4;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
     <children>
       <Pane layoutX="92.0" layoutY="105.0" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -26,10 +26,10 @@
                       <ComboBox fx:id="loginComboBox" layoutX="64.0" layoutY="202.0" prefHeight="30.0" prefWidth="164.0" promptText="Log in as" style="-fx-background-color: #10D09F; -fx-background-radius: 20; -fx-text-fill: #FFFFFF; -fx-font-size: 14px;">
                           <items>
                               <FXCollections fx:factory="observableArrayList">
-                                  <String fx:value="Superuser" />
-                                  <String fx:value="Warehouse Administrator" />
-                                  <String fx:value="Store Administrator" />
-                                  <String fx:value="Customer" />
+                                  <String fx:value="superuser" />
+                                  <String fx:value="warehouse_admin" />
+                                  <String fx:value="store_admin" />
+                                  <String fx:value="enduser" />
       
                               </FXCollections>
                           </items>
@@ -46,7 +46,7 @@
                         <Font name="Calibri Light" size="36.0" />
                     </font>
                 </Label>
-                <Button fx:id="registerButton" layoutX="33.0" layoutY="339.0" mnemonicParsing="false" onMouseClicked="#showRegisterPanel" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Register" />
+                <Button fx:id="registerButton" layoutX="33.0" layoutY="339.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Register" />
                 <Button fx:id="guestLoginButton" layoutX="186.0" layoutY="339.0" mnemonicParsing="false" onMouseClicked="#showGuestUserDashboardPanel" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Guest login" />
             </children>
          <effect>

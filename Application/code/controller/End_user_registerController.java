@@ -7,6 +7,9 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import classes.Credential;
+import client.App;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -36,10 +39,26 @@ public class End_user_registerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-
+    }
+    private boolean textFieldValidator(){
+        boolean cond1 = usernameTextField.getText().length()>0;
+        boolean cond2 = passwordTextField.getText().length()>0;
+        return  cond1&&cond2;
+    }
     @FXML
-    private void register(MouseEvent event) {
+    public void register(MouseEvent event) throws java.io.IOException
+    {
+        Credential credential;
+        String name = nameTextField.getText();
+        if(textFieldValidator() && !name.equals("")) {
+            credential=new Credential(usernameTextField.getText(),passwordTextField.getText());
+//            System.out.println(app);
+            App.register(credential,name);
+        }
+        else
+        {
+            //TODO Invalid input popup.
+        }
     }
     
 }

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #EFF3F6;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #EFF3F6;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.End_user_cartController">
     <children>
         <Pane layoutX="225.0" prefHeight="500.0" prefWidth="575.0" style="-fx-background-color: #EFF3F6;">
             <children>
@@ -27,7 +27,7 @@
                                 <Label alignment="CENTER" layoutX="7.0" layoutY="42.0" prefHeight="17.0" prefWidth="50.0" text="Log-out" />
                             </children>
                         </Pane>
-                        <Pane fx:id="walletPane" layoutX="432.0" layoutY="6.0" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
+                        <Pane fx:id="walletPane" layoutX="432.0" layoutY="6.0" onMouseClicked="#showWalletPanel" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
                             <children>
                                 <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="16.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -37,7 +37,7 @@
                                 <Label alignment="CENTER" layoutX="7.0" layoutY="42.0" prefHeight="17.0" prefWidth="50.0" text="Wallet" />
                             </children>
                         </Pane>
-                  <Pane fx:id="checkOutPane" layoutX="367.0" layoutY="6.0" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
+                  <Pane fx:id="checkOutPane" layoutX="367.0" layoutY="6.0" onMouseClicked="#checkOut" prefHeight="64.0" prefWidth="64.0" styleClass="title-button">
                      <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="16.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -50,7 +50,7 @@
                     </children></Pane>
                 <Pane layoutY="75.0" prefHeight="425.0" prefWidth="575.0" style="-fx-background-color: #FFFFFF;">
                <children>
-                          <ListView fx:id="storeListView" layoutX="88.0" layoutY="114.0" onMouseClicked="#showItem" prefHeight="278.0" prefWidth="427.0" styleClass="scrollable-list">
+                          <ListView fx:id="productListView" layoutX="88.0" layoutY="114.0" onMouseClicked="#showItem" prefHeight="278.0" prefWidth="427.0" styleClass="scrollable-list">
                               <items>
                                   <FXCollections fx:factory="observableArrayList">
                                       <String fx:value="item1" />

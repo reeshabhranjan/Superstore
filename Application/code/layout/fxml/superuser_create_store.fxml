@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #EFF3F6;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #EFF3F6;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Superuser_create_storeController">
     <children>
         <Pane prefHeight="500.0" prefWidth="225.0" style="-fx-background-color: #32373D;">
             <children>
@@ -163,7 +163,7 @@
                                         <TextField fx:id="storeIdTextField" editable="false" layoutY="29.0" prefHeight="27.0" prefWidth="235.0" styleClass="text-field" />
                                     </children>
                                 </Pane>
-                                <Button fx:id="submitButton" layoutX="162.0" layoutY="224.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="126.0" styleClass="option-button" text="Submit" textFill="WHITE">
+                                <Button fx:id="submitButton" layoutX="162.0" layoutY="224.0" mnemonicParsing="false" onMouseClicked="#createStore" prefHeight="31.0" prefWidth="126.0" styleClass="option-button" text="Submit" textFill="WHITE">
                                     <font>
                                         <Font name="Calibri Light" size="14.0" />
                                     </font>

@@ -5,8 +5,15 @@
  */
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
+
+import classes.Message;
+import client.App;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -47,11 +54,55 @@ public class End_user_search_storeController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        try {
+            addToListView((ArrayList<String>) App.getObjects().get(0),storeListView);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
-    private void showBrowseStorePanel(MouseEvent event) {
+    public void addToListView(ArrayList<String> productsDetails, ListView listView) throws java.io.IOException
+    {
+        ObservableList observableList = listView.getItems();
+        for (String item : productsDetails) {
+            observableList.add(item);
+        }
     }
-    
+
+    @FXML
+    public void showBrowseStorePanel() {
+        String selectedStoreDetails = (String) storeListView.getSelectionModel().getSelectedItem();
+        String selectedStoreId = decodeString(selectedStoreDetails," | ").get(1);
+        App.getObjects().add(selectedStoreId);
+        App.loadScreen("end_user_browse_store","Browse Store");
+//            ArrayList objects = new ArrayList();
+//            objects.add(Integer.parseInt(selectedStoreId));
+//            Message productlistServerResponse = App.sendMessage(new Message("enduser_get_product_list",objects));
+//            Message categoryTreeViewServerResponse = App.sendMessage(new Message("enduser_get_treeview",objects));
+////            ArrayList<String> productsDetails = (ArrayList<String>) productlistServerResponse.getObjects().get(0);
+//            TreeView treeView = (TreeView) categoryTreeViewServerResponse.getObjects().get(0);
+////            addProductsToListView(productsDetails);
+//            App.loadScreen("end_user_browse_store","Browse Store");
+        //ToDO fill products details in tableview.
+    }
+    public ArrayList<String> decodeString(String input, String separator)
+    {
+        return (ArrayList<String>) Arrays.asList(input.split(separator));
+    }
+
+    @FXML
+    public void showCartPanel(MouseEvent event) throws java.io.IOException
+    {
+        Message serverResponse = App.sendMessage(new Message("enduser_get_cart",new ArrayList()));
+        App.getObjects().add(serverResponse.getObjects().get(0));
+        App.loadScreen("end_user_cart","Cart");
+    }
+
+    @FXML
+    private void showProfilePanel(MouseEvent event) {
+        Message serverResponse = App.sendMessage(new Message("enduser_profiel",new ArrayList()));
+        App.getObjects().add(serverResponse.getObjects().get(0));
+        App.loadScreen("end_user_profile","Profile");
+    }
 }

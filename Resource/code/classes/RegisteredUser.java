@@ -59,4 +59,36 @@ public abstract class RegisteredUser implements User, Serializable {
         this.name=registeredUser.name;
         this.phoneNumber=registeredUser.phoneNumber;
     }
+    public String getUsername()
+    {
+        return credential.getUsername();
+    }
+    public void update(String name, String phoneNumber, String address, String newUsername, String currentPasword, String newPassword)
+    {
+        if(!name.equals(""))
+        {
+            this.name=name;
+        }
+        if(!phoneNumber.equals(""))
+        {
+            this.phoneNumber=phoneNumber;
+        }
+        if(!address.equals(""))
+        {
+            this.address=address;
+        }
+        if(!newUsername.equals(""))
+        {
+            credential = new Credential(newUsername,this.credential.getPassword());
+
+        }
+        if(!currentPasword.equals("") && currentPasword.equals(credential.getPassword()))
+        {
+            if(!newPassword.equals(""))
+            {
+                credential = new Credential(credential.getUsername(),newPassword);
+            }
+        }
+
+    }
 }

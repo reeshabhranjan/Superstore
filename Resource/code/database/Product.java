@@ -10,17 +10,16 @@ public class Product implements Serializable {
     private String name;
     private int id; //uniqueCode (planned to be provided by the superstore via client-request)
     private double price;
-    private String categoryPath;
+//    private String categoryPath;
     private int stockCount;
     private String description;
     private double d; //fixed cost per quarter
     private double h; //carrying cost per unit per quarter
     private double k; //demand per quarter
 
-    public Product(String name, double price, String categoryPath, int stockCount, double d, double h, double k, int id) {
+    public Product(String name, double price, int stockCount, double d, double h, double k, int id) {
         this.name = name;
         this.price = price;
-        this.categoryPath = categoryPath;
         this.stockCount = stockCount;
         this.d = d;
         this.h = h;
@@ -37,9 +36,9 @@ public class Product implements Serializable {
         return price;
     }
 
-    public String getCategoryPath() {
-        return categoryPath;
-    }
+//    public String getCategoryPath() {
+//        return categoryPath;
+//    }
 
     public int getStockCount() {
         return stockCount;
@@ -81,9 +80,9 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    public void setCategoryPath(String categoryPath) {
-        this.categoryPath = categoryPath;
-    }
+//    public void setCategoryPath(String categoryPath) {
+//        this.categoryPath = categoryPath;
+//    }
 
     public void setStockCount(int stockCount) {
         this.stockCount = stockCount;
@@ -134,7 +133,6 @@ public class Product implements Serializable {
     public String getBasicDetails(){
         StringBuilder stringBuilder=new StringBuilder(name);
         stringBuilder.append(" | "+id);
-        stringBuilder.append(" | "+categoryPath);
         stringBuilder.append(" | "+price);
         stringBuilder.append(" | "+stockCount);
         return stringBuilder.toString();
@@ -152,12 +150,11 @@ public class Product implements Serializable {
                 Double.compare(product.k, k) == 0 &&
                 id == product.id &&
                 Objects.equals(name, product.name) &&
-                Objects.equals(categoryPath, product.categoryPath) &&
                 Objects.equals(description, product.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, price, categoryPath, stockCount, description, d, h, k, id);
+        return Objects.hash(name, price, stockCount, description, d, h, k, id);
     }
 }

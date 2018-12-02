@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #EFF3F6;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #EFF3F6;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.End_user_profileController">
     <children>
         <Pane layoutX="225.0" prefHeight="500.0" prefWidth="575.0" style="-fx-background-color: #EFF3F6;">
             <children>
@@ -57,7 +57,7 @@
                               <TextField fx:id="usernameTextField" layoutX="11.0" layoutY="167.0" prefHeight="31.0" prefWidth="279.0" promptText="New Username" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
                               <PasswordField fx:id="currentPasswordTextField" layoutX="11.0" layoutY="206.0" prefHeight="31.0" prefWidth="279.0" promptText="Current Password" style="-fx-background-color: #E4E8EA; -fx-background-radius: 20; -fx-background-insets: 0; -fx-text-fill: #000000;" />
                               <PasswordField fx:id="newPasswordTextField" layoutX="11.0" layoutY="245.0" prefHeight="31.0" prefWidth="279.0" promptText="New Password" style="-fx-background-color: #E4E8EA; -fx-background-radius: 20; -fx-background-insets: 0; -fx-text-fill: #FFFFFF;" />
-                              <Button fx:id="submitButton" layoutX="14.0" layoutY="288.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="279.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Submit" textFill="WHITE" />
+                              <Button fx:id="submitButton" layoutX="14.0" layoutY="288.0" mnemonicParsing="false" onMouseClicked="#updateInformation" prefHeight="31.0" prefWidth="279.0" style="-fx-background-color: #6839BB; -fx-background-color: #10D09F; -fx-background-radius: 20; -fx-border-radius: 20;" text="Submit" textFill="WHITE" />
                               <TextField fx:id="addressTextField" layoutX="11.0" layoutY="127.0" prefHeight="31.0" prefWidth="279.0" promptText="Address" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
                               <TextField fx:id="nameTextField" layoutX="11.0" layoutY="49.0" prefHeight="31.0" prefWidth="279.0" promptText="Name" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
                               <TextField fx:id="phoneNumberTextField" layoutX="11.0" layoutY="89.0" prefHeight="31.0" prefWidth="279.0" promptText="Phone Number" style="-fx-background-color: #E4E8EA; -fx-background-insets: 0; -fx-background-radius: 20; -fx-text-fill: #000000;" />
@@ -156,7 +156,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Pane fx:id="cartPane" layoutX="13.0" layoutY="258.0" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
+                <Pane fx:id="cartPane" layoutX="13.0" layoutY="258.0" onMouseClicked="#showCartPanel" prefHeight="40.0" prefWidth="200.0" styleClass="navigation-button">
                     <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                             <image>

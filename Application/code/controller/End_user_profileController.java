@@ -6,13 +6,19 @@
 package controller;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import classes.EndUser;
+import classes.Message;
+import client.App;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 /**
@@ -65,12 +71,43 @@ public class End_user_profileController implements Initializable {
     @FXML
     private Pane profilePane;
 
+    private EndUser endUser;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        Message ServerResponse = App.sendMessage(new Message("enduser_profile",null));
+        endUser = (EndUser) ServerResponse.getObjects().get(0);
+        nameLabel.setText(endUser.getName());
+        phoneNumberLabel.setText(endUser.getPhoneNumber());
+        addressLabel.setText(endUser.getAddress());
+        fundsLabel.setText(String.valueOf(endUser.getFunds()));
+        usernameLabel.setText(endUser.getUsername());
+    }
+    @FXML
+    public void showCartPanel(MouseEvent event) throws java.io.IOException
+    {
+        Message serverResponse = App.sendMessage(new Message("enduser_get_cart",new ArrayList()));
+        App.getObjects().add(serverResponse.getObjects().get(0));
+        App.loadScreen("end_user_cart","Cart");
+    }
+
+    @FXML
+    public void updateInformation()
+    {
+        String name = nameTextField.getText();
+        String phoneNumber = phoneNumberTextField.getText();
+        String address = addressTextField.getText();
+        String username = usernameTextField.getText();
+        String currPassword = currentPasswordTextField.getText();
+        String newPassword = newPasswordTextField.getText();
+
+        endUser.update(name,phoneNumber,address,username,currPassword,newPassword);
+        ArrayList objects = new ArrayList();
+        objects.add(endUser);
+        App.sendMessage(new Message("updateProfile",objects));
+        App.loadScreen("end_user_profile","Profile");
+    }
     
 }
