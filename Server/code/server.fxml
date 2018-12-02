@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ServerController">
+    <children>
+        <Pane prefHeight="400.0" prefWidth="602.0">
+            <children>
+                <Label alignment="CENTER" layoutX="-2.0" layoutY="180.0" prefHeight="41.0" prefWidth="602.0" text="Server is live!">
+                    <font>
+                        <Font name="Calibri Bold" size="36.0" />
+                    </font>
+                </Label>
+                <Label fx:id="ipAddressLabel" alignment="CENTER" layoutY="242.0" prefHeight="50.0" prefWidth="602.0" text="IP Address:">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                <Label fx:id="portLabel" alignment="CENTER" layoutY="292.0" prefHeight="50.0" prefWidth="602.0" text="Port:">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

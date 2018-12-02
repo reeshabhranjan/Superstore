@@ -3,11 +3,17 @@ import database.Cart;
 import database.Category;
 import database.Product;
 import exceptions.*;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TreeView;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -15,27 +21,74 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Server{
+public class Server extends Application {
 
     //TODO decide where the opcodes will be accepted and where the appropriate methods be called.
 
     private static volatile Superstore superstore; //TODO should there be a 'volatile' here?
     private volatile int sessionCount;
+    private static String ipAddress;
+    private static int port;
+    private static boolean live;
+    private Stage primaryStage;
+//    private ServerHomeScreenController serverHomeScreenController;
 
     public static void main(String[] args) throws IOException {
 
         //TODO deserialize the Superstore here.
 
         superstore=Superstore.getInstance();
+        port=1400;
         ServerSocket serverSocket=new ServerSocket(1400);
         ExecutorService executorService= Executors.newFixedThreadPool(4);
+        InetAddress IP=InetAddress.getLocalHost();
+        ipAddress=IP.getHostAddress();
+        System.out.println(ipAddress);
+        live=true;
 
-        while (true){
+        launch(args);
+
+        while (live){
 
             Socket client=serverSocket.accept();
             Runnable session=new Session(client,superstore);
             executorService.execute(session);
         }
+
+        executorService.shutdownNow();
+        System.exit(0);
+    }
+
+    public static String getIpAddress() {
+        return ipAddress;
+    }
+
+    public static int getPort() {
+        return port;
+    }
+
+    public static void setLive(boolean live) {
+        Server.live = live;
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        this.primaryStage=primaryStage;
+        FXMLLoader fxmlLoader = new FXMLLoader(Server.class.getResource("server.fxml"));
+        Parent root = fxmlLoader.load();
+
+        primaryStage.setTitle("Infinity Store Server");
+
+        int width=600;
+        int height=400;
+
+        primaryStage.setScene(new Scene(root, width, height));
+        primaryStage.setResizable(false);
+        primaryStage.show();
+
+        primaryStage.setOnCloseRequest(event -> {
+            setLive(false);
+        });
     }
 
     private static class Session implements Runnable {
