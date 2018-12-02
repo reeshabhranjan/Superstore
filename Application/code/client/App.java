@@ -128,7 +128,7 @@ public class App extends Application {
         ArrayList objects = new ArrayList();
         objects.add(credential);
         objects.add(userType1);
-        loadScreen("end_user_dashboard","Dashboard");
+        loadScreen("end_user_dashboard","Dashboard"); //todo remove this line
         Message dataFromServer=sendMessage(new Message("login",objects));
 
         boolean login = (boolean) dataFromServer.getObjects().get(0);

@@ -132,6 +132,7 @@ public class Server extends Application {
         private EndUser endUser;
         private WarehouseAdmin warehouseAdmin;
         private StoreAdmin storeAdmin;
+        private double aDouble1,aDouble;
 
         public void resetSession(){
 
@@ -583,6 +584,23 @@ public class Server extends Application {
                         response.getObjects().add((EndUser)registeredUser);
                         break;
 
+                    case "enduser_recent_treeview":
+                        response.getObjects().add(treeView);
+                        break;
+
+                    case "enduser_recent_store_id":
+                        response.getObjects().add(store.getId());
+                        break;
+
+                    case "enduser_get_funds":
+                        response.getObjects().add(endUser.getFunds());
+                        break;
+
+                    case "enduser_add_funds":
+                        aDouble=(Double)(message.getObjects().get(0));
+                        endUser.setFunds(endUser.getFunds()+aDouble);
+                        break;
+
                     // Guest user methods:
 
                     case "guest_get_store_list":
@@ -643,6 +661,7 @@ public class Server extends Application {
 
                 // Once the command for login comes, login() will be called and registeredSession, registeredUser will be set
                 // Here the commands will be accepted.
+                superstore.serialize();
             }
 
             System.out.println("Connection closed.");

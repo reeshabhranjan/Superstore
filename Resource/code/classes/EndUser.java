@@ -28,6 +28,10 @@ public class EndUser extends RegisteredUser implements Serializable {
         return funds;
     }
 
+    public void setFunds(double funds) {
+        this.funds = funds;
+    }
+
     public void addItem(Product product, int quantity){
         cart.add(product,quantity);
     }
@@ -44,6 +48,8 @@ public class EndUser extends RegisteredUser implements Serializable {
                  cart.getCartItems()) {
                 store.sale(cartItem);
             }
+
+            this.setFunds(getFunds()-cart.getValue());
         }
 
         else{
